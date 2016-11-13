@@ -1,0 +1,54 @@
+@import '~app/assets/stylus'
+
+
+.root
+  display: flex
+  flex-direction: column
+  min-height: "calc(200vh - %s)" % 48px
+  +from($lge)
+    min-height: "calc(200vh - %s)" % 60px
+
+.checkbox
+  display: none
+
+.overlay
+  display: none
+
+.checkbox:checked
+  & ~ .drawer
+    transform: translateX(0)
+  & ~ .overlay
+    display: initial
+
+.greeting
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  text-align: center
+  color: $backgroundColor
+  text-shadow: 1px 1px 16px $textColor
+  font-size: 48px
+
+  +from($med)
+    font-size: 72px
+
+.credit
+  position: absolute
+  bottom: 48px
+  left: 50%
+  transform: translateX(-50%)
+  white-space: nowrap
+  color: $backgroundColor
+  text-shadow: 1px 1px 16px $textColor
+
+  +from($med)
+    bottom: 60px
+
+.main
+  composes: column from 'app/assets/stylus/common.styl'
+  background: $backgroundColor
+  flex: 1 1 auto
+
+  propertyPadding('padding-top')
+  propertyPadding('padding-bottom')

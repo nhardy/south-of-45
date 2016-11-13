@@ -3,12 +3,17 @@
   "$_black": "#000000",
 
   "$_closeWhite": "#eeeeee",
+  "$_dark": "#252b2b",
   "$_charcoal": "#333333",
-  "$_tardisBlue": "#003a69",
+  "$_darkGray": "#303636",
+  "$_blue": "#44aaee",
   "$_badassGreen": "#bada55",
 
   "$backgroundColor": "$_closeWhite",
-  "$textColor": "$_charcoal",
-  "$themeColor": "$_tardisBlue",
-  "$highlightColor": "$_badassGreen"
+  "$textColor": "$_dark",
+  "$themeColor": "$_blue",
+  "$borderColor": "$_darkGray",
+  "$highlightColor": "$_badassGreen",
+  "$black": "$_black",
+  "$white": "$_white"
 }

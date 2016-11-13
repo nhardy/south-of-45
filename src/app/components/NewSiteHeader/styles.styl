@@ -1,0 +1,77 @@
+@import '~app/assets/stylus'
+
+
+.root
+  position: fixed
+  width: 100%
+  z-index: $zIndexSiteHeader
+  background: transparent
+  transition: background 250ms ease-in-out
+  height: 48px
+
+  +from($lge)
+    height: 60px
+
+.scrolled
+  background: rgba($black, 0.75)
+
+.wrapper
+  composes: column from 'app/assets/stylus/common.styl'
+  display: flex
+  height: 100%
+  flex-direction: row
+  align-items: center
+
+.hamburger
+  composes: overlay from 'app/assets/stylus/common.styl'
+  cursor: pointer
+
+.link
+  composes: overlay from 'app/assets/stylus/common.styl'
+  text-decoration: none
+  transition: color 250ms ease-in-out
+
+  &:hover
+    color: $themeColor
+
+.siteName
+  composes: overlay from 'app/assets/stylus/common.styl'
+  composes: link
+  display: inline-block
+  font-size: 28px
+
+  +upTo($med)
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.nav
+  width: 100%
+  flex: 1 1 auto
+
+  +upTo($med)
+    display: none
+
+.list
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  align-items: center
+  height: 100%
+
+.item
+  display: block
+  propertyGutter('margin-left')
+  font-size: 16px
+
+  +from($lge)
+    font-size: 20px
+
+.hamburger
+  propertyGutter('margin-right')
+
++from($med)
+  .hamburger
+    display: none
+
