@@ -24,6 +24,7 @@ const babelrc = (() => {
   const raw = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', '.babelrc')));
   return {
     ...raw,
+    babelrc: false,
     presets: [
       ['es2015', { modules: false }],
       ...raw.presets.filter(name => !name.includes('es2015')),
