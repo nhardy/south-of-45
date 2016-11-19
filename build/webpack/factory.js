@@ -43,33 +43,33 @@ const stylusLoader = ({ production, client }) => {
       ? ExtractTextPlugin.extract({
         loader: combineLoaders([
           {
-            loader: 'css',
+            loader: 'css-loader',
             query,
           },
           {
-            loader: 'postcss',
+            loader: 'postcss-loader',
           },
           {
-            loader: 'stylus',
+            loader: 'stylus-loader',
           },
         ]),
       }) : combineLoaders([
-        { loader: 'style', query: { singleton: true } },
-        { loader: 'css', query },
-        { loader: 'postcss' },
-        { loader: 'stylus' },
+        { loader: 'style-loader', query: { singleton: true } },
+        { loader: 'css-loader', query },
+        { loader: 'postcss-loader' },
+        { loader: 'stylus-loader' },
       ]);
   }
   return combineLoaders([
     {
-      loader: 'css/locals',
+      loader: 'css-loader/locals',
       query,
     },
     {
-      loader: 'postcss',
+      loader: 'postcss-loader',
     },
     {
-      loader: 'stylus',
+      loader: 'stylus-loader',
     },
   ]);
 };
@@ -78,10 +78,10 @@ const cssLoader = ({ production, client }) => {
   if (client) {
     return production
       ? ExtractTextPlugin.extract({
-        loader: 'css',
-      }) : combineLoaders([{ loader: 'style', query: { singleton: true } }, { loader: 'css' }]);
+        loader: 'css-loader',
+      }) : combineLoaders([{ loader: 'style-loader', query: { singleton: true } }, { loader: 'css-loader' }]);
   }
-  return 'css/locals';
+  return 'css-loader/locals';
 };
 
 export default function webpackFactory({ production = false, client = false, writeManifestCallback = noop }) {
@@ -150,7 +150,7 @@ export default function webpackFactory({ production = false, client = false, wri
         },
         {
           test: /\.json$/,
-          loader: 'json',
+          loader: 'json-loader',
         },
         {
           test: /\.styl$/,
@@ -162,7 +162,7 @@ export default function webpackFactory({ production = false, client = false, wri
         },
         {
           test: /\.(?:jpe?g|png|svg|woff2?|eot|ttf)(?:\?.*$|$)/,
-          loader: 'url',
+          loader: 'url-loader',
           query: {
             limit: 5120,
             name: '[name]-[hash:6].[ext]',
@@ -200,7 +200,6 @@ export default function webpackFactory({ production = false, client = false, wri
         raw: true,
         entryOnly: false,
       }),
-      production && new optimize.DedupePlugin(),
       client && production && new optimize.UglifyJsPlugin({
         compressor: {
           warnings: false,

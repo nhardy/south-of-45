@@ -4,7 +4,7 @@ import config from 'app/config';
 import mainMiddleware from 'server/middleware/main';
 import errorMiddleware from 'server/middleware/error';
 
-import faviconIco from '!!buffer!app/assets/images/favicon.ico'; // eslint-disable-line
+import faviconIco from '!!buffer-loader!app/assets/images/favicon.ico'; // eslint-disable-line
 
 
 const app = new Express();
