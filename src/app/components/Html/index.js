@@ -30,7 +30,7 @@ const Html = ({ assets, component, store }) => {
             __html: `window.__data=${JSON.stringify(store.getState())};`,
           }} />
         {assets.bundle.js.map((path, index) => (
-          <script key={`js-${index}`} type="text/javascript" src={path} />
+          <script key={`js-${index}`} type="text/javascript" src={path} async defer />
         ))}
       </body>
     </html>
