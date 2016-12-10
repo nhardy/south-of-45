@@ -82,6 +82,7 @@
     "lodash-es": "^4.16.1",
     "nodemon": "^1.9.1",
     "react": "^15.0.1",
+    "react-display-name": "^0.2.0",
     "react-dom": "^15.0.1",
     "react-helmet": "^3.0.1",
     "react-hot-loader": "^3.0.0-beta",
@@ -92,6 +93,7 @@
     "react-sticky": "^5.0.3",
     "redux": "^3.3.1",
     "redux-connect": "^3.0.0",
+    "redux-scripts-manager": "^0.2.0",
     "redux-thunk": "^2.0.1",
     "source-map-support": "^0.4.0"
   },
