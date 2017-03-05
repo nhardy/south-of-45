@@ -102,10 +102,10 @@ const cssLoaders = ({ production, client }) => {
       }) : [
         {
           loader: 'style-loader',
-          options: { singleton: true }
+          options: { singleton: true },
         },
         {
-          loader: 'css-loader'
+          loader: 'css-loader',
         },
       ];
   }
@@ -123,11 +123,14 @@ export default function webpackFactory({ production = false, client = false, wri
     },
 
     entry: client ? {
+      vendor: [
+        'babel-polyfill',
+        'react',
+      ],
       bundle: [
         !production && 'webpack-dev-server/client?/',
         !production && 'webpack/hot/only-dev-server',
         'react-hot-loader/patch',
-        'babel-polyfill',
         path.resolve(__dirname, '..', '..', 'src', 'client', 'index.js'),
       ].filter(identity),
     } : {
@@ -139,7 +142,7 @@ export default function webpackFactory({ production = false, client = false, wri
 
     output: {
       filename: client
-        ? '[name]-[hash:6].js'
+        ? `[name]-[${production ? 'chunkhash' : 'hash'}:6].js`
         : '[name].js',
       path: path.resolve(__dirname, '..', '..', 'dist'),
       publicPath: '/dist/',
@@ -177,7 +180,7 @@ export default function webpackFactory({ production = false, client = false, wri
           include: [
             path.join(__dirname, '..', '..', 'node_modules', 'lodash-es'),
           ],
-          use:[
+          use: [
             {
               loader: 'babel-loader',
               options: {
@@ -227,6 +230,19 @@ export default function webpackFactory({ production = false, client = false, wri
       new NoEmitOnErrorsPlugin(),
       !production && new HotModuleReplacementPlugin(),
       !production && new NamedModulesPlugin(),
+      client && new optimize.CommonsChunkPlugin({
+        name: 'runtime',
+        chunks: ['vendor'],
+        minChunks: Infinity,
+      }),
+      client && new optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        chunks: ['bundle'],
+        minChunks(module) { // eslint-disable-line no-unused-vars
+          return false;
+          // return module.context && module.context.includes('react');
+        },
+      }),
       client && production && new ExtractTextPlugin({
         filename: '[name]-[contenthash:6].css',
         allChunks: true,
@@ -236,7 +252,7 @@ export default function webpackFactory({ production = false, client = false, wri
         raw: true,
         entryOnly: false,
       }),
-      production && new webpack.LoaderOptionsPlugin({
+      production && new LoaderOptionsPlugin({
         minimize: true,
       }),
       client && production && new optimize.UglifyJsPlugin({

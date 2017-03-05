@@ -19,6 +19,9 @@ const Html = ({ assets, component, store }) => {
         {head.link.toComponent()}
         {__DEVELOPMENT__ ? <script src="/webpack-dev-server.js" /> : null}
         {head.script.toComponent()}
+        {assets.vendor.css && assets.vendor.css.map((path, index) => (
+          <link key={`css-${index}`} rel="stylesheet" type="text/css" href={path} />
+        ))}
         {assets.bundle.css && assets.bundle.css.map((path, index) => (
           <link key={`css-${index}`} rel="stylesheet" type="text/css" href={path} />
         ))}
@@ -29,6 +32,12 @@ const Html = ({ assets, component, store }) => {
           dangerouslySetInnerHTML={{
             __html: `window.__data=${JSON.stringify(store.getState())};`,
           }} />
+        {assets.runtime.js.map((path, index) => (
+          <script key={`js-${index}`} type="text/javascript" src={path} async defer />
+        ))}
+        {assets.vendor.js.map((path, index) => (
+          <script key={`js-${index}`} type="text/javascript" src={path} async defer />
+        ))}
         {assets.bundle.js.map((path, index) => (
           <script key={`js-${index}`} type="text/javascript" src={path} async defer />
         ))}
