@@ -5,7 +5,6 @@ import { clearRouteError } from 'app/actions/routeError';
 import App from 'app/components/App';
 import HomeView from 'app/views/Home';
 import ContactView from 'app/views/Contact';
-import TestView from 'app/views/Test';
 import ErrorView from 'app/views/Error';
 
 
@@ -19,7 +18,6 @@ export default function getRoutes(store) {
       <Route path="/__500" component={ErrorView} status={500} />
       <IndexRoute component={HomeView} />
       <Route path="/contact" component={ContactView} />
-      <Route path="/test" component={TestView} />
       <Route path="*" component={ErrorView} status={404} />
     </Route>
   );

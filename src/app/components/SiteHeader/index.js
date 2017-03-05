@@ -1,65 +1,68 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import { Sticky } from 'react-sticky';
 import cx from 'classnames';
 
-import * as appPropTypes from 'app/components/propTypes';
+import config from 'app/config';
+import throttle from 'app/lib/throttle';
 import FontAwesome from 'app/components/FontAwesome';
 
-import Nav from './Nav';
 import styles from './styles.styl';
 
 
-const dismissEvents = ['click', 'touchstart'];
+const EVENTS = [
+  'scroll',
+  'resize',
+];
 
 export default class SiteHeader extends Component {
-  static contextTypes = {
-    location: appPropTypes.location,
+  static propTypes = {
+    threshold: PropTypes.func,
+  };
+
+  state = {
+    scrolled: false,
   };
 
   componentDidMount() {
-    dismissEvents.forEach(type => window.addEventListener(type, this.handleDismiss));
+    this.update();
+    EVENTS.forEach(event => window.addEventListener(event, this.update));
   }
 
   componentWillUnmount() {
-    dismissEvents.forEach(type => window.removeEventListener(type, this.handleDismiss));
+    EVENTS.forEach(event => window.removeEventListener(event, this.update));
+    this.update.cancel();
   }
 
-  handleDismiss = (e) => {
-    if (!this._toggle.checked) return;
-    if (this._sidebar.contains(e.target)) return;
-    if (this._label.contains(e.target)) return;
-    if (this._toggle.contains(e.target)) return;
-    this._toggle.checked = false;
-  };
+  update = throttle(() => {
+    const threshold = (this.props.threshold && this.props.threshold()) || (window.innerHeight || document.documentElement.clientHeight) / 3;
+    this.setState({
+      scrolled: window.scrollY > threshold,
+    });
+  });
 
   render() {
+    const { scrolled } = this.state;
     return (
-      <header className={styles.root}>
-        <div className={styles.column}>
-          <span className={styles.header}>Nathan Hardy</span>
-          <span className={styles.tagline}>Developer</span>
-        </div>
-        <Sticky className={styles.sticky} stickyClassName={styles.isSticky}>
-          <div className={cx(styles.column, styles.navBar)}>
-            <label htmlFor="sidebarToggle" className={styles.hamburger} ref={ref => (this._label = ref)}>
-              <FontAwesome className="fa-bars" />
-            </label>
-            <Link to="/" className={styles.siteName}>nhardy.id.au</Link>
-            <Nav className={styles.nav} />
-          </div>
-        </Sticky>
-        <input
-          id="sidebarToggle"
-          type="checkbox"
-          className={styles.checkbox}
-          ref={ref => (this._toggle = ref)} />
-        <aside className={styles.aside} ref={ref => (this._sidebar = ref)}>
-          <label className={styles.close} htmlFor="sidebarToggle">
-            <FontAwesome className="fa-close" />
+      <header className={cx(styles.root, { [styles.scrolled]: scrolled })}>
+        <div className={cx(styles.wrapper)}>
+          <label htmlFor="drawer" className={styles.hamburger}>
+            <FontAwesome className="fa-bars" />
           </label>
-          <Nav mode="vertical" />
-        </aside>
+          <Link to="/" className={styles.siteName}>{config.siteName}</Link>
+          <nav className={styles.nav}>
+            <ul className={styles.list}>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/">Home</Link>
+              </li>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/contact">Contact Me</Link>
+              </li>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/projects">Projects</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </header>
     );
   }

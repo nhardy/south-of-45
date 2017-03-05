@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import cx from 'classnames';
 
 import throttle from 'app/lib/throttle';
 import { isScrolledIntoView } from 'app/lib/dom';
-import hero from 'app/assets/images/hero.jpg';
 
 import styles from './styles.styl';
 
@@ -14,7 +14,12 @@ const EVENTS = [
 
 export default class Parallax extends Component {
   static propTypes = {
+    className: PropTypes.string,
     children: PropTypes.node,
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string,
+    sizes: PropTypes.string,
+    alt: PropTypes.string.isRequired,
   };
 
   state = {
@@ -41,11 +46,12 @@ export default class Parallax extends Component {
   });
 
   render() {
+    const { className, children, src, srcSet, sizes, alt } = this.props;
     return (
-      <div ref={ref => (this._node = ref)} className={styles.root} style={this.state.style}>
-        <img className={styles.background} src={hero} alt="Flower Macro" />
+      <div ref={ref => (this._node = ref)} className={cx(styles.root, className)} style={this.state.style}>
+        <img className={styles.background} src={src} srcSet={srcSet} sizes={sizes} alt={alt} />
         <div className={styles.foreground}>
-          {this.props.children}
+          {children}
         </div>
       </div>
     );

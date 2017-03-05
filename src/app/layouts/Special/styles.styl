@@ -5,6 +5,7 @@
   display: flex
   flex-direction: column
   min-height: "calc(200vh - %s)" % 48px
+
   +from($lge)
     min-height: "calc(200vh - %s)" % 60px
 
@@ -17,8 +18,12 @@
 .checkbox:checked
   & ~ .drawer
     transform: translateX(0)
+
   & ~ .overlay
     display: initial
+
+.parallax
+  height: 100vh
 
 .greeting
   position: absolute

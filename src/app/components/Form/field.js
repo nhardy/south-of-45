@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import getDisplayName from 'react-display-name';
+import { omit } from 'lodash-es';
 
 import { _formShape } from './form';
 
@@ -20,6 +21,7 @@ export default function field() {
 
     static propTypes = {
       name: PropTypes.string.isRequired,
+      withRef: PropTypes.func,
     };
 
     state = {
@@ -46,6 +48,7 @@ export default function field() {
     };
 
     componentDidMount() {
+      this.props.withRef && this.props.withRef(this._field);
       this.context.form.updateField(this.props.name, {
         component: this,
         value: this.getValue(),
@@ -54,6 +57,7 @@ export default function field() {
     }
 
     componentWillUnmount() {
+      this.props.withRef && this.props.withRef(null);
       this.context.form.removeField(this.props.name);
     }
 
@@ -62,7 +66,7 @@ export default function field() {
       return (
         <WrappedComponent
           ref={ref => (this._field = ref)}
-          {...this.props}
+          {...omit(this.props, ['withRef'])}
           field={{
             setValue: this.setValue,
             triggerValidation: this.triggerValidation,

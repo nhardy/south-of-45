@@ -5,11 +5,12 @@ import cx from 'classnames';
 
 import { smoothScrollTo } from 'app/lib/scroll';
 import throttle from 'app/lib/throttle';
-import NewSiteHeader from 'app/components/NewSiteHeader';
+import SiteHeader from 'app/components/SiteHeader';
 import Drawer from 'app/components/Drawer';
 import Overlay from 'app/components/Overlay';
 import Parallax from 'app/components/Parallax';
 import SiteFooter from 'app/components/SiteFooter';
+import hero from 'app/assets/images/hero.jpg';
 
 import styles from './styles.styl';
 
@@ -81,11 +82,11 @@ export default class SpecialLayout extends Component {
   render() {
     return (
       <div className={styles.root}>
-        <NewSiteHeader ref={ref => (this._header = ref)} />
+        <SiteHeader ref={ref => (this._header = ref)} />
         <input ref={ref => (this._checkbox = ref)} className={styles.checkbox} id="drawer" type="checkbox" />
         <Drawer className={styles.drawer} />
         <Overlay ref={ref => (this._overlay = ref)} className={styles.overlay} />
-        <Parallax>
+        <Parallax className={styles.parallax} src={hero} alt="Flower Macro">
           <span className={styles.greeting}>Hi, I&apos;m Nathan&nbsp;Hardy</span>
           <span className={styles.credit}>
             Photography by <a href="https://facebook.com/IsobelleDwyerArtwork" target="_blank" rel="noopener noreferrer">Isobelle Dwyer</a>

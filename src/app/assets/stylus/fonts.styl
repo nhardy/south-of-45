@@ -4,8 +4,7 @@ font($name, $weight, $italic = false)
     $fontPath += '-italic'
 
   @font-face
-    src: url($fontPath + '.woff2') format('woff2'),
-      url($fontPath + '.woff') format('woff')
+    src: url($fontPath + '.woff2') format('woff2'), url($fontPath + '.woff') format('woff')
     font-family: $name
     font-weight: $weight
     if $italic
@@ -14,3 +13,7 @@ font($name, $weight, $italic = false)
 for $weight in 200 300 400 600 700 900
   font('SourceSansPro', $weight)
   font('SourceSansPro', $weight, true)
+
+for $weight in 200 300 400 500 600 700 900
+  font('SourceCodePro', $weight)
+  font('SourceCodePro', $weight, true)

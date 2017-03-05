@@ -4,7 +4,6 @@ import path from 'path';
 import { identity, noop } from 'lodash-es';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import combineLoaders from 'webpack-combine-loaders';
 import nodeExternals from 'webpack-node-externals';
 import {
   BannerPlugin,
@@ -12,7 +11,7 @@ import {
   HotModuleReplacementPlugin,
   LoaderOptionsPlugin,
   NamedModulesPlugin,
-  NoErrorsPlugin,
+  NoEmitOnErrorsPlugin,
   optimize,
   ProvidePlugin,
 } from 'webpack';
@@ -32,8 +31,16 @@ const babelrc = (() => {
   };
 })();
 
-const stylusLoader = ({ production, client }) => {
-  const query = {
+const postcssOptions = {
+  plugins() {
+    return [
+      autoprefixer({ browsers: ['last 2 versions'] }),
+    ];
+  },
+};
+
+const stylusLoaders = ({ production, client }) => {
+  const options = {
     importLoaders: 2,
     modules: true,
     localIdentName: '[path][name]--[local]--[hash:base64:5]',
@@ -41,47 +48,72 @@ const stylusLoader = ({ production, client }) => {
   if (client) {
     return production
       ? ExtractTextPlugin.extract({
-        loader: combineLoaders([
+        use: [
           {
             loader: 'css-loader',
-            query,
+            options,
           },
           {
             loader: 'postcss-loader',
+            options: postcssOptions,
           },
           {
             loader: 'stylus-loader',
           },
-        ]),
-      }) : combineLoaders([
-        { loader: 'style-loader', query: { singleton: true } },
-        { loader: 'css-loader', query },
-        { loader: 'postcss-loader' },
-        { loader: 'stylus-loader' },
-      ]);
+        ],
+      }) : [
+        {
+          loader: 'style-loader',
+          options: { singleton: true },
+        },
+        {
+          loader: 'css-loader',
+          options,
+        },
+        {
+          loader: 'postcss-loader',
+          options: postcssOptions,
+        },
+        {
+          loader: 'stylus-loader',
+        },
+      ];
   }
-  return combineLoaders([
+  return [
     {
       loader: 'css-loader/locals',
-      query,
+      options,
     },
     {
       loader: 'postcss-loader',
+      options: postcssOptions,
     },
     {
       loader: 'stylus-loader',
     },
-  ]);
+  ];
 };
 
-const cssLoader = ({ production, client }) => {
+const cssLoaders = ({ production, client }) => {
   if (client) {
     return production
       ? ExtractTextPlugin.extract({
-        loader: 'css-loader',
-      }) : combineLoaders([{ loader: 'style-loader', query: { singleton: true } }, { loader: 'css-loader' }]);
+        use: 'css-loader',
+      }) : [
+        {
+          loader: 'style-loader',
+          options: { singleton: true }
+        },
+        {
+          loader: 'css-loader'
+        },
+      ];
   }
-  return 'css-loader/locals';
+  return [
+    {
+      loader: 'css-loader/locals',
+    },
+  ];
 };
 
 export default function webpackFactory({ production = false, client = false, writeManifestCallback = noop }) {
@@ -120,21 +152,23 @@ export default function webpackFactory({ production = false, client = false, wri
     })].filter(identity),
 
     devtool: !production || !client
-      ? 'cheap-module-inline-source-map'
+      ? 'inline-source-map'
       : 'hidden-source-map',
 
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
-          loaders: [
+          include: [
+            path.join(__dirname, '..', '..', 'src'),
+          ],
+          use: [
             !production && {
               loader: 'react-hot-loader/webpack',
             },
             {
               loader: 'babel-loader',
-              query: babelrc,
+              options: babelrc,
             },
           ].filter(identity),
         },
@@ -143,30 +177,35 @@ export default function webpackFactory({ production = false, client = false, wri
           include: [
             path.join(__dirname, '..', '..', 'node_modules', 'lodash-es'),
           ],
-          loader: 'babel-loader',
-          query: {
-            presets: [['es2015', {}]],
-          },
-        },
-        {
-          test: /\.json$/,
-          loader: 'json-loader',
+          use:[
+            {
+              loader: 'babel-loader',
+              options: {
+                babelrc: false,
+                presets: [['es2015', { modules: false }]],
+              },
+            },
+          ],
         },
         {
           test: /\.styl$/,
-          loader: stylusLoader({ production, client }),
+          use: stylusLoaders({ production, client }),
         },
         {
           test: /\.css$/,
-          loader: cssLoader({ production, client }),
+          use: cssLoaders({ production, client }),
         },
         {
           test: /\.(?:jpe?g|png|svg|woff2?|eot|ttf)(?:\?.*$|$)/,
-          loader: 'url-loader',
-          query: {
-            limit: 5120,
-            name: '[name]-[hash:6].[ext]',
-          },
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 5120,
+                name: '[name]-[hash:6].[ext]',
+              },
+            },
+          ],
         },
       ],
     },
@@ -178,18 +217,15 @@ export default function webpackFactory({ production = false, client = false, wri
         __SERVER__: !client,
         'process.env.NODE_ENV': production ? JSON.stringify('production') : JSON.stringify('development'),
       }),
+      !client && new DefinePlugin({
+        'process.env.CONTACT_EMAIL': JSON.stringify(process.env.CONTACT_EMAIL),
+        'process.env.RECAPTCHA_SECRET': JSON.stringify(process.env.RECAPTCHA_SECRET),
+      }),
       new ProvidePlugin({
         fetch: 'isomorphic-fetch',
       }),
-      new NoErrorsPlugin(),
+      new NoEmitOnErrorsPlugin(),
       !production && new HotModuleReplacementPlugin(),
-      new LoaderOptionsPlugin({
-        test: /\.(?:styl|css)$/,
-        options: {
-          context: __dirname,
-          postcss: [autoprefixer({ browsers: ['last 2 versions'] })],
-        },
-      }),
       !production && new NamedModulesPlugin(),
       client && production && new ExtractTextPlugin({
         filename: '[name]-[contenthash:6].css',
@@ -200,10 +236,11 @@ export default function webpackFactory({ production = false, client = false, wri
         raw: true,
         entryOnly: false,
       }),
+      production && new webpack.LoaderOptionsPlugin({
+        minimize: true,
+      }),
       client && production && new optimize.UglifyJsPlugin({
-        compressor: {
-          warnings: false,
-        },
+        sourceMap: true,
       }),
       client && new WriteManifestPlugin({ client, callback: writeManifestCallback }),
     ].filter(identity),

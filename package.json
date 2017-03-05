@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "shrink": "make shrinkwrap",
-    "cover": "babel-node ./node_modules/.bin/isparta cover _mocha -- --reporter dot",
+    "cover": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "lint": "eslint ./src ./test ./build",
     "lint:fix": "eslint --fix ./src ./test ./build",
     "dev": "gulp dev",
@@ -50,36 +50,36 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-mocha": "^4.5.1",
     "eslint-plugin-react": "^6.3.0",
-    "extract-text-webpack-plugin": "^2.0.0-beta",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^3.2.0",
-    "isparta": "^4.0.0",
-    "json-loader": "^0.5.4",
     "mkdirp": "^0.5.1",
     "mocha": "^3.1.0",
     "node-hook": "^0.4.0",
+    "nyc": "^10.1.2",
     "postcss-loader": "^0.13.0",
     "run-sequence": "^1.1.5",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.2",
     "stylus-loader": "^2.0.0",
     "url-loader": "^0.5.7",
-    "webpack": "^2.1.0-beta",
-    "webpack-combine-loaders": "^2.0.0",
-    "webpack-dev-server": "^2.1.0-beta",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
     "webpack-node-externals": "^1.0.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.7.4",
     "bluebird": "^3.4.6",
+    "body-parser": "^1.17.0",
     "classnames": "^2.2.5",
     "express": "^4.14.0",
     "font-awesome": "^4.6.3",
     "gemini-scrollbar": "^1.4.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash-es": "^4.16.1",
+    "nodemailer": "^3.1.4",
     "nodemon": "^1.9.1",
     "react": "^15.0.1",
     "react-display-name": "^0.2.0",
@@ -98,7 +98,7 @@
     "source-map-support": "^0.4.0"
   },
   "engines": {
-    "node": "^6.0.0",
-    "npm": "^3.0.0"
+    "node": "^6.10.0",
+    "npm": "^3.10.10"
   }
 }

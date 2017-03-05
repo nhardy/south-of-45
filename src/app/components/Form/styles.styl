@@ -1,0 +1,84 @@
+@import '~app/assets/stylus'
+
+
+$lineHeight = 1.2
+$fieldPadding = 8px
+$fieldFontSize = 16px
+
+.form
+  max-width: $sml
+  margin: 0 auto
+
+  h1
+    margin-bottom: 16px
+    font-size: 32px
+
+.label
+  display: block
+  margin-bottom: 4px
+  font-size: $fieldFontSize
+  font-weight: bold
+
+.input
+  width: 100%
+  margin: 4px 0px
+  padding: $fieldPadding
+  border: 1px solid $borderColor
+  border-radius: 4px
+  font-family: $fontStackMono
+  font-size: $fieldFontSize
+
+  &:active
+  &:focus
+    border-color: $themeColor
+    outline: $themeColor
+    box-shadow: 0 0 4px $themeColor
+
+  &:global(.invalid)
+    border-color: red
+    box-shadow: 0 0 4px red
+
+  &:not(:last-child)
+    margin-bottom: 12px
+
+.textarea
+  composes: input
+  height: 100px
+  resize: vertical
+
+.button
+  width: 100%
+  padding: $fieldPadding (2 * $fieldPadding)
+  margin: 0 auto
+  background: $themeColor
+  border: 1px solid $themeColor
+  border-radius: 100px // arbitrary to force rounded corners
+  color: $backgroundColor
+  font-family: $fontStackMono
+  font-size: 18px
+  font-weight: 500
+  text-transform: uppercase
+  letter-spacing: 0.025em
+  appearance: none
+  cursor: pointer
+  transition: background 250ms ease-in-out, color 250ms ease-in-out
+
+  &:active
+  &:focus
+    background: $backgroundColor
+    color: $themeColor
+    outline: none
+    box-shadow: 0 0 4px $themeColor
+
+.errors
+  height: (2 * $lineHeight * $fieldFontSize + 2 * $fieldPadding)
+  padding: $fieldPadding
+  border: 1px solid $errorColor
+  border-radius: 4px
+  overflow-y: scroll
+  margin-bottom: 8px
+  background: rgba($errorColor, 0.1)
+  font-size: $fieldFontSize
+
+.hidden
+  visibility: hidden

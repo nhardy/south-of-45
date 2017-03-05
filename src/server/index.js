@@ -1,6 +1,7 @@
 import Express from 'express';
 
 import config from 'app/config';
+import apiServer from 'server/api';
 import mainMiddleware from 'server/middleware/main';
 import errorMiddleware from 'server/middleware/error';
 
@@ -16,6 +17,17 @@ app.get('/favicon.ico', (req, res) => {
 
 // Serve static files
 app.use('/dist', Express.static('dist'));
+
+app.get('/github', (req, res) => {
+  res.redirect(301, 'https://www.github.com/nhardy');
+});
+
+app.get('/linkedin', (req, res) => {
+  res.redirect(302, 'https://au.linkedin.com/in/nathan-hardy-263488b2');
+});
+
+// Serve API Requests
+app.use('/api', apiServer);
 
 // Serve using the React App
 app.use(mainMiddleware);

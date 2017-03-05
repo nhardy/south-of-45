@@ -1,19 +1,20 @@
 {
   "$_white": "#ffffff",
   "$_black": "#000000",
+  "$_red": "#ff0000",
 
-  "$_closeWhite": "#eeeeee",
+  "$_closeWhite": "#fefefe",
   "$_dark": "#252b2b",
   "$_charcoal": "#333333",
-  "$_darkGray": "#303636",
+  "$_darkGray": "#363636",
+  "$_midGray": "#cccccc",
   "$_blue": "#44aaee",
-  "$_badassGreen": "#bada55",
-
   "$backgroundColor": "$_closeWhite",
   "$textColor": "$_dark",
   "$themeColor": "$_blue",
-  "$borderColor": "$_darkGray",
-  "$highlightColor": "$_badassGreen",
+  "$borderColor": "$_midGray",
+  "$darkBorderColor": "$_darkGray",
+  "$errorColor": "$_red",
   "$black": "$_black",
   "$white": "$_white"
 }

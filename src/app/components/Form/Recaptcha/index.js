@@ -3,7 +3,10 @@ import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
 import { loadScript } from 'redux-scripts-manager';
 
+import config from 'app/config';
+
 import field, { fieldShape } from '../field';
+import styles from './styles.styl';
 
 
 @connect(null, { loadScript })
@@ -16,8 +19,8 @@ export default class RecaptchaField extends Component {
 
   componentDidMount() {
     this.props.loadScript(cb => `https://www.google.com/recaptcha/api.js?onload=${cb}&render=explicit`).then(() => {
-      window.grecaptcha.render(findDOMNode(this._node), {
-        sitekey: '6LdMFQ0UAAAAAFRPXkMC62Fsee2I1U77bNG06lMn',
+      this.widgetId = window.grecaptcha.render(findDOMNode(this._node), {
+        sitekey: config.recaptcha.siteKey,
         callback: this.verified,
         'expired-callback': this.timeout,
       });
@@ -46,9 +49,15 @@ export default class RecaptchaField extends Component {
     return !!this.token;
   };
 
+  widgetId = null;
+
+  reset = () => {
+    window.grecaptcha && window.grecaptcha.reset(this.widgetId);
+  };
+
   render() {
     return (
-      <div>
+      <div className={styles.root}>
         <div ref={ref => (this._node = ref)} />
       </div>
     );

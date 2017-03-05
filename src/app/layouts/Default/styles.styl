@@ -1,10 +1,61 @@
 @import '~app/assets/stylus'
 
 
+$parallaxHeight = 150px
+
 .root
   display: flex
-  min-height: 100vh
   flex-direction: column
+  min-height: "calc(100vh + %s - %s)" % ($parallaxHeight 48px)
+
+  +from($lge)
+    min-height: "calc(100vh + %s - %s)" % ($parallaxHeight 60px)
+
+.checkbox
+  display: none
+
+.overlay
+  display: none
+
+.checkbox:checked
+  & ~ .drawer
+    transform: translateX(0)
+
+  & ~ .overlay
+    display: initial
+
+.parallax
+  height: $parallaxHeight
+
+.inner
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  bottom: 16px
+  width: 100%
+  composes: column from 'app/assets/stylus/common.styl'
+  color: $backgroundColor
+  text-shadow: 1px 1px 16px $textColor
+  display: flex
+  justify-content: space-between
+  align-items: baseline
+
+.name
+  display: block
+  font-size: 28px
+
+  +from($med)
+    font-size: 32px
+
+  a
+    text-decoration: none
+    transition: color 250ms ease-in-out
+
+    &:hover
+      color: $themeColor
+
+.tagline
+  display: block
 
 .main
   composes: column from 'app/assets/stylus/common.styl'

@@ -2,81 +2,76 @@
 
 
 .root
-  background: $backgroundColor
-  border-bottom 4px solid $themeColor
+  position: fixed
+  width: 100%
+  z-index: $zIndexSiteHeader
+  background: transparent
+  transition: background 250ms ease-in-out
+  height: 48px
 
-.column
+  +from($lge)
+    height: 60px
+
+.scrolled
+  background: rgba($black, 0.75)
+
+.wrapper
   composes: column from 'app/assets/stylus/common.styl'
-
-.navBar
   display: flex
+  height: 100%
   flex-direction: row
   align-items: center
-  font-size: 20px
-  propertyPadding('padding-top')
-  propertyPadding('padding-bottom')
-
-.nav
-  flex: 1 1 auto
-
-  +upTo($med)
-    display: none
-
-.aside
-  position: fixed
-  z-index: $zIndexDrawer
-  top: 0
-  left: 0
-  width: 250px
-  height: 100%
-  padding: 8px
-  background: $themeColor
-  color: $backgroundColor
-  display: flex
-  flex-direction: column
-  transform: translateX(0%)
-  transition: transform 250ms ease-in-out
-
-.close
-  display: block
-  text-align: right
-
-.checkbox
-  display: none
-
-.checkbox:not(:checked) + .aside
-  transform: translateX(-100%)
 
 .hamburger
-  propertyGutter('margin-right')
+  composes: overlay from 'app/assets/stylus/common.styl'
+  cursor: pointer
 
-+from($med)
-  .aside
-  .hamburger
-    display: none
+.link
+  composes: overlay from 'app/assets/stylus/common.styl'
+  text-decoration: none
+  transition: color 250ms ease-in-out
 
-.heading
-.tagline
-  display: block
-
-.sticky
-  z-index: $zIndexSiteHeader
-  background: rbga($backgroundColor, 0.85)
-  color: $textColor
-  transition: background 250ms ease-in-out, color 250ms ease-in-out
-
-.isSticky
-  background: rgba($themeColor, 0.85)
-  color: $backgroundColor
+  &:hover
+    color: $themeColor
 
 .siteName
-  & .isSticky
-    color: $backgroundColor
-
+  composes: overlay from 'app/assets/stylus/common.styl'
+  composes: link
   display: inline-block
   font-size: 28px
 
   +upTo($med)
     position: absolute
+    top: 50%
     left: 50%
-    transform: translateX(-50%)
+    transform: translate(-50%, -50%)
+
+.nav
+  width: 100%
+  flex: 1 1 auto
+
+  +upTo($med)
+    display: none
+
+.list
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  align-items: center
+  height: 100%
+
+.item
+  display: block
+  propertyGutter('margin-left')
+  font-size: 16px
+
+  +from($lge)
+    font-size: 20px
+
+.hamburger
+  propertyGutter('margin-right')
+
++from($med)
+  .hamburger
+    display: none
+

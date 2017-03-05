@@ -16,7 +16,7 @@ const SiteFooter = () => (
             <a href="/linkedin" target="_blank" rel="noopener noreferrer">
               <FontAwesome className="fa-linkedin-square" />
             </a>
-            <a href="https://github.com/nhardy" target="_blank" rel="noopener noreferrer">
+            <a href="/github" target="_blank" rel="noopener noreferrer">
               <FontAwesome className="fa-github" />
             </a>
             <Link to="/contact">

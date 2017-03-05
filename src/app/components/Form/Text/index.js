@@ -2,14 +2,17 @@ import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 
 import field, { fieldShape } from '../field';
+import styles from '../styles.styl';
 
 
 @field()
 export default class TextField extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    required: PropTypes.bool,
+    id: PropTypes.string,
     pattern: PropTypes.string,
+    required: PropTypes.bool,
+    placeholder: PropTypes.string,
     field: fieldShape,
   };
 
@@ -41,16 +44,18 @@ export default class TextField extends Component {
   };
 
   render() {
-    const { name, pattern, required, field: { valid, invalid } } = this.props;
+    const { name, id, pattern, required, placeholder, field: { valid, invalid } } = this.props;
 
     return (
       <input
         ref={ref => (this._node = ref)}
         name={name}
-        className={cx({ valid, invalid })}
+        id={id}
+        className={cx(styles.input, { valid, invalid })}
         type="text"
         pattern={pattern}
         required={required}
+        placeholder={placeholder}
         onChange={this.onChange}
         onBlur={this.onBlur}
         onFocus={this.onFocus} />
