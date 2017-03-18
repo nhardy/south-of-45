@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import * as appPropTypes from 'app/components/propTypes';
 import ErrorView from 'app/views/Error';
+import UnsupportedMessage from 'app/components/UnsupportedMessage';
 
 import 'app/assets/stylus/reset.styl';
 import 'app/assets/stylus/fonts.styl';
@@ -40,6 +41,7 @@ export default class App extends Component {
         ) : (
           this.props.children
         )}
+        <UnsupportedMessage />
       </div>
     );
   }

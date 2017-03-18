@@ -60,10 +60,12 @@
     "node-hook": "^0.4.0",
     "nyc": "^10.1.2",
     "postcss-loader": "^0.13.0",
+    "react-svg-loader": "^1.1.1",
     "run-sequence": "^1.1.5",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.2",
     "stylus-loader": "^2.0.0",
+    "svgo-loader": "^1.2.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
@@ -84,6 +86,7 @@
     "react": "^15.0.1",
     "react-display-name": "^0.2.0",
     "react-dom": "^15.0.1",
+    "react-ga": "^2.1.2",
     "react-helmet": "^3.0.1",
     "react-hot-loader": "^3.0.0-beta",
     "react-redux": "^4.4.1",
@@ -95,7 +98,8 @@
     "redux-connect": "^3.0.0",
     "redux-scripts-manager": "^0.2.0",
     "redux-thunk": "^2.0.1",
-    "source-map-support": "^0.4.0"
+    "source-map-support": "^0.4.0",
+    "ua-parser-js": "^0.7.12"
   },
   "engines": {
     "node": "^6.10.0",

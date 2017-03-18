@@ -12,18 +12,21 @@ const Html = ({ assets, component, store }) => {
     <html lang="en">
       <head>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {head.base.toComponent()}
         {head.title.toComponent()}
         {head.meta.toComponent()}
         {head.link.toComponent()}
-        {__DEVELOPMENT__ ? <script src="/webpack-dev-server.js" /> : null}
-        {head.script.toComponent()}
-        {assets.vendor.css && assets.vendor.css.map((path, index) => (
-          <link key={`css-${index}`} rel="stylesheet" type="text/css" href={path} />
+        {__DEVELOPMENT__ ? <script type="text/javascript" src="/webpack-dev-server.js" /> : null}
+        {assets.head.js.map(path => (
+          <script key={path} type="text/javascript" src={path} />
         ))}
-        {assets.bundle.css && assets.bundle.css.map((path, index) => (
-          <link key={`css-${index}`} rel="stylesheet" type="text/css" href={path} />
+        {head.script.toComponent()}
+        {assets.vendor.css && assets.vendor.css.map(path => (
+          <link key={path} rel="stylesheet" type="text/css" href={path} />
+        ))}
+        {assets.bundle.css && assets.bundle.css.map(path => (
+          <link key={path} rel="stylesheet" type="text/css" href={path} />
         ))}
       </head>
       <body>
@@ -32,14 +35,14 @@ const Html = ({ assets, component, store }) => {
           dangerouslySetInnerHTML={{
             __html: `window.__data=${JSON.stringify(store.getState())};`,
           }} />
-        {assets.runtime.js.map((path, index) => (
-          <script key={`js-${index}`} type="text/javascript" src={path} async defer />
+        {assets.runtime.js.map(path => (
+          <script key={path} type="text/javascript" src={path} async defer />
         ))}
-        {assets.vendor.js.map((path, index) => (
-          <script key={`js-${index}`} type="text/javascript" src={path} async defer />
+        {assets.vendor.js.map(path => (
+          <script key={path} type="text/javascript" src={path} async defer />
         ))}
-        {assets.bundle.js.map((path, index) => (
-          <script key={`js-${index}`} type="text/javascript" src={path} async defer />
+        {assets.bundle.js.map(path => (
+          <script key={path} type="text/javascript" src={path} async defer />
         ))}
       </body>
     </html>

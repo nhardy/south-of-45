@@ -1,3 +1,7 @@
+import qs from 'querystring';
+
+import { isEmpty } from 'lodash-es';
+
 import { checkStatus } from 'app/lib/fetch';
 
 
@@ -8,11 +12,12 @@ export default function fetchMiddleware() {
       return next(action);
     }
 
-    const { url, ...requestOptions } = endpoint;
+    const { url, query = {}, ...requestOptions } = endpoint;
     const [REQUEST, SUCCESS, FAILURE] = types;
     next({ ...rest, type: REQUEST });
 
-    return fetch(`${url}`, requestOptions)
+    const search = isEmpty(query) ? '' : `?${qs.stringify(query)}`;
+    return fetch(`${url}${search}`, requestOptions)
       .then(checkStatus)
       .then(raw => raw.json())
       .then(

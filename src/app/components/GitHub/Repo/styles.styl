@@ -1,0 +1,42 @@
+@import '~app/assets/stylus';
+
+
+.root
+  padding: 16px
+  border: 1px solid $borderColor
+  border-radius: 4px
+
+.name
+  margin-bottom: 8px
+  font-size: 24px
+  color: $themeColor
+
+  a
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+.info
+  margin-bottom: 8px;
+
+.meta
+  display: flex
+
+.language
+  flex: 1 1 auto
+
+.icon
+  margin-right: 0.5em
+  vertical-align: middle
+
+.stargazers
+  flex: 0 0 auto
+  text-decoration: none
+  transition: color 250ms ease-in-out
+
+  &:hover
+    color: $themeColor
+
+.star
+  margin-right: 0.5em

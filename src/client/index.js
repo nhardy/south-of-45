@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { browserHistory } from 'react-router';
+import ReactGA from 'react-ga';
 import { syncHistoryWithStore } from 'react-router-redux';
 import scriptsManager from 'redux-scripts-manager';
 
+import config from 'app/config';
 import createStore from 'app/redux/store';
 
 import Root from './Root';
@@ -24,6 +26,7 @@ function render(Component = Root) {
   );
 }
 
+ReactGA.initialize(config.analytics.trackingId);
 render();
 
 if (module.hot) {

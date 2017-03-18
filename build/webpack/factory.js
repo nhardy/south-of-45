@@ -123,6 +123,9 @@ export default function webpackFactory({ production = false, client = false, wri
     },
 
     entry: client ? {
+      head: [
+        path.resolve(__dirname, '..', '..', 'src', 'client', 'head.js'),
+      ],
       vendor: [
         'babel-polyfill',
         'react',
@@ -199,13 +202,47 @@ export default function webpackFactory({ production = false, client = false, wri
           use: cssLoaders({ production, client }),
         },
         {
-          test: /\.(?:jpe?g|png|svg|woff2?|eot|ttf)(?:\?.*$|$)/,
+          test: /\.(?:jpe?g|png|woff2?|eot|ttf)(?:\?.*$|$)/,
           use: [
             {
               loader: 'url-loader',
               options: {
                 limit: 5120,
                 name: '[name]-[hash:6].[ext]',
+              },
+            },
+          ],
+        },
+        {
+          test: /^[^.]+(?!\.icon)\.svg$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 5120,
+                name: '[name]-[hash:6].[ext]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: {
+                plugins: [{ removeTitle: true }],
+              },
+            },
+          ],
+        },
+        {
+          test: /\.icon\.svg$/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: babelrc,
+            },
+            {
+              loader: 'react-svg-loader',
+              options: {
+                plugins: [{ removeTitle: false }],
+                floatPrecision: 2,
               },
             },
           ],
@@ -218,7 +255,9 @@ export default function webpackFactory({ production = false, client = false, wri
         __CLIENT__: client,
         __DEVELOPMENT__: !production,
         __SERVER__: !client,
-        'process.env.NODE_ENV': production ? JSON.stringify('production') : JSON.stringify('development'),
+        'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development'),
+        'process.env.RECAPTCHA_SITEKEY': JSON.stringify(process.env.RECAPTCHA_SITEKEY),
+        'process.env.ANALYTICS_TRACKING_ID': JSON.stringify(process.env.ANALYTICS_TRACKING_ID),
       }),
       !client && new DefinePlugin({
         'process.env.CONTACT_EMAIL': JSON.stringify(process.env.CONTACT_EMAIL),
