@@ -21,6 +21,16 @@ app.get('/robots.txt', (req, res) => {
   res.send(robotsTxt);
 });
 
+app.use('/static', (req, res, next) => {
+  if (['server.js', 'webpack-dump-client.json', 'webpackStats.json'].map(file => `/static/${file}`).includes(req.originalUrl)) {
+    const error = new Error('File not found');
+    error.status = 404;
+    next(error);
+  } else {
+    next();
+  }
+});
+
 // Serve static files
 app.use('/static', Express.static('dist', {
   maxAge: '1y',
