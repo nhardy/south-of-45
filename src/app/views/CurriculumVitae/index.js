@@ -41,16 +41,35 @@ export default class CurriculumVitae extends Component {
               </ul>
             </nav>
             <p>
-              I am currently a student at the University of Technology, Sydney, studying a Bachelor of IT.
+              I&apos;m a
               {' '}
-              I am passionate about Computer Science and the IT industry in general.
+              <a
+                href="https://www.uts.edu.au/future-students/information-technology/about-information-technology/bit-co-operative-scholarship"
+                target="_blank"
+                rel="noopener noreferrer">
+                Bachelor of Information Technology
+              </a>
               {' '}
-              I have a great interest in programming, and intend to utilise these skills to create my own IT-focused business in future.
-            </p>
-            <p>
-              This online résumé has been created as an example of what I can do in terms of web design, one of my many IT Skills.
+              student at the
               {' '}
-              At some point, I hope to add some dynamic animations when switching between pages of this document.
+              <a href="https://www.uts.edu.au/" target="_blank" rel="noopener noreferrer">University of Technology, Sydney</a>
+              {' '}
+              with a passion for IT and computer science.
+              I&apos;m currently interning at
+              {' '}
+              <a href="https://www.appliancesonline.com.au/" target="_blank" rel="noopener noreferrer">Appliances Online</a>
+              {' '}
+              and have previously interned and worked at
+              {' '}
+              <a href="http://www.nineentertainmentco.com.au/" target="_blank" rel="noopener noreferrer">Nine Digital</a>,
+              {' '}
+              working on the
+              {' '}
+              <a href="https://www.9now.com.au/">9Now</a>
+              {' '}
+              <abbr title="Video On Demand">VOD</abbr>
+              {' '}
+              website.
             </p>
             <p>
               A printer-friendly document with additional information is available upon request through the <Link to="/contact">contact form</Link>.
