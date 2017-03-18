@@ -149,7 +149,7 @@ export default function webpackFactory({ production = false, client = false, wri
         ? `[name]-[${production ? 'chunkhash' : 'hash'}:6].js`
         : '[name].js',
       path: path.resolve(__dirname, '..', '..', 'dist'),
-      publicPath: '/dist/',
+      publicPath: '/static/',
     },
 
     target: client ? 'web' : 'node',
@@ -245,6 +245,14 @@ export default function webpackFactory({ production = false, client = false, wri
                 plugins: [{ removeTitle: false }],
                 floatPrecision: 2,
               },
+            },
+          ],
+        },
+        {
+          test: /\.txt$/,
+          use: [
+            {
+              loader: 'text-loader',
             },
           ],
         },

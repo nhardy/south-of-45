@@ -6,6 +6,7 @@ import mainMiddleware from 'server/middleware/main';
 import errorMiddleware from 'server/middleware/error';
 
 import faviconIco from '!!buffer-loader!app/assets/images/favicon.ico'; // eslint-disable-line
+import robotsTxt from 'app/assets/robots.txt';
 
 
 const app = new Express();
@@ -15,11 +16,22 @@ app.get('/favicon.ico', (req, res) => {
   res.send(faviconIco);
 });
 
+app.get('/robots.txt', (req, res) => {
+  res.set('Content-Type', 'text/plain');
+  res.send(robotsTxt);
+});
+
 // Serve static files
-app.use('/dist', Express.static('dist'));
+app.use('/static', Express.static('dist', {
+  maxAge: '1y',
+}));
 
 app.get('/github', (req, res) => {
   res.redirect(301, 'https://github.com/nhardy');
+});
+
+app.get('/govhack', (req, res) => {
+  res.redirect(302, 'https://youtu.be/3ne1Qaaas3g');
 });
 
 app.get('/linkedin', (req, res) => {

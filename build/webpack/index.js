@@ -53,7 +53,7 @@ gulp.task('webpack-client-dev', (done) => {
       aggregateTimeout: 300,
       poll: true,
     },
-    publicPath: '/dist/',
+    publicPath: '/static/',
     stats: {
       colors: true,
       chunkModules: false,
