@@ -1,8 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'react-router';
 
 import config from 'app/config';
 import SpecialLayout from 'app/layouts/Special';
+import profileImg from 'app/assets/images/profile.jpg';
+import profileImg2x from 'app/assets/images/profile-2x.jpg';
+import profileImg3x from 'app/assets/images/profile-3x.jpg';
 
 import styles from './styles.styl';
 
@@ -11,11 +15,75 @@ const HomeView = () => (
   <SpecialLayout className={styles.root}>
     <Helmet title={`Home | ${config.siteName}`} />
     <h1>Home</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tristique velit quis lorem volutpat porta. Vivamus lacinia vel eros ut sagittis. Pellentesque pulvinar feugiat consectetur. Duis velit nibh, molestie eu tincidunt at, gravida luctus quam. In hac habitasse platea dictumst. Maecenas viverra et dui non efficitur. Nulla at orci lectus. Fusce eu ante viverra, pulvinar sapien eget, interdum turpis. Donec volutpat sagittis tincidunt. In hac habitasse platea dictumst. Donec malesuada sagittis risus in semper.</p>
-    <p>Curabitur iaculis neque sed mollis tempor. Pellentesque ut sem varius, feugiat mi vitae, ultricies magna. Curabitur id odio eget lectus scelerisque condimentum id ac est. In euismod magna nec leo ullamcorper viverra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sit amet diam turpis. Sed finibus nisl sed efficitur tincidunt. Nullam placerat purus eu ornare molestie. Sed nec dignissim mauris, non varius turpis. Phasellus auctor et mi non laoreet.</p>
-    <p>Duis suscipit efficitur arcu, ac ullamcorper sapien. Sed auctor commodo dui a egestas. Suspendisse non libero maximus, efficitur odio vitae, semper urna. Aenean eu tortor id nulla consequat ornare. Quisque lorem lectus, fringilla eget fermentum et, tristique quis odio. Quisque a cursus tellus. Mauris nec fringilla quam. Pellentesque tincidunt ut sem porttitor ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus scelerisque neque quis luctus.</p>
-    <p>Sed eu arcu eu ex imperdiet auctor. Curabitur et aliquam neque, nec cursus turpis. Suspendisse potenti. Donec nec vulputate justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque ut justo accumsan, consectetur mi porttitor, dictum leo. Mauris vulputate vestibulum nibh. Integer sit amet felis sed mi iaculis vehicula. Aenean neque risus, pretium quis dolor in, pulvinar sollicitudin eros. Quisque cursus ultricies justo, quis tincidunt felis. Nunc lobortis ipsum egestas auctor pulvinar.</p>
-    <p>Aliquam tempus euismod purus vitae laoreet. Ut sit amet semper mi, ut posuere risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum euismod leo vel ligula viverra rutrum. Nulla tincidunt eros urna, in egestas mauris aliquam in. Donec consectetur hendrerit mi, eu mattis eros pharetra id. Praesent molestie eget risus vel ornare. Vivamus vestibulum vel libero in hendrerit. Praesent pharetra purus sed convallis ultrices. Vestibulum condimentum, lectus et interdum ultricies, ex est congue odio, nec viverra elit ante sit amet leo. Maecenas vitae lectus a justo pretium ullamcorper. Phasellus nec libero lacinia, feugiat velit nec, rhoncus risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+    <img className={styles.profile} src={profileImg} srcSet={`${profileImg2x} 2x, ${profileImg3x} 3x`} alt="Profile" />
+    <p>
+      I&apos;m a
+      {' '}
+      <a
+        href="https://www.uts.edu.au/future-students/information-technology/about-information-technology/bit-co-operative-scholarship"
+        target="_blank"
+        rel="noopener noreferrer">
+        Bachelor of Information Technology
+      </a>
+      {' '}
+      student at the
+      {' '}
+      <a href="https://www.uts.edu.au/" target="_blank" rel="noopener noreferrer">University of Technology, Sydney</a>
+      {' '}
+      with a passion for IT and computer science.
+      I&apos;m currently interning at
+      {' '}
+      <a href="https://www.appliancesonline.com.au/" target="_blank" rel="noopener noreferrer">Appliances Online</a>
+      {' '}
+      and have previously interned and worked at
+      {' '}
+      <a href="http://www.nineentertainmentco.com.au/" target="_blank" rel="noopener noreferrer">Nine Digital</a>,
+      {' '}
+      working on the
+      {' '}
+      <a href="https://www.9now.com.au/">9Now</a>
+      {' '}
+      <abbr title="Video On Demand">VOD</abbr>
+      {' '}
+      website.
+    </p>
+    <p>
+      For the second half of 2017, I will be studying overseas in New Zealand at the
+      {' '}
+      <a href="http://www.otago.ac.nz/" target="_blank" rel="noopener noreferrer">University of Otago</a>.
+    </p>
+    <p>
+      I have had an interest in computers from a young age and have worked on many small projects, some of which are listed
+      {' '}
+      <Link to="/projects">here</Link>.
+      {' '}
+      I am proficient in the use of the git version control system and have used this in a variety of personal and professional projects.
+      {' '}
+      In my time at
+      {' '}
+      <a href="http://www.nineentertainmentco.com.au/" target="_blank" rel="noopener noreferrer">Nine Digital</a>,
+      {' '}
+      I developed an understanding of the frameworks and architecture around which this website is based, including
+      {' '}
+      <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">Node.js</a>,
+      {' '}
+      <a href="https://facebook.github.io/react/" target="_blank" rel="noopener noreferrer">React</a>,
+      {' '}
+      <a href="http://redux.js.org/" target="_blank" rel="noopener noreferrer">Redux</a>,
+      {' '}
+      <a href="https://webpack.js.org/" target="_blank" rel="noopener noreferrer">Webpack</a>,
+      {' '}
+      <a href="https://github.com/css-modules/css-modules" target="_blank" rel="noopener noreferrer">CSS Modules</a>,
+      {' '}
+      etc.
+      {' '}
+      This website is an open-source project
+      {' '}
+      <a href={config.github.repoUrl} target="_blank" rel="noopener noreferrer">available on GitHub</a>.
+    </p>
+    <p>
+      Feel free to take a look at my <Link to="/cv">online curriculum vitæ</Link>, or <Link to="/contact">contact me</Link> if you have any questions.
+    </p>
   </SpecialLayout>
 );
 

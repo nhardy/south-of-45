@@ -19,7 +19,7 @@ app.get('/favicon.ico', (req, res) => {
 app.use('/dist', Express.static('dist'));
 
 app.get('/github', (req, res) => {
-  res.redirect(301, 'https://www.github.com/nhardy');
+  res.redirect(301, 'https://github.com/nhardy');
 });
 
 app.get('/linkedin', (req, res) => {

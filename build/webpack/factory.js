@@ -16,6 +16,7 @@ import {
   ProvidePlugin,
 } from 'webpack';
 
+import packageJson from '../../package.json';
 import WriteManifestPlugin from './plugins/WriteManifestPlugin';
 
 
@@ -258,6 +259,7 @@ export default function webpackFactory({ production = false, client = false, wri
         'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development'),
         'process.env.RECAPTCHA_SITEKEY': JSON.stringify(process.env.RECAPTCHA_SITEKEY),
         'process.env.ANALYTICS_TRACKING_ID': JSON.stringify(process.env.ANALYTICS_TRACKING_ID),
+        'process.env.PROJECT_HOMEPAGE': JSON.stringify(packageJson.homepage),
       }),
       !client && new DefinePlugin({
         'process.env.CONTACT_EMAIL': JSON.stringify(process.env.CONTACT_EMAIL),

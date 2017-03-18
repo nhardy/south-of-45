@@ -6,6 +6,7 @@ export default {
   },
   github: {
     username: 'nhardy',
+    repoUrl: process.env.PROJECT_HOMEPAGE,
     excludedRepos: [
       48929138,
     ],
