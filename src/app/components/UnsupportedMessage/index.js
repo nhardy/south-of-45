@@ -25,7 +25,7 @@ const UnsupportedMessage = () => (
             It looks like you&apos;ve turned JavaScript off. That isn&apos;t supported.
             <a href="http://www.enable-javascript.com/">Turn JavaScript on</a>.
           </p>
-        </div>`,
+        </div>`.replace(/\s{2,}/g, ''),
       }} />
   </div>
 );

@@ -43,7 +43,7 @@ export default class SiteHeader extends Component {
   render() {
     const { scrolled } = this.state;
     return (
-      <header className={cx(styles.root, { [styles.scrolled]: scrolled })}>
+      <header id="siteHeader" className={cx(styles.root, { [styles.scrolled]: scrolled })}>
         <div className={cx(styles.wrapper)}>
           <label htmlFor="drawer" className={styles.hamburger}>
             <FontAwesome className="fa-bars" />
@@ -59,6 +59,9 @@ export default class SiteHeader extends Component {
               </li>
               <li className={styles.item}>
                 <Link className={styles.link} to="/projects">Projects</Link>
+              </li>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/cv">Curriculum Vitæ</Link>
               </li>
             </ul>
           </nav>

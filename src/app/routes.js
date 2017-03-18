@@ -6,6 +6,7 @@ import App from 'app/components/App';
 import HomeView from 'app/views/Home';
 import ProjectsView from 'app/views/Projects';
 import ContactView from 'app/views/Contact';
+import CurriculumVitaeView from 'app/views/CurriculumVitae';
 import ErrorView from 'app/views/Error';
 
 
@@ -20,6 +21,7 @@ export default function getRoutes(store) {
       <IndexRoute component={HomeView} />
       <Route path="/projects" component={ProjectsView} />
       <Route path="/contact" component={ContactView} />
+      <Route path="/cv" component={CurriculumVitaeView} />
       <Route path="*" component={ErrorView} status={404} />
     </Route>
   );

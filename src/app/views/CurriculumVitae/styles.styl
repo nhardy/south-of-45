@@ -1,0 +1,164 @@
+@import '~app/assets/stylus'
+
+
+.root
+  line-height: 1.125
+
+.heading
+  display: none
+
+.main
+  margin-bottom: 16px
+
+  +from($med)
+    display: flex
+
+.imageWrapper
+  max-width: 320px
+
+  +upTo($med)
+    margin: 0 auto 16px
+
+  +from($med)
+    flex: 1 0 auto
+    margin: auto 16px auto 0
+
+.profile
+  display: block
+  width: 100%
+  border-radius: 50%
+
+.overview
+  flex: 1 1 auto
+
+  p
+    font-size: 16px
+    text-indent: 2em
+
+    &:not(:last-child)
+      margin-bottom: 0.5em
+
+.greeting
+  display: block
+  font-size: 48px
+
+.meta
+  display: block
+  font-size: 32px
+
+.nav
+  margin: 16px auto
+  max-width: 400px
+
+  +from($med)
+    margin: 16px 0
+
+.links
+  display: flex
+  justify-content: space-between
+
+.link
+  a
+    display: table-cell
+    width: 90px
+    height: @width
+    padding: 8px
+    border-radius: 50%
+    vertical-align: middle
+    text-align: center
+    background: $themeColor
+    color: $backgroundColor
+    text-transform: uppercase
+    text-decoration: none
+    font-weight: 600
+    transition: background 250ms ease-in-out
+
+    +from($sml)
+      width: 100px
+      height: @width
+
+    &:hover
+      background: darken($themeColor, 50%)
+
+.resume
+  padding-top: 8px
+  border-top: 2px solid darken($themeColor, 50%)
+
+.subheading
+  margin-bottom: 16px
+  font-size: 32px
+
+.resume section
+  &:not(:last-child)
+    padding-bottom: 24px
+    border-bottom: 1px solid darken($themeColor, 50%)
+    margin-bottom: 24px
+
+.category
+  margin-bottom: 8px
+  font-size: 24px
+
+.workplace
+.institution
+.achievement
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+  align-items: flex-end
+
+  &:not(:last-child)
+    padding-bottom: 12px
+    border-bottom: 1px solid $themeColor
+    margin-bottom: 12px
+
+.position
+.course
+.challenge
+  width: 100%
+  margin-bottom: 4px
+  font-size: 20px
+
+  +from($med)
+    flex: 1 1 0
+    width: auto
+
+.dates
+  width: 100%
+  margin-bottom: 4px
+  font-size: 16px
+
+  +from($med)
+    flex: 0 0 auto
+    width: auto
+    padding-left: 16px
+    text-align: right
+
+.duties
+.outline
+  flex: 0 0 auto
+  width: 100%
+  text-indent: 2em
+
+.table
+  width: 100%
+  border: 2px solid darken($themeColor, 50%)
+  border-collapse: collapse
+
+  th
+    background: darken($themeColor, 50%)
+    color: $backgroundColor
+
+  th
+  td
+    padding: 4px
+
+    &:last-child
+      text-align: right
+
+  tbody
+    tr:nth-child(even)
+      background: rgba($themeColor, 0.1)
+
+  td
+    border-left: 1px solid darken($themeColor, 50%)
+    border-right: @border-left
