@@ -20,7 +20,7 @@ onReady(() => {
     || (result.browser.name === 'IEMobile' && ua.indexOf('bingbot') === -1 && ua.indexOf('BingPreview') === -1)
     || result.browser.name === 'Android Browser'
     || ((result.browser.name === 'Safari' || result.browser.name === 'Mobile Safari') && version < 9)
-    || (result.browser.name === 'Chrome' && version < 50 && ua.indexOf('Googlebot') === -1)
+    || (result.browser.name === 'Chrome' && version < 50 && ua.indexOf('Googlebot') === -1 && ua.indexOf('Google Search Console') === -1)
     || (result.browser.name === 'Firefox' && version < 45)
   ) {
     document.getElementById('userAgentDebugInfo').innerText = ua;
