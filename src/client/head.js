@@ -11,16 +11,19 @@ function onReady(listener) {
 }
 
 onReady(() => {
-  const ua = new UAParser().getResult();
-  const version = parseInt(ua.browser.version.split('.')[0], 10) || 0;
+  const parser = new UAParser();
+  const ua = parser.getUA();
+  const result = parser.getResult();
+  const version = parseInt(result.browser.major, 10);
 
-  if (ua.browser.name === 'IE'
-    || ua.browser.name === 'IE Mobile'
-    || ua.browser.name === 'Android Browser'
-    || ((ua.browser.name === 'Safari' || ua.browser.name === 'Mobile Safari') && version < 9)
-    || (ua.browser.name === 'Chrome' && version < 50)
-    || (ua.browser.name === 'Firefox' && version < 45)
+  if (result.browser.name === 'IE'
+    || (result.browser.name === 'IEMobile' && ua.indexOf('bingbot') === -1 && ua.indexOf('BingPreview') === -1)
+    || result.browser.name === 'Android Browser'
+    || ((result.browser.name === 'Safari' || result.browser.name === 'Mobile Safari') && version < 9)
+    || (result.browser.name === 'Chrome' && version < 50 && ua.indexOf('Googlebot') === -1)
+    || (result.browser.name === 'Firefox' && version < 45)
   ) {
+    document.getElementById('userAgentDebugInfo').innerText = ua;
     document.getElementById('unsupportedMessage').style.display = '';
   }
 });

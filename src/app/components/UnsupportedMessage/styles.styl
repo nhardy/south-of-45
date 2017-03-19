@@ -7,20 +7,30 @@
   left: 0
   right: 0
   bottom: 0
-  display: table
   height: 100%
   width: 100%
   background: lighten($errorColor, 90%)
+  overflow-y: scroll
   z-index: $zIndexUnsupportedMessage
 
 .container
+  display: table
+
+.inner
   display: table-cell
   vertical-align: middle
   text-align: center
 
   h1
     font-size: 48px
-    margin-bottom: 16px
+    margin: 0 16px 16px
 
   p
     font-size: 20px
+    margin: 0 16px 0.5em
+
+  code
+    display: block
+    padding: 8px
+    background: $backgroundColor
+    font-family: $fontStackMono
