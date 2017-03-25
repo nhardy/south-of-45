@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import cx from 'classnames';
 
+import config from 'app/config';
 import { checkStatus } from 'app/lib/fetch';
 import { makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
