@@ -36,7 +36,7 @@ export default function mainMiddleware(req, res, next) {
 
     const { status } = last(renderProps.routes);
     if (status) {
-      const err = new Error('Route defined a status code:', status);
+      const err = new Error(`Route defined a status code: ${status}`);
       err.status = status;
       next(err);
       return;

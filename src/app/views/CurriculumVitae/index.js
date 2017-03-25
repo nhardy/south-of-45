@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 import config from 'app/config';
 import { smoothScrollTo } from 'app/lib/scroll';
-import { makeTitle } from 'app/lib/social';
+import { makeAbsoluteUrl, makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
 import profileImg from 'app/assets/images/profile.jpg';
 import profileImg2x from 'app/assets/images/profile-2x.jpg';
@@ -34,13 +34,14 @@ export default class CurriculumVitae extends Component {
         <Helmet>
           <title>{TITLE}</title>
           <meta name="description" content={DESCRIPTION} />
+          <meta property="og:title" content={makeTitle(TITLE)} />
           <meta property="og:description" content={DESCRIPTION} />
-          <meta property="og:image" content={profileImg3x} />
+          <meta property="og:image" content={makeAbsoluteUrl(profileImg3x)} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content={config.twitter.handle} />
           <meta name="twitter:title" content={makeTitle(TITLE)} />
           <meta name="twitter:description" content={DESCRIPTION} />
-          <meta name="twitter:image" content={profileImg3x} />
+          <meta name="twitter:image" content={makeAbsoluteUrl(profileImg3x)} />
         </Helmet>
         <h1 className={styles.heading}>Curriculum Vitæ</h1>
         <section className={styles.main}>

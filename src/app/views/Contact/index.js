@@ -86,6 +86,7 @@ export default class ContactView extends Component {
         <Helmet>
           <title>{TITLE}</title>
           <meta name="description" content={DESCRIPTION} />
+          <meta property="og:title" content={makeTitle(TITLE)} />
           <meta property="og:description" content={DESCRIPTION} />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content={config.twitter.handle} />

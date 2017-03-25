@@ -7,7 +7,7 @@ import { get, orderBy } from 'lodash-es';
 import config from 'app/config';
 import { setRouteError } from 'app/actions/routeError';
 import { getReposByUsername } from 'app/actions/github';
-import { makeTitle } from 'app/lib/social';
+import { makeAbsoluteUrl, makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
 import GitHubRepo from 'app/components/GitHub/Repo';
 import developerProfileImg from 'app/assets/images/developer-profile.jpg';
@@ -55,13 +55,14 @@ export default class ProjectsView extends Component { // eslint-disable-line rea
         <Helmet>
           <title>{TITLE}</title>
           <meta name="description" content={DESCRIPTION} />
+          <meta property="og:title" content={makeTitle(TITLE)} />
           <meta property="og:description" content={DESCRIPTION} />
-          <meta property="od:image" content={developerProfileImg} />
+          <meta property="od:image" content={makeAbsoluteUrl(developerProfileImg)} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content={config.twitter.handle} />
           <meta name="twitter:title" content={makeTitle(TITLE)} />
           <meta name="twitter:description" content={DESCRIPTION} />
-          <meta name="twitter:image" content={developerProfileImg} />
+          <meta name="twitter:image" content={makeAbsoluteUrl(developerProfileImg)} />
         </Helmet>
         <h1 className={styles.heading}>Projects</h1>
         <p className={styles.text}>

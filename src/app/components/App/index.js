@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
 import config from 'app/config';
+import { makeAbsoluteUrl } from 'app/lib/social';
 import * as appPropTypes from 'app/components/propTypes';
 import ErrorView from 'app/views/Error';
 import UnsupportedMessage from 'app/components/UnsupportedMessage';
@@ -42,9 +43,8 @@ export default class App extends Component {
         <Helmet titleTemplate={`%s | ${config.siteName}`} defaultTitle={config.siteName}>
           <link rel="canonical" href={`${config.baseUrl}${this.props.location.pathname}`} />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content={faviconPng} />
+          <meta property="og:image" content={makeAbsoluteUrl(faviconPng)} />
           <meta property="og:url" content={`${config.baseUrl}${this.props.location.pathname}`} />
-          <meta property="og:locale" content="en_AU" />
           <meta property="og:site_name" content={config.siteName} />
         </Helmet>
         {this.props.routeError ? (
