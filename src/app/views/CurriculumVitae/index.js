@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
+import config from 'app/config';
 import { smoothScrollTo } from 'app/lib/scroll';
+import { makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
 import profileImg from 'app/assets/images/profile.jpg';
 import profileImg2x from 'app/assets/images/profile-2x.jpg';
@@ -11,6 +13,7 @@ import profileImg3x from 'app/assets/images/profile-3x.jpg';
 import styles from './styles.styl';
 
 
+const TITLE = 'Curriculum Vitæ';
 const DESCRIPTION = [
   'The Résumé of Sydney-based student and developer, Nathan Hardy.',
   'I have previously worked on a variety of web applications and services used by millions of Australians.',
@@ -29,12 +32,13 @@ export default class CurriculumVitae extends Component {
     return (
       <DefaultLayout className={styles.root}>
         <Helmet>
-          <title>{'Curriculum Vitæ'}</title>
+          <title>{TITLE}</title>
           <meta name="description" content={DESCRIPTION} />
           <meta property="og:description" content={DESCRIPTION} />
           <meta property="og:image" content={profileImg3x} />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@nhardy96" />
+          <meta name="twitter:site" content={config.twitter.handle} />
+          <meta name="twitter:title" content={makeTitle(TITLE)} />
           <meta name="twitter:description" content={DESCRIPTION} />
           <meta name="twitter:image" content={profileImg3x} />
         </Helmet>

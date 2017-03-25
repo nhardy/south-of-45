@@ -15,4 +15,7 @@ export default {
   recaptcha: {
     siteKey: process.env.RECAPTCHA_SITEKEY,
   },
+  twitter: {
+    handle: '@nhardy96',
+  },
 };

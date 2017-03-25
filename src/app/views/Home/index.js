@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
 import config from 'app/config';
+import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
 import profileImg from 'app/assets/images/profile.jpg';
 import profileImg2x from 'app/assets/images/profile-2x.jpg';
@@ -11,6 +12,7 @@ import profileImg3x from 'app/assets/images/profile-3x.jpg';
 import styles from './styles.styl';
 
 
+const TITLE = 'Home';
 const DESCRIPTION = [
   'The website of Sydney-based student and developer, Nathan Hardy.',
   'I work on world-class web applications and services used by millions of Australians.',
@@ -19,11 +21,12 @@ const DESCRIPTION = [
 const HomeView = () => (
   <SpecialLayout className={styles.root}>
     <Helmet>
-      <title>{'Home'}</title>
+      <title>{TITLE}</title>
       <meta name="description" content={DESCRIPTION} />
       <meta property="og:description" content={DESCRIPTION} />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@nhardy96" />
+      <meta name="twitter:site" content={config.twitter.handle} />
+      <meta name="twitter:title" content={makeTitle(TITLE)} />
       <meta name="twitter:description" content={DESCRIPTION} />
     </Helmet>
     <h1>Home</h1>

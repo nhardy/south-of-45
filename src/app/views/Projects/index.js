@@ -7,6 +7,7 @@ import { get, orderBy } from 'lodash-es';
 import config from 'app/config';
 import { setRouteError } from 'app/actions/routeError';
 import { getReposByUsername } from 'app/actions/github';
+import { makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
 import GitHubRepo from 'app/components/GitHub/Repo';
 import developerProfileImg from 'app/assets/images/developer-profile.jpg';
@@ -14,6 +15,7 @@ import developerProfileImg from 'app/assets/images/developer-profile.jpg';
 import styles from './styles.styl';
 
 
+const TITLE = 'Projects';
 const DESCRIPTION = [
   'Projects worked on by Sydney-based student and developer, Nathan Hardy.',
   'Take a look through a list of GitHub repos and other projects.',
@@ -51,12 +53,13 @@ export default class ProjectsView extends Component { // eslint-disable-line rea
     return (
       <DefaultLayout className={styles.root}>
         <Helmet>
-          <title>{'Projects'}</title>
+          <title>{TITLE}</title>
           <meta name="description" content={DESCRIPTION} />
           <meta property="og:description" content={DESCRIPTION} />
           <meta property="od:image" content={developerProfileImg} />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@nhardy96" />
+          <meta name="twitter:site" content={config.twitter.handle} />
+          <meta name="twitter:title" content={makeTitle(TITLE)} />
           <meta name="twitter:description" content={DESCRIPTION} />
           <meta name="twitter:image" content={developerProfileImg} />
         </Helmet>

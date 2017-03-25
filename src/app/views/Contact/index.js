@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import cx from 'classnames';
 
 import { checkStatus } from 'app/lib/fetch';
+import { makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
 import form, { formShape } from 'app/components/Form/form';
 import Text from 'app/components/Form/Text';
@@ -12,6 +13,7 @@ import Recaptcha from 'app/components/Form/Recaptcha';
 import styles from 'app/components/Form/styles.styl';
 
 
+const TITLE = 'Contact Me';
 const DESCRIPTION = [
   'Get in contact with Sydney-based student and developer, Nathan Hardy.',
   'Leave me a message and I\'ll endeavour to get back to you.',
@@ -81,11 +83,12 @@ export default class ContactView extends Component {
     return (
       <DefaultLayout>
         <Helmet>
-          <title>{'Contact Me'}</title>
+          <title>{TITLE}</title>
           <meta name="description" content={DESCRIPTION} />
           <meta property="og:description" content={DESCRIPTION} />
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@nhardy96" />
+          <meta name="twitter:site" content={config.twitter.handle} />
+          <meta name="twitter:title" content={makeTitle(TITLE)} />
           <meta name="twitter:description" content={DESCRIPTION} />
         </Helmet>
         {!sent ? (
