@@ -2,13 +2,14 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
 import fetchMiddleware from 'app/middleware/fetch';
+import gaMiddleware from 'app/middleware/ga';
 
 import reducer from '../reducers';
 
 
 export default function create(initialState) {
   const store = createStore(reducer, initialState, compose(
-    applyMiddleware(thunk, fetchMiddleware),
+    applyMiddleware(thunk, fetchMiddleware, gaMiddleware),
     __CLIENT__ && __DEVELOPMENT__ && window.devToolsExtension
       ? window.devToolsExtension()
       : f => f

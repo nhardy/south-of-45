@@ -129,6 +129,7 @@ export default function webpackFactory({ production = false, client = false, wri
       ],
       vendor: [
         'babel-polyfill',
+        path.resolve(__dirname, '..', '..', 'src', 'app', 'shims', 'index.js'),
         'react',
       ],
       bundle: [
