@@ -19,14 +19,14 @@ const UnsupportedMessage = () => (
             {' '}
             and makes sure that you&apos;re always up to date with the latest features and security patches.
           </p>
+          <code id="userAgentDebugInfo" />
           <p>
             If you think there has been a mistake, visit the
             {' '}
             <a href="/contact" target="_blank" rel="noopener noreferrer">contact page</a>
             {' '}
-            in an alternate browser and include the debug information below:
+            in an alternate browser and include the debug information above.
           </p>
-          <code id="userAgentDebugInfo" />
         </div>
       </div>
     </div>

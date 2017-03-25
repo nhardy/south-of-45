@@ -23,7 +23,11 @@ onReady(() => {
       && ua.indexOf('BingPreview') === -1
     )
     || result.browser.name === 'Android Browser'
-    || ((result.browser.name === 'Safari' || result.browser.name === 'Mobile Safari') && version < 9)
+    || (
+      (result.browser.name === 'Safari' || result.browser.name === 'Mobile Safari')
+      && version < 9
+      && ua.indexOf('BingPreview') === -1
+    )
     || (
       result.browser.name === 'Chrome' && version < 49
       && ua.indexOf('Googlebot') === -1
