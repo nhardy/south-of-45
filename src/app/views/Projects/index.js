@@ -57,7 +57,7 @@ export default class ProjectsView extends Component { // eslint-disable-line rea
           <meta name="description" content={DESCRIPTION} />
           <meta property="og:title" content={makeTitle(TITLE)} />
           <meta property="og:description" content={DESCRIPTION} />
-          <meta property="od:image" content={makeAbsoluteUrl(developerProfileImg)} />
+          <meta property="og:image" content={makeAbsoluteUrl(developerProfileImg)} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content={config.twitter.handle} />
           <meta name="twitter:title" content={makeTitle(TITLE)} />
