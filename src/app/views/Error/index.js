@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
-import config from 'app/config';
 import DefaultLayout from 'app/layouts/Default';
 
 import styles from '../Home/styles.styl';
@@ -10,7 +9,10 @@ import styles from '../Home/styles.styl';
 
 const ErrorView = ({ route: { status } }) => (
   <DefaultLayout className={styles.root}>
-    <Helmet title={`HTTP ${status} Error | ${config.siteName}`} />
+    <Helmet>
+      <title>{`HTTP ${status} Error`}</title>
+      <meta name="robots" content="noindex" />
+    </Helmet>
     <h1>HTTP {status} Error</h1>
     {status === 404 ? (
       <p>

@@ -1,27 +1,39 @@
 import React, { PropTypes } from 'react';
 import ReactDOMServer from 'react-dom/server';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
+
+import faviconSvg from 'app/assets/images/favicon.svg';
+import faviconPng16 from 'app/assets/images/favicon-16.png';
+import faviconPng32 from 'app/assets/images/favicon-32.png';
+import faviconPng96 from 'app/assets/images/favicon-96.png';
+import faviconPng192 from 'app/assets/images/favicon-192.png';
 
 
 const Html = ({ assets, component, store }) => {
   const content = component ? ReactDOMServer.renderToString(component) : '';
-  const head = Helmet.rewind(); // magic.gif
+  const helmet = Helmet.renderStatic(); // magic.gif
 
   /* eslint-disable react/no-danger */
   return (
-    <html lang="en">
+    <html lang="en-AU" {...helmet.htmlAttributes.toComponent()}>
       <head>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        {helmet.title.toComponent()}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {head.base.toComponent()}
-        {head.title.toComponent()}
-        {head.meta.toComponent()}
-        {head.link.toComponent()}
+        {helmet.meta.toComponent()}
+        <link rel="icon" type="image/svg+xml" sizes="any" href={faviconSvg} />
+        <link rel="icon" type="image/png" sizes="16x16" href={faviconPng16} />
+        <link rel="icon" type="image/png" sizes="32x32" href={faviconPng32} />
+        <link rel="icon" type="image/png" sizes="96x96" href={faviconPng96} />
+        <link rel="icon" type="image/png" sizes="192x192" href={faviconPng192} />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        {helmet.link.toComponent()}
+        {helmet.base.toComponent()}
         {__DEVELOPMENT__ ? <script type="text/javascript" src="/webpack-dev-server.js" /> : null}
         {assets.head.js.map(path => (
-          <script key={path} type="text/javascript" src={path} />
+          <script key={path} type="text/javascript" src={path} async defer />
         ))}
-        {head.script.toComponent()}
+        {helmet.script.toComponent()}
         {assets.vendor.css && assets.vendor.css.map(path => (
           <link key={path} rel="stylesheet" type="text/css" href={path} />
         ))}
@@ -29,7 +41,7 @@ const Html = ({ assets, component, store }) => {
           <link key={path} rel="stylesheet" type="text/css" href={path} />
         ))}
       </head>
-      <body>
+      <body {...helmet.bodyAttributes.toComponent()}>
         <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
         <script
           dangerouslySetInnerHTML={{

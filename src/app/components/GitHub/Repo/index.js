@@ -11,6 +11,11 @@ const GitHubRepo = ({ repo }) => {
   const {
     name,
     html_url: url,
+    owner: {
+      avatar_url: avatarUrl,
+      login: username,
+      html_url: profileUrl,
+    },
     description,
     language,
     stargazers_count: stargazersCount,
@@ -18,7 +23,12 @@ const GitHubRepo = ({ repo }) => {
 
   return (
     <div className={styles.root}>
-      <h3 className={styles.name}><a href={url} target="_blank" rel="noopener noreferrer">{name}</a></h3>
+      <div className={styles.header}>
+        <h3 className={styles.name}><a href={url} target="_blank" rel="noopener noreferrer">{name}</a></h3>
+        <a className={styles.profile} href={profileUrl} target="_blank" rel="noopener noreferrer">
+          <img src={avatarUrl} alt={username} />
+        </a>
+      </div>
       <div className={styles.info}>
         <p className={styles.description}>{description || 'This repository has no description yet'}</p>
       </div>

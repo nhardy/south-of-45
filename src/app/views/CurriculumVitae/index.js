@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
-import config from 'app/config';
 import { smoothScrollTo } from 'app/lib/scroll';
 import DefaultLayout from 'app/layouts/Default';
 import profileImg from 'app/assets/images/profile.jpg';
@@ -11,6 +10,11 @@ import profileImg3x from 'app/assets/images/profile-3x.jpg';
 
 import styles from './styles.styl';
 
+
+const DESCRIPTION = [
+  'The Résumé of Sydney-based student and developer, Nathan Hardy.',
+  'I have previously worked on a variety of web applications and services used by millions of Australians.',
+].join(' ');
 
 export default class CurriculumVitae extends Component {
   scroll = (e) => {
@@ -24,14 +28,23 @@ export default class CurriculumVitae extends Component {
   render() {
     return (
       <DefaultLayout className={styles.root}>
-        <Helmet title={`Curriculum Vitæ | ${config.siteName}`} />
+        <Helmet>
+          <title>{'Curriculum Vitæ'}</title>
+          <meta name="description" content={DESCRIPTION} />
+          <meta property="og:description" content={DESCRIPTION} />
+          <meta property="og:image" content={profileImg3x} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@nhardy96" />
+          <meta name="twitter:description" content={DESCRIPTION} />
+          <meta name="twitter:image" content={profileImg3x} />
+        </Helmet>
         <h1 className={styles.heading}>Curriculum Vitæ</h1>
         <section className={styles.main}>
           <div className={styles.imageWrapper}>
             <img className={styles.profile} src={profileImg} srcSet={`${profileImg2x} 2x, ${profileImg3x} 3x`} alt="Profile" />
           </div>
           <div className={styles.overview}>
-            <span className={styles.greeting}>Hello,</span>
+            <span className={styles.greeting}>Hello,&nbsp;</span>
             <span className={styles.meta}>this is my Curriculum Vitæ</span>
             <nav className={styles.nav}>
               <ul className={styles.links}>

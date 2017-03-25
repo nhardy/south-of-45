@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { asyncConnect } from 'redux-connect';
 
 import config from 'app/config';

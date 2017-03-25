@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import cx from 'classnames';
 
-import config from 'app/config';
 import { checkStatus } from 'app/lib/fetch';
 import DefaultLayout from 'app/layouts/Default';
 import form, { formShape } from 'app/components/Form/form';
@@ -12,6 +11,11 @@ import Email from 'app/components/Form/Email';
 import Recaptcha from 'app/components/Form/Recaptcha';
 import styles from 'app/components/Form/styles.styl';
 
+
+const DESCRIPTION = [
+  'Get in contact with Sydney-based student and developer, Nathan Hardy.',
+  'Leave me a message and I\'ll endeavour to get back to you.',
+].join(' ');
 
 @form()
 export default class ContactView extends Component {
@@ -76,7 +80,14 @@ export default class ContactView extends Component {
     const { submitting, sent } = this.state;
     return (
       <DefaultLayout>
-        <Helmet title={`Contact Me | ${config.siteName}`} />
+        <Helmet>
+          <title>{'Contact Me'}</title>
+          <meta name="description" content={DESCRIPTION} />
+          <meta property="og:description" content={DESCRIPTION} />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@nhardy96" />
+          <meta name="twitter:description" content={DESCRIPTION} />
+        </Helmet>
         {!sent ? (
           <form className={styles.form}>
             <h1>Contact Me</h1>

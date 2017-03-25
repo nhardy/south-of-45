@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
 import config from 'app/config';
@@ -11,9 +11,21 @@ import profileImg3x from 'app/assets/images/profile-3x.jpg';
 import styles from './styles.styl';
 
 
+const DESCRIPTION = [
+  'The website of Sydney-based student and developer, Nathan Hardy.',
+  'I work on world-class web applications and services used by millions of Australians.',
+].join(' ');
+
 const HomeView = () => (
   <SpecialLayout className={styles.root}>
-    <Helmet title={`Home | ${config.siteName}`} />
+    <Helmet>
+      <title>{'Home'}</title>
+      <meta name="description" content={DESCRIPTION} />
+      <meta property="og:description" content={DESCRIPTION} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@nhardy96" />
+      <meta name="twitter:description" content={DESCRIPTION} />
+    </Helmet>
     <h1>Home</h1>
     <img className={styles.profile} src={profileImg} srcSet={`${profileImg2x} 2x, ${profileImg3x} 3x`} alt="Profile" />
     <p>
@@ -80,6 +92,8 @@ const HomeView = () => (
       This website is an open-source project
       {' '}
       <a href={config.github.repoUrl} target="_blank" rel="noopener noreferrer">available on GitHub</a>.
+      {' '}
+      Please note that although the project is open-source, some images and content are copyrighted.
     </p>
     <p>
       Feel free to take a look at my <Link to="/cv">online curriculum vitæ</Link>, or <Link to="/contact">contact me</Link> if you have any questions.

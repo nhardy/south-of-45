@@ -1,13 +1,20 @@
 @import '~app/assets/stylus';
 
 
+$imgSize = 32px
+
 .root
   padding: 16px
   border: 1px solid $borderColor
   border-radius: 4px
 
-.name
+.header
+  display: flex
+  align-items: center
   margin-bottom: 8px
+
+.name
+  flex: 1 1 auto
   font-size: 24px
   color: $themeColor
 
@@ -17,8 +24,20 @@
     &:hover
       text-decoration: underline
 
+.profile
+  display: inline-block
+  height: $imgSize
+  width: $imgSize
+  flex: 0 0 auto
+  align-self: flex-start
+  margin-left: 16px
+
+  img
+    height: $imgSize
+    width: $imgSize
+
 .info
-  margin-bottom: 8px;
+  margin-bottom: 8px
 
 .meta
   display: flex
