@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 
@@ -19,9 +20,11 @@ export default class SiteHeader extends Component {
     dismissEvents.forEach(type => this._node.removeEventListener(type, this.handleDismiss));
   }
 
-  listeners = [];
+  _node: HTMLDivElement;
 
-  addListener(listener) {
+  listeners: Array<() => void> = [];
+
+  addListener(listener: () => void) {
     this.listeners.push(listener);
     return () => {
       this.listeners = this.listeners.filter(l => l !== listener);

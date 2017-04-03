@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 import ReactGA from 'react-ga';
 import { syncHistoryWithStore } from 'react-router-redux';
 import scriptsManager from 'redux-scripts-manager';
+import Nprogress from 'nprogress';
 
 import config from 'app/config';
 import createStore from 'app/redux/store';
@@ -26,6 +27,14 @@ function render(Component = Root) {
   );
 }
 
+Nprogress.configure({
+  minimum: 0.2,
+  easing: 'ease-out',
+  speed: 400,
+  trickleSpeed: 200,
+  showSpinner: false,
+  template: '<div class="nprogress-bar" role="bar"><div class="nprogress-peg"></div></div></div>',
+});
 ReactGA.initialize(config.analytics.trackingId);
 render();
 

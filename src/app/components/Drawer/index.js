@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
 import { Link } from 'react-router';
 import cx from 'classnames';
 
@@ -7,7 +8,7 @@ import FontAwesome from 'app/components/FontAwesome';
 import styles from './styles.styl';
 
 
-const Drawer = ({ className }) => (
+const Drawer = ({ className }: { className: string }) => (
   <aside className={cx(styles.root, className)}>
     <label className={styles.close} htmlFor="drawer">
       <FontAwesome className="fa-close" />
@@ -26,9 +27,5 @@ const Drawer = ({ className }) => (
     </nav>
   </aside>
 );
-
-Drawer.propTypes = {
-  className: PropTypes.string,
-};
 
 export default Drawer;

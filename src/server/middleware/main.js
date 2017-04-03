@@ -63,6 +63,9 @@ export default function mainMiddleware(req, res, next) {
           store={store} />
       );
 
+      res.set({
+        'Cache-Control': 'public, maxage=300',
+      });
       res.send(`<!DOCTYPE html>\n${ReactDOMServer.renderToString(component)}`);
     }).catch((err) => {
       err.status = 500;

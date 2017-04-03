@@ -1,8 +1,10 @@
-*.log
 .DS_Store
 .idea
 .nyc_output
 .tmp
+*.log
+*.vscode
 coverage
 dist
+jsconfig.json
 node_modules

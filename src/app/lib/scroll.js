@@ -1,3 +1,4 @@
+// @flow
 import { noop } from 'lodash-es';
 
 
@@ -7,7 +8,7 @@ function timing(frame, start, end, duration) {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export function smoothScrollTo(scrollY, callback = noop) {
+export function smoothScrollTo(scrollY: number, callback?: () => void = noop) {
   let currentFrame = 0;
   const startScrollY = window.scrollY;
   const difference = startScrollY - scrollY;

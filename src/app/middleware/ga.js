@@ -1,9 +1,12 @@
+// @flow
 import { endGlobalLoad } from 'redux-connect/lib/store';
 import ReactGA from 'react-ga';
 
+import type { ReduxAction } from 'app/flowTypes';
+
 
 export default function gaMiddleware() {
-  return next => (action) => {
+  return (next: (ReduxAction) => void) => (action: ReduxAction) => {
     if (!__CLIENT__) return next(action);
 
     const { type } = action;

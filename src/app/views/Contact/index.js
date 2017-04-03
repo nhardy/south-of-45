@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import cx from 'classnames';
+import NProgress from 'nprogress';
 
 import config from 'app/config';
 import { checkStatus } from 'app/lib/fetch';
@@ -46,6 +47,7 @@ export default class ContactView extends Component {
         submitting: true,
         error: null,
       });
+      NProgress.start();
       fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -66,7 +68,8 @@ export default class ContactView extends Component {
             error: `An Error occurred when sending your message: ${error.message}. Please try again later.`,
           });
           this._captcha.reset();
-        });
+        })
+        .then(() => NProgress.done());
     }
   };
 

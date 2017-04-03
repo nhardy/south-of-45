@@ -1,14 +1,10 @@
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
 import cx from 'classnames';
 
 
-const FontAwesome = ({ className }) => (
+const FontAwesome = ({ className }: { className: string }) => (
   <i className={cx('fa', className)} />
 );
-
-FontAwesome.propTypes = {
-  className: PropTypes.string,
-  size: PropTypes.number,
-};
 
 export default FontAwesome;
