@@ -1,4 +1,4 @@
-// flow-typed signature: 173a027b727885ba042ea34a7270432c
+// flow-typed signature: 7501feed0beb51861539014bbfa585ac
 // flow-typed version: <<STUB>>/lodash-es_v^4.16.1/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

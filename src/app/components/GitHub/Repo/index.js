@@ -3,7 +3,6 @@ import cx from 'classnames';
 
 import FontAwesome from 'app/components/FontAwesome';
 import Icon from 'app/components/Icon';
-
 import styles from './styles.styl';
 
 
@@ -47,7 +46,7 @@ const GitHubRepo = ({ repo }) => {
 };
 
 GitHubRepo.propTypes = {
-  repo: PropTypes.shape({}),
+  repo: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default GitHubRepo;

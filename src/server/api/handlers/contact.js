@@ -1,5 +1,4 @@
 import qs from 'querystring';
-
 import nodemailer from 'nodemailer';
 
 import { checkStatus } from 'app/lib/fetch';

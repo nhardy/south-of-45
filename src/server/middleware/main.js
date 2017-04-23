@@ -60,7 +60,8 @@ export default function mainMiddleware(req, res, next) {
         <Html
           assets={assetManifest()}
           component={inner}
-          store={store} />
+          store={store}
+        />
       );
 
       res.set({

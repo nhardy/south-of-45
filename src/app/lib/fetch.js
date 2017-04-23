@@ -1,4 +1,5 @@
 // @flow
+
 /* eslint-disable import/prefer-default-export */
 export type CheckStatusError = Error & {
   code: number,

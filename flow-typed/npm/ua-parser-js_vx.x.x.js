@@ -1,4 +1,4 @@
-// flow-typed signature: a13de07fb8e9fee48cc0b09255d7c926
+// flow-typed signature: d0b3fa1b1a118290e040d8aa088f8e06
 // flow-typed version: <<STUB>>/ua-parser-js_v^0.7.12/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

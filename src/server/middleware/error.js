@@ -45,7 +45,8 @@ export default function errorMiddleware(error, req, res, next) { // eslint-disab
         <Html
           assets={assetManifest()}
           component={inner}
-          store={store} />
+          store={store}
+        />
       );
 
       res.send(`<!DOCTYPE html>\n${ReactDOMServer.renderToString(component)}`);

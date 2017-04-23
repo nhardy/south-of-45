@@ -8,23 +8,25 @@ import * as appPropTypes from 'app/components/propTypes';
 import ErrorView from 'app/views/Error';
 import UnsupportedMessage from 'app/components/UnsupportedMessage';
 import faviconPng from 'app/assets/images/favicon-1024.png';
-
 import 'app/assets/stylus/reset.styl';
 import 'app/assets/stylus/fonts.styl';
 import 'font-awesome/css/font-awesome.min.css';
 import styles from './styles.styl';
 
 
-@connect((state) => {
-  return {
-    routeError: state.routeError,
-  };
-})
+@connect(state => ({
+  routeError: state.routeError,
+}))
 export default class App extends Component {
   static propTypes = {
     routeError: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     children: PropTypes.node,
-    location: appPropTypes.location,
+    location: appPropTypes.location.isRequired,
+  };
+
+  static defaultProps = {
+    routeError: undefined,
+    children: undefined,
   };
 
   static childContextTypes = {

@@ -11,7 +11,6 @@ import { makeAbsoluteUrl, makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
 import GitHubRepo from 'app/components/GitHub/Repo';
 import developerProfileImg from 'app/assets/images/developer-profile.jpg';
-
 import styles from './styles.styl';
 
 
@@ -32,7 +31,6 @@ const DESCRIPTION = [
 
       if (!loaded()) {
         dispatch(setRouteError({ status: 500 }));
-        return;
       }
     },
   },
@@ -44,7 +42,7 @@ export default class ProjectsView extends Component { // eslint-disable-line rea
   static propTypes = {
     repos: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
-    })),
+    })).isRequired,
   };
 
   render() {

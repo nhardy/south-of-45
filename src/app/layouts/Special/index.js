@@ -11,14 +11,17 @@ import Overlay from 'app/components/Overlay';
 import Parallax from 'app/components/Parallax';
 import SiteFooter from 'app/components/SiteFooter';
 import hero from 'app/assets/images/hero.jpg';
-
 import styles from './styles.styl';
 
 
 export default class SpecialLayout extends Component {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    className: undefined,
   };
 
   componentDidMount() {

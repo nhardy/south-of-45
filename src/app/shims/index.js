@@ -3,9 +3,7 @@ window.requestIdleCallback = window.requestIdleCallback || (callback => setTimeo
   const start = Date.now();
   callback({
     didTimeout: false,
-    timeRemaining: () => {
-      return Math.max(0, 50 - (Date.now() - start));
-    },
+    timeRemaining: () => Math.max(0, 50 - (Date.now() - start)),
   });
 }, 1));
 window.cancelIdleCallback = window.cancelIdleCallback || (id => clearTimeout(id));

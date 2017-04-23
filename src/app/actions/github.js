@@ -1,4 +1,5 @@
 // @flow
+
 const BASE_URL = 'https://api.github.com';
 
 export const GITHUB_GET_REPOS_BY_USERNAME_REQUEST = 'GITHUB_GET_REPOS_BY_USERNAME_REQUEST';

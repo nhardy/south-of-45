@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
@@ -8,7 +10,6 @@ import SpecialLayout from 'app/layouts/Special';
 import profileImg from 'app/assets/images/profile.jpg';
 import profileImg2x from 'app/assets/images/profile-2x.jpg';
 import profileImg3x from 'app/assets/images/profile-3x.jpg';
-
 import styles from './styles.styl';
 
 
@@ -38,7 +39,8 @@ const HomeView = () => (
       <a
         href="https://www.uts.edu.au/future-students/information-technology/about-information-technology/bit-co-operative-scholarship"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         Bachelor of Information Technology
       </a>
       {' '}

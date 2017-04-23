@@ -1,4 +1,4 @@
-// flow-typed signature: 368918a6c175d127c7d9163c2945f1f5
+// flow-typed signature: 1aa17f01bd76c96d5dd86039679dd2c6
 // flow-typed version: <<STUB>>/gulp-util_v^3.0.7/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

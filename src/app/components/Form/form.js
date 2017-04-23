@@ -57,7 +57,8 @@ export default function form() {
           form={{
             checkValidity: this.checkValidity,
             getData: this.getData,
-          }} />
+          }}
+        />
       );
     }
   };

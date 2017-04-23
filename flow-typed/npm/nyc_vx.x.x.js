@@ -1,4 +1,4 @@
-// flow-typed signature: d750777a86257c464d58d9650b81dd06
+// flow-typed signature: 0bb7665cc39cd10ec01f41916fa1aa16
 // flow-typed version: <<STUB>>/nyc_v^10.1.2/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
@@ -58,6 +58,10 @@ declare module 'nyc/lib/self-coverage-helper' {
   declare module.exports: any;
 }
 
+declare module 'nyc/lib/source-maps' {
+  declare module.exports: any;
+}
+
 // Filename aliases
 declare module 'nyc/bin/nyc.js' {
   declare module.exports: $Exports<'nyc/bin/nyc'>;
@@ -91,4 +95,7 @@ declare module 'nyc/lib/process.js' {
 }
 declare module 'nyc/lib/self-coverage-helper.js' {
   declare module.exports: $Exports<'nyc/lib/self-coverage-helper'>;
+}
+declare module 'nyc/lib/source-maps.js' {
+  declare module.exports: $Exports<'nyc/lib/source-maps'>;
 }

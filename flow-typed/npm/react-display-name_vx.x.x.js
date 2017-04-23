@@ -1,4 +1,4 @@
-// flow-typed signature: 162cf1453ce7eb7ec2b5e608940c172b
+// flow-typed signature: 746f2f17a8b557787f3c5a4032a1e393
 // flow-typed version: <<STUB>>/react-display-name_v^0.2.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

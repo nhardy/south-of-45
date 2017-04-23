@@ -1,4 +1,4 @@
-// flow-typed signature: 750d80a523220b95c81d44452cc3f8cf
+// flow-typed signature: 070d59805514aacf28705f8e0709a09a
 // flow-typed version: <<STUB>>/react-router-scroll_v^0.3.2/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

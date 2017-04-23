@@ -1,6 +1,6 @@
 // @flow
-import qs from 'querystring';
 
+import qs from 'querystring';
 import { isEmpty } from 'lodash-es';
 
 import type{ ReduxAction } from 'app/flowTypes';
@@ -42,7 +42,7 @@ export default function fetchMiddleware() {
           ...rest,
           error,
           type: FAILURE,
-        })
+        }),
       )
       .catch((error: Error | {}) => {
         console.error('ERROR IN MIDDLEWARE:', error.stack || error); // eslint-disable-line no-console

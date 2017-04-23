@@ -1,13 +1,14 @@
-import React, { PropTypes } from 'react';
+// @flow
+
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router';
 
 import DefaultLayout from 'app/layouts/Default';
-
 import styles from '../Home/styles.styl';
 
 
-const ErrorView = ({ route: { status } }) => (
+const ErrorView = ({ route: { status } }: { route: { status: number }}) => (
   <DefaultLayout className={styles.root}>
     <Helmet>
       <title>{`HTTP ${status} Error`}</title>
@@ -20,7 +21,7 @@ const ErrorView = ({ route: { status } }) => (
         {' '}
         <em>Sorry</em>.
         {' '}
-        Think something's missing?
+        Think something&apos;s missing?
         {' '}
         <Link to="/contact">Contact me</Link> and let me know.
       </p>
@@ -37,11 +38,5 @@ const ErrorView = ({ route: { status } }) => (
     )}
   </DefaultLayout>
 );
-
-ErrorView.propTypes = {
-  route: PropTypes.shape({
-    status: PropTypes.number,
-  }),
-};
 
 export default ErrorView;

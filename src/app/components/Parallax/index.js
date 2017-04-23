@@ -3,7 +3,6 @@ import cx from 'classnames';
 
 import throttle from 'app/lib/throttle';
 import { isScrolledIntoView } from 'app/lib/dom';
-
 import styles from './styles.styl';
 
 
@@ -15,11 +14,17 @@ const EVENTS = [
 export default class Parallax extends Component {
   static propTypes = {
     className: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node.isRequired,
     src: PropTypes.string.isRequired,
     srcSet: PropTypes.string,
     sizes: PropTypes.string,
     alt: PropTypes.string.isRequired,
+  };
+
+  static defaultProps = {
+    className: undefined,
+    srcSet: undefined,
+    sizes: undefined,
   };
 
   state = {

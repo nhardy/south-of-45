@@ -1,4 +1,5 @@
 // @flow
+
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 
@@ -10,6 +11,10 @@ const dismissEvents = ['click', 'touchstart'];
 export default class SiteHeader extends Component {
   static propTypes = {
     className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    className: undefined,
   };
 
   componentDidMount() {

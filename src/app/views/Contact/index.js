@@ -24,7 +24,7 @@ const DESCRIPTION = [
 @form()
 export default class ContactView extends Component {
   static propTypes = {
-    form: formShape,
+    form: formShape, // eslint-disable-line react/require-default-props
   };
 
   state = {
@@ -115,7 +115,8 @@ export default class ContactView extends Component {
               ref={ref => (this._submit = ref)}
               className={styles.button}
               onClick={this.submit}
-              disabled={submitting}>
+              disabled={submitting}
+            >
               {submitting ? (
                 <span>Sending...</span>
               ) : (
@@ -126,7 +127,7 @@ export default class ContactView extends Component {
         ) : (
           <div className={styles.styl}>
             <h1>Thanks for your message!</h1>
-            <p>I'll be in touch soon.</p>
+            <p>I&apos;ll be in touch soon.</p>
             <p>Send <a href="" onClick={this.reset}>another</a>?</p>
           </div>
         )}

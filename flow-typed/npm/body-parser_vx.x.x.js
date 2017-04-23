@@ -1,4 +1,4 @@
-// flow-typed signature: 2a97ad792c8780200ae6c152f4d6f314
+// flow-typed signature: ab91fe655f3d1b688f50b9b9c562f080
 // flow-typed version: <<STUB>>/body-parser_v^1.17.1/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

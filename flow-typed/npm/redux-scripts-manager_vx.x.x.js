@@ -1,4 +1,4 @@
-// flow-typed signature: 8ffe70418df2d903777242748f576c15
+// flow-typed signature: f59654fbd0566c0a8de4dbdce8db047b
 // flow-typed version: <<STUB>>/redux-scripts-manager_v^0.2.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

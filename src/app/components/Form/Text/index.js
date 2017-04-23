@@ -13,11 +13,14 @@ export default class TextField extends Component {
     pattern: PropTypes.string,
     required: PropTypes.bool,
     placeholder: PropTypes.string,
-    field: fieldShape,
+    field: fieldShape, // eslint-disable-line react/require-default-props
   };
 
   static defaultProps = {
+    id: undefined,
+    pattern: undefined,
     required: false,
+    placeholder: undefined,
   };
 
   onChange = () => {
@@ -33,15 +36,12 @@ export default class TextField extends Component {
   };
 
   // @public
-  getValue = () => {
-    return this._node.value;
-  };
+  getValue = () => this._node.value;
 
   // @public
-  checkValidity = () => {
+  checkValidity = () =>
     // return `true`/`false` if the value is valid
-    return this._node.checkValidity();
-  };
+     this._node.checkValidity();
 
   render() {
     const { name, id, pattern, required, placeholder, field: { valid, invalid } } = this.props;
@@ -58,7 +58,8 @@ export default class TextField extends Component {
         placeholder={placeholder}
         onChange={this.onChange}
         onBlur={this.onBlur}
-        onFocus={this.onFocus} />
+        onFocus={this.onFocus}
+      />
     );
   }
 }

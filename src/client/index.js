@@ -9,7 +9,6 @@ import Nprogress from 'nprogress';
 
 import config from 'app/config';
 import createStore from 'app/redux/store';
-
 import Root from './Root';
 
 
@@ -23,7 +22,7 @@ function render(Component = Root) {
     <AppContainer>
       <Component store={store} history={history} />
     </AppContainer>,
-    mountPoint
+    mountPoint,
   );
 }
 

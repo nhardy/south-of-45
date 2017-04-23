@@ -1,5 +1,4 @@
 import path from 'path';
-
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 import zip from 'gulp-zip';
@@ -10,11 +9,10 @@ gulp.task('compile', (done) => {
   runSequence('clean', 'webpack-prod', done);
 });
 
-gulp.task('package', ['compile'], () => {
-  return gulp.src(['dist/**/*', 'server.js', 'iisnode.yml', 'package.json', 'npm-shrinkwrap.json', 'README.md'], { base: '.' })
+gulp.task('package', ['compile'], () => gulp.src(['dist/**/*', 'server.js', 'iisnode.yml', 'package.json', 'npm-shrinkwrap.json', 'README.md'], { base: '.' })
     .pipe(zip('app.zip'))
-    .pipe(gulp.dest('.tmp'));
-});
+    .pipe(gulp.dest('.tmp')),
+);
 
 gulp.task('deploy', ['package'], () => {
   const app = new Application({

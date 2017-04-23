@@ -24,13 +24,15 @@ export default function field() {
       withRef: PropTypes.func,
     };
 
+    static defaultProps = {
+      withRef: false,
+    };
+
     state = {
       valid: true,
     };
 
-    getValue = () => {
-      return this._field.getValue();
-    };
+    getValue = () => this._field.getValue();
 
     setValue = (value) => {
       this.context.form.updateField(this.props.name, { value });
@@ -73,7 +75,8 @@ export default function field() {
             hideValidation: this.hideValidation,
             valid,
             invalid: !valid,
-          }} />
+          }}
+        />
       );
     }
   };

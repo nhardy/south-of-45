@@ -1,4 +1,4 @@
-// flow-typed signature: c853b47a09803bed4c1e8ee9a0e55cb9
+// flow-typed signature: 021a2a42b03135bc395190df9ecfb6e8
 // flow-typed version: <<STUB>>/react-svg-loader_v^1.1.1/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

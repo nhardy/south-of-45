@@ -1,4 +1,5 @@
 // @flow
+
 import { endGlobalLoad } from 'redux-connect/lib/store';
 import ReactGA from 'react-ga';
 

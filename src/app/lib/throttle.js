@@ -1,4 +1,5 @@
 // @flow
+
 type Throttled = ((...args: any[]) => void) & { cancel: () => void };
 
 export default function throttle(callback: (...args: any[]) => void): Throttled {

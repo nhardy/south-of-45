@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import cx from 'classnames';
 
 import FontAwesome from 'app/components/FontAwesome';
-
 import styles from './styles.styl';
 
 

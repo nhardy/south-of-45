@@ -46,7 +46,8 @@ const Html = ({ assets, component, store }) => {
         <script
           dangerouslySetInnerHTML={{
             __html: `window.__data=${JSON.stringify(store.getState())};`,
-          }} />
+          }}
+        />
         {assets.runtime.js.map(path => (
           <script key={path} type="text/javascript" src={path} async defer />
         ))}
@@ -67,9 +68,9 @@ Html.propTypes = {
       css: PropTypes.arrayOf(PropTypes.string),
       js: PropTypes.arrayOf(PropTypes.string),
     }),
-  }),
-  component: PropTypes.node,
-  store: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  }).isRequired,
+  component: PropTypes.node.isRequired,
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default Html;

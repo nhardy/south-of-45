@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { loadScript } from 'redux-scripts-manager';
 
 import config from 'app/config';
-
 import field, { fieldShape } from '../field';
 import styles from './styles.styl';
 
@@ -14,7 +13,7 @@ import styles from './styles.styl';
 export default class RecaptchaField extends Component {
   static propTypes = {
     loadScript: PropTypes.func.isRequired,
-    field: fieldShape,
+    field: fieldShape, // eslint-disable-line react/require-default-props
   };
 
   componentDidMount() {
@@ -28,9 +27,7 @@ export default class RecaptchaField extends Component {
   }
 
   // @public
-  getValue = () => {
-    return this.token;
-  };
+  getValue = () => this.token;
 
   timeout = () => {
     this.token = null;
@@ -44,10 +41,9 @@ export default class RecaptchaField extends Component {
   token = null;
 
   // @public
-  checkValidity = () => {
+  checkValidity = () =>
     // return `true`/`false` if the value is valid
-    return !!this.token;
-  };
+     !!this.token;
 
   widgetId = null;
 

@@ -12,11 +12,13 @@ export default class EmailField extends Component {
     id: PropTypes.string,
     required: PropTypes.bool.isRequired,
     placeholder: PropTypes.string,
-    field: fieldShape,
+    field: fieldShape, // eslint-disable-line react/require-default-props
   };
 
   static defaultProps = {
+    id: undefined,
     required: false,
+    placeholder: undefined,
   };
 
   onChange = () => {
@@ -32,15 +34,12 @@ export default class EmailField extends Component {
   };
 
   // @public
-  getValue = () => {
-    return this._node.value;
-  };
+  getValue = () => this._node.value;
 
   // @public
-  checkValidity = () => {
+  checkValidity = () =>
     // return `true`/`false` if the value is valid
-    return this._node.checkValidity();
-  };
+     this._node.checkValidity();
 
   render() {
     const { name, id, required, placeholder, field: { valid, invalid } } = this.props;
@@ -56,7 +55,8 @@ export default class EmailField extends Component {
         placeholder={'e.g. you@example.org' || placeholder}
         onChange={this.onChange}
         onBlur={this.onBlur}
-        onFocus={this.onFocus} />
+        onFocus={this.onFocus}
+      />
     );
   }
 }

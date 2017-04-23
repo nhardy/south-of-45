@@ -1,4 +1,4 @@
-// flow-typed signature: 172eee8e86869cee5ff3cd1b592a29a3
+// flow-typed signature: adddf851665b0fa81462b9edc45d480e
 // flow-typed version: <<STUB>>/app-module-path_v^2.0.0/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

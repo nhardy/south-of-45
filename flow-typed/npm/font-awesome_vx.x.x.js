@@ -1,4 +1,4 @@
-// flow-typed signature: d2a611ef7bef515e19d8ffbc147e47e4
+// flow-typed signature: a357734703b6b2fe10a73e1e3b358b5d
 // flow-typed version: <<STUB>>/font-awesome_v^4.6.3/flow_v0.42.0
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

@@ -5,7 +5,6 @@ import cx from 'classnames';
 import config from 'app/config';
 import throttle from 'app/lib/throttle';
 import FontAwesome from 'app/components/FontAwesome';
-
 import styles from './styles.styl';
 
 
@@ -17,6 +16,10 @@ const EVENTS = [
 export default class SiteHeader extends Component {
   static propTypes = {
     threshold: PropTypes.func,
+  };
+
+  static defaultProps = {
+    threshold: () => window.innerHeight / 3,
   };
 
   state = {
@@ -34,9 +37,8 @@ export default class SiteHeader extends Component {
   }
 
   update = throttle(() => {
-    const threshold = (this.props.threshold && this.props.threshold()) || (window.innerHeight || document.documentElement.clientHeight) / 3;
     this.setState({
-      scrolled: window.scrollY > threshold,
+      scrolled: window.scrollY > this.props.threshold(),
     });
   });
 

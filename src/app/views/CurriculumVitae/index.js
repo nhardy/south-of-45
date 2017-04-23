@@ -9,7 +9,6 @@ import DefaultLayout from 'app/layouts/Default';
 import profileImg from 'app/assets/images/profile.jpg';
 import profileImg2x from 'app/assets/images/profile-2x.jpg';
 import profileImg3x from 'app/assets/images/profile-3x.jpg';
-
 import styles from './styles.styl';
 
 
@@ -24,7 +23,7 @@ export default class CurriculumVitae extends Component {
     e.preventDefault();
     smoothScrollTo(Math.min(
       this._resume.offsetTop - document.querySelector('#siteHeader').offsetHeight,
-      document.body.scrollHeight - window.innerHeight
+      document.body.scrollHeight - window.innerHeight,
     ));
   };
 
@@ -64,7 +63,8 @@ export default class CurriculumVitae extends Component {
               <a
                 href="https://www.uts.edu.au/future-students/information-technology/about-information-technology/bit-co-operative-scholarship"
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 Bachelor of Information Technology
               </a>
               {' '}
@@ -115,7 +115,7 @@ export default class CurriculumVitae extends Component {
                 {' '}
                 on the 9Now project -Channel 9&apos;s AVOD catch up and streaming platform.
                 I worked with a variety of services that power 9Now.
-                I gathered API requirements for 9Now's API, working with internal teams.
+                I gathered API requirements for 9Now&apos;s API, working with internal teams.
                 I developed portions of the APIs that power 9Now Website and Apps and worked on the 9Now website,
                 {' '}
                 developing features through the agile process.

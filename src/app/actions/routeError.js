@@ -1,4 +1,5 @@
 // @flow
+
 import type { ReduxAction } from 'app/flowTypes';
 
 export const SET_ROUTE_ERROR = 'SET_ROUTE_ERROR';

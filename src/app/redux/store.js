@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import fetchMiddleware from 'app/middleware/fetch';
 import nprogressMiddleware from 'app/middleware/nprogress';
 import gaMiddleware from 'app/middleware/ga';
-
 import reducer from '../reducers';
 
 
@@ -18,7 +17,7 @@ export default function create(initialState) {
     ),
     __CLIENT__ && __DEVELOPMENT__ && window.devToolsExtension
       ? window.devToolsExtension()
-      : f => f
+      : f => f,
   ));
 
   if (__DEVELOPMENT__) {

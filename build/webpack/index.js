@@ -70,7 +70,7 @@ gulp.task('webpack-server-dev', (done) => {
   let alreadyRunning = false;
 
   const compiler = webpack(
-    webpackFactory({ production: false, client: false })
+    webpackFactory({ production: false, client: false }),
   );
 
   compiler.watch({

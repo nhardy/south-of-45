@@ -42,7 +42,8 @@ const UnsupportedMessage = () => (
             </p>
           </div>
         </div>`.replace(/\s{2,}/g, ''),
-      }} />
+      }}
+    />
   </div>
 );
 
