@@ -45,6 +45,7 @@ gulp.task('webpack-client-dev', (done) => {
     proxy: {
       '**': `http://localhost:${config.port + 1}/`,
     },
+    disableHostCheck: true,
     staticOptions: {},
     quiet: false,
     noInfo: false,

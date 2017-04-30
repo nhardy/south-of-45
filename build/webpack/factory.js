@@ -32,6 +32,7 @@ const babelrc = (() => {
 })();
 
 const postcssOptions = {
+  ident: 'postcss',
   plugins() {
     return [
       autoprefixer({ browsers: ['last 2 versions'] }),

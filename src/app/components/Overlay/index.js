@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import cx from 'classnames';
 
 import styles from './styles.styl';
@@ -9,8 +9,8 @@ import styles from './styles.styl';
 const dismissEvents = ['click', 'touchstart'];
 
 export default class SiteHeader extends Component {
-  static propTypes = {
-    className: PropTypes.string,
+  props: {
+    className: string,
   };
 
   static defaultProps = {

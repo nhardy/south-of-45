@@ -1,6 +1,6 @@
 // @flow
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import styles from './styles.styl';
@@ -17,11 +17,6 @@ const Icon = ({ name, className, ...props }: { name: string, className?: string 
   return Svg && (
     <Svg className={cx(styles.root, className)} {...props} />
   );
-};
-
-Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  className: PropTypes.string,
 };
 
 export default Icon;
