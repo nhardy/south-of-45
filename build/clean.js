@@ -1,5 +1,6 @@
-import gulp from 'gulp';
 import del from 'del';
 
 
-gulp.task('clean', () => del(['dist/**/*', '.tmp']));
+export default function clean() {
+  return del(['dist/**/*', '.tmp']);
+}

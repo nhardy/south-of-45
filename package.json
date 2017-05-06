@@ -4,17 +4,16 @@
   "description": "An example web scaffold",
   "main": "server.js",
   "scripts": {
-    "shrink": "make shrinkwrap",
-    "cover": "NODE_ENV=test nyc --reporter=lcov --reporter=text npm test -- --reporter min",
+    "cover": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm test -- --reporter min",
     "lint": "eslint ./src ./test ./build",
     "lint:fix": "eslint --fix ./src ./test ./build",
     "flow": "flow",
     "flowtypes": "flow-typed install --overwrite",
-    "dev": "gulp dev",
-    "prod": "gulp prod",
+    "dev": "node ./build/index.js dev",
+    "prod": "node ./build/index.js prod",
     "start": "node server.js",
     "test": "mocha",
-    "deploy": "gulp deploy"
+    "deploy": "node ./build/index.js deploy"
   },
   "repository": {
     "type": "git",
@@ -50,6 +49,7 @@
   },
   "devDependencies": {
     "app-module-path": "^2.2.0",
+    "archiver": "^1.3.0",
     "autoprefixer": "^6.7.7",
     "azur": "0.0.1",
     "babel-cli": "^6.24.1",
@@ -68,6 +68,7 @@
     "buffer-loader": "0.0.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
+    "cross-env": "^4.0.0",
     "css-loader": "^0.28.0",
     "del": "^2.2.2",
     "enzyme": "^2.8.2",
@@ -82,9 +83,6 @@
     "file-loader": "^0.11.1",
     "flow-bin": "^0.45.0",
     "flow-typed": "^2.1.2",
-    "gulp": "^3.9.1",
-    "gulp-util": "^3.0.8",
-    "gulp-zip": "^4.0.0",
     "jsdom": "^10.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^3.3.0",

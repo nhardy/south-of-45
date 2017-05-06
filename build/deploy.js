@@ -1,20 +1,36 @@
+import fs from 'fs';
 import path from 'path';
-import gulp from 'gulp';
-import runSequence from 'run-sequence';
-import zip from 'gulp-zip';
+import Archiver from 'archiver';
 import Application from 'azur';
 
 
-gulp.task('compile', (done) => {
-  runSequence('clean', 'webpack-prod', done);
-});
+export function zip() {
+  return new Promise((resolve) => {
+    const output = fs.createReadStream(path.join(__dirname, '..', '.tmp', 'app.zip'));
+    const archive = new Archiver('zip', {
+      zlib: { level: 9 },
+    });
+    output.on('close', () => resolve());
+    archive.on('error', (error) => {
+      throw error;
+    });
+    archive.pipe(output);
+    [
+      'iisnode.yml',
+      'LICENSE',
+      'npm-shrinkwrap.json',
+      'package.json',
+      'README.md',
+      'server.js',
+    ].forEach((file) => {
+      archive.file(path.join(__dirname, '..', file), { name: file });
+    });
+    archive.glob('../dist/**/*');
+    archive.finalize();
+  });
+}
 
-gulp.task('package', ['compile'], () => gulp.src(['dist/**/*', 'server.js', 'iisnode.yml', 'package.json', 'npm-shrinkwrap.json', 'README.md'], { base: '.' })
-    .pipe(zip('app.zip'))
-    .pipe(gulp.dest('.tmp')),
-);
-
-gulp.task('deploy', ['package'], () => {
+export function deploy() {
   const app = new Application({
     appName: process.env.AZURE_APP_NAME,
     username: process.env.AZURE_GIT_USERNAME,
@@ -26,4 +42,4 @@ gulp.task('deploy', ['package'], () => {
   return app.deploy({
     archiveFilePath: path.resolve(__dirname, '..', '.tmp/app.zip'),
   });
-});
+}

@@ -1,22 +1,25 @@
-import gulp from 'gulp';
+import path from 'path';
 import nodemon from 'nodemon';
 
 
-gulp.task('serve', (done) => {
-  let alreadyRunning = false;
-  const monitor = nodemon({
-    script: 'server.js',
-  }).on('start', () => {
-    if (!alreadyRunning) {
-      done();
-      alreadyRunning = true;
-    }
-  });
+export default function serve() {
+  return new Promise((resolve) => {
+    let running = false;
 
-  // https://github.com/JacksonGariety/gulp-nodemon/issues/77
-  process.once('SIGINT', () => {
-    monitor.once('exit', () => {
-      process.exit();
+    const monitor = nodemon({
+      script: path.join(__dirname, '..', 'server.js'),
+    })
+      .on('start', () => {
+        if (!running) {
+          running = true;
+          resolve();
+        }
+      });
+
+    process.once('SIGINT', () => {
+      monitor.once('exit', () => {
+        process.exit();
+      });
     });
   });
-});
+}

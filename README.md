@@ -10,10 +10,25 @@ This project is a universal JavaScript React application. [Node.js](https://node
 
 ## Development
 
-Make sure you're using Mac/Linux. Many of the npm dependencies for this project don't play nicely with Windows. I will be looking into whether Windows compatibility is an option in the near future.
+### Unix
+
+Development on Mac/Linux is advised as some dependencies are difficult to work with on Windows.
 
 Make sure you have [Node Version Manager](https://github.com/creationix/nvm) (nvm) installed.
-Run `nvm install 6` to install the latest version of Nodejs.
+
+Run `nvm install 7` to install the latest version of Nodejs. You may want to also set this as your default Node.js version with `nvm alias default 7`.
+
+### Windows
+
+Download and install [Python 2](https://www.python.org/) (required by `node-gyp`).
+
+Download and install the [Microsoft Visual C++ Redistributable](https://go.microsoft.com/fwlink/?LinkId=746572) (required by `node-gyp` on Windows).
+
+Download and install the Windows SDK for your version of Windows ([Windows 10](https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk)).
+
+Donwload and install the latest version of [Node.js](https://nodejs.org).
+
+### JavaScript Dependencies
 
 Make sure you `npm install` or `yarn install` to download and install this project's dependencies.
 
