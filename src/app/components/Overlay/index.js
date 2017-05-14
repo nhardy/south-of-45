@@ -6,13 +6,13 @@ import cx from 'classnames';
 import styles from './styles.styl';
 
 
+type Props = {
+  className?: string,
+};
+
 const dismissEvents = ['click', 'touchstart'];
 
-export default class SiteHeader extends Component {
-  props: {
-    className: string,
-  };
-
+export default class SiteHeader extends Component<Props, Props, void> {
   static defaultProps = {
     className: undefined,
   };
@@ -41,8 +41,11 @@ export default class SiteHeader extends Component {
   };
 
   render() {
+    // FIXME: Remove when better flow recognition in eslint-plugin-react is merged
+    // @see: https://github.com/yannickcr/eslint-plugin-react/issues/1138
+    /* eslint-disable react/prop-types */
     return (
-      <div className={cx(styles.root, this.props.className)} ref={ref => (this._node = ref)} />
+      <div className={cx(styles.root, this.props.className)} ref={(ref: HTMLDivElement) => (this._node = ref)} />
     );
   }
 }

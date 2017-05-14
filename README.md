@@ -20,11 +20,13 @@ Run `nvm install 7` to install the latest version of Nodejs. You may want to als
 
 ### Windows
 
+Installation on Windows is a bit tricky and may require some setup currently not described here. The below is an incomplete set of requirements:
+
 Download and install [Python 2](https://www.python.org/) (required by `node-gyp`).
 
-Download and install the [Microsoft Visual C++ Redistributable](https://go.microsoft.com/fwlink/?LinkId=746572) (required by `node-gyp` on Windows).
+Download and install [Microsoft Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs) (required by `node-gyp` on Windows).
 
-Download and install the Windows SDK for your version of Windows ([Windows 10](https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk)).
+See [Nodegit](http://www.nodegit.org/guides/install/from-source/) for more instructions.
 
 Donwload and install the latest version of [Node.js](https://nodejs.org).
 

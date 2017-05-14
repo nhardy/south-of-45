@@ -105,7 +105,8 @@
     "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.5",
-    "webpack-node-externals": "^1.5.4"
+    "webpack-node-externals": "^1.5.4",
+    "yargs": "^8.0.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
@@ -137,7 +138,7 @@
     "ua-parser-js": "^0.7.12"
   },
   "engines": {
-    "node": "^6.10.1",
-    "npm": "^3.10.10"
+    "node": "^7.10.0",
+    "npm": "^4.2.0"
   }
 }

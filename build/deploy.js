@@ -6,7 +6,7 @@ import Application from 'azur';
 
 export function zip() {
   return new Promise((resolve) => {
-    const output = fs.createReadStream(path.join(__dirname, '..', '.tmp', 'app.zip'));
+    const output = fs.createWriteStream(path.join(__dirname, '..', '.tmp', 'app.zip'));
     const archive = new Archiver('zip', {
       zlib: { level: 9 },
     });
@@ -40,6 +40,6 @@ export function deploy() {
   });
 
   return app.deploy({
-    archiveFilePath: path.resolve(__dirname, '..', '.tmp/app.zip'),
+    archiveFilePath: path.resolve(__dirname, '..', '.tmp', 'app.zip'),
   });
 }
