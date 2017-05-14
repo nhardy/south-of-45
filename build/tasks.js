@@ -36,6 +36,7 @@ yargs.command('*', 'Informational message', () => {}, () => {
       .catch(noop);
   })
   .command('prod', 'Builds the application in production mode and starts the server', () => {}, () => {
+    process.env.HTTPS_ORIGIN = true;
     Promise.resolve()
       .then(runTask('clean', clean))
       .then(runTask('webpack-prod', webpackProd))

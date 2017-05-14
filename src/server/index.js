@@ -1,4 +1,5 @@
 import Express from 'express';
+import http from 'http';
 
 import config from 'app/config';
 import apiServer from 'server/api';
@@ -55,7 +56,22 @@ app.use('/api', apiServer);
 app.use(mainMiddleware);
 app.use(errorMiddleware);
 
+let server;
+if (process.env.HTTPS_ORIGIN) {
+  // For our local prod emulation mode, we use httpolyglot to run HTTP/HTTPS on the same port
+
+  // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+  const cert = require('webpack-dev-server/ssl/server.pem');
+  // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+  server = require('httpolyglot').createServer({
+    key: cert,
+    cert,
+  }, app);
+} else {
+  server = http.createServer(app);
+}
+
 let port = config.port;
 if (__DEVELOPMENT__) port += 1;
 
-app.listen(port);
+server.listen(port);

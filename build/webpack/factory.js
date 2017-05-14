@@ -156,7 +156,11 @@ export default function webpackFactory({ production = false, client = false, wri
     target: client ? 'web' : 'node',
 
     externals: [!client && nodeExternals({
-      whitelist: [/\.css$/, /lodash-es/],
+      whitelist: [
+        /\.css$/,
+        /lodash-es/,
+        'webpack-dev-server/ssl/server.pem',
+      ],
     })].filter(identity),
 
     devtool: !production || !client
@@ -254,6 +258,14 @@ export default function webpackFactory({ production = false, client = false, wri
           use: [
             {
               loader: 'text-loader',
+            },
+          ],
+        },
+        {
+          test: /\.pem$/,
+          use: [
+            {
+              loader: 'raw-loader',
             },
           ],
         },

@@ -1,10 +1,16 @@
 import nodemon from 'nodemon';
 import webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
+import httpolyglot from 'httpolyglot';
+import pq from 'proxyquire';
 
 import config from '../../config';
 import webpackFactory from './factory';
 
+
+pq.noCallThru();
+const WebpackDevServer = pq('webpack-dev-server', {
+  spdy: httpolyglot, // Swap out 'spdy' with 'httpolyglot' for HTTP/HTTPS on same PORT
+});
 
 export function webpackProd() {
   return new Promise((resolve) => {
@@ -55,6 +61,7 @@ export function webpackClientDev() {
         aggregateTimeout: 300,
         poll: true,
       },
+      https: true,
       publicPath: '/static/',
       stats: {
         colors: true,
