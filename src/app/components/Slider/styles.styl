@@ -1,0 +1,135 @@
+@import '~app/assets/stylus'
+
+
+.root
+  max-width: 900px
+  margin: 0 auto
+  text-align: center
+
+.wrapper
+  position: relative
+  display: inline-block
+  max-width: 100%
+  text-align: left
+
+.inner
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  width: 100%
+  margin: 0 auto
+  overflow: hidden
+
+.spacer
+  position: relative
+  display: block
+  max-width: 100%
+  max-height: 75vh
+  z-index: -1
+
+.arrow
+  composes: button from 'app/assets/stylus/common.styl'
+  position: absolute
+  top: 0
+  bottom: 0
+  z-index: 3
+  height: 100%
+  width: 5%
+  background: rgba($sliderColor, 0.75)
+  color: $backgroundColor
+  text-align: center
+  cursor: pointer
+  opacity: 0
+  transition: color, 250ms ease-in-out, opacity 250ms ease-in-out
+
+  &:hover
+    color: blend(rgba($themeColor, 0.75), $backgroundColor)
+
+  .root:hover &
+    opacity: 1
+
+.iconWrapper
+  position: absolute
+  top: 50%
+  width: 100%
+  height: 0
+  padding-bottom: 100%
+  transform: translateY(-50%)
+
+.icon
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+  +from($med)
+    padding: 4px
+
+.previous
+  composes: arrow
+  left: 0
+
+.next
+  composes: arrow
+  right: 0
+
+.pagination
+  position: absolute
+  bottom: 0
+  z-index: 1
+  width: 100%
+  text-align: center
+  pointer-events: none
+
+.dot
+  composes: button from 'app/assets/stylus/common.styl'
+  height: 16px
+  width: @height
+  border-radius: 50%
+  margin-bottom: (@height / 2)
+  background: rgba($sliderDotsColor, 0.25)
+  pointer-events: initial
+
+  &:not(:first-child)
+    margin-left: (@width / 4)
+
+  &:not(:last-child)
+    margin-right: (@width / 4)
+
+.current
+  background: rgba($sliderDotsColor, 0.5)
+
+.slider
+  position: absolute
+  top: 0
+  bottom: 0
+  z-index: 1
+  display: flex
+  width: 90%
+  margin-left: 5%
+  overflow: visible
+  transition-property: transform
+  transition-timing-function: ease-in-out
+
+.slide
+  position: relative
+  flex: 0 0 auto
+  display: inline-block
+  width: 100%
+  height: 100%
+
+.fader
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 2
+  height: 100%
+  width: 100%
+  background: linear-gradient(to right, $backgroundColor, transparent 5%, transparent 95%, $backgroundColor)
+  pointer-events: none

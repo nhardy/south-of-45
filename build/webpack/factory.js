@@ -44,7 +44,7 @@ const stylusLoaders = ({ production, client }) => {
   const options = {
     importLoaders: 2,
     modules: true,
-    localIdentName: '[path][name]--[local]--[hash:base64:5]',
+    localIdentName: production ? '[hash:base64:8]' : '[path][name]--[local]--[hash:base64:5]',
   };
   if (client) {
     return production

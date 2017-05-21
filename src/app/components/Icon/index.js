@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import styles from './styles.styl';
 
-const Icon = ({ name, className, ...props }: { name: string, className?: string }) => {
+const Icon = ({ name, className, image = false, ...props }: { name: string, className?: string, image?: boolean }) => {
   let Svg;
   try {
     // eslint-disable-next-line global-require, import/no-dynamic-require
@@ -15,7 +15,7 @@ const Icon = ({ name, className, ...props }: { name: string, className?: string 
   }
 
   return Svg && (
-    <Svg className={cx(styles.root, className)} {...props} />
+    <Svg className={cx(styles.root, { [styles.icon]: !image }, className)} {...props} />
   );
 };
 

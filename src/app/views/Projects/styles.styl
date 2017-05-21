@@ -16,6 +16,16 @@
   font-size: 32px
   margin-bottom: 8px
 
+.repos
+  margin-bottom: 16px
+
 .repo
   &:not(:last-child)
     margin-bottom: 8px
+
+.slide
+  composes: fit from 'app/assets/stylus/common.styl'
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)

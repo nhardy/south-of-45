@@ -34,7 +34,7 @@ const GitHubRepo = ({ repo }) => {
       </div>
       <div className={styles.meta}>
         <div className={styles.language}>
-          <Icon className={styles.icon} name={language.toLowerCase()} />
+          <Icon className={styles.icon} name={language.toLowerCase()} image />
           <span>{language}</span>
         </div>
         <a className={styles.stargazers} href={`${url}/stargazers`} target="_blank" rel="noopener noreferrer">

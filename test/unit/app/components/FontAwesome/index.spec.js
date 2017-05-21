@@ -13,7 +13,7 @@ describe('FontAwesome Component', () => {
   });
 
   it('should render an <i /> tag with correct classes', () => {
-    expect(wrapper).to.contain(<i className={`fa ${className}`} />);
+    expect(wrapper).to.contain(<i className={`fa ${className}`} aria-hidden="true" />);
   });
 
 });

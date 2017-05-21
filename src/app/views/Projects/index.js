@@ -11,7 +11,13 @@ import { getReposByUsername } from 'app/actions/github';
 import { makeAbsoluteUrl, makeTitle } from 'app/lib/social';
 import DefaultLayout from 'app/layouts/Default';
 import GitHubRepo from 'app/components/GitHub/Repo';
+import Breakout from 'app/components/Breakout';
+import Slider from 'app/components/Slider';
 import developerProfileImg from 'app/assets/images/developer-profile.jpg';
+import websiteImg from 'app/assets/images/portfolio/website.png';
+import utsHelpsLoginImg from 'app/assets/images/portfolio/uts-helps-login.png';
+import utsHelpsSessionImg from 'app/assets/images/portfolio/uts-helps-session.png';
+import stickiesLoginImg from 'app/assets/images/portfolio/stickies-login.png';
 import styles from './styles.styl';
 
 
@@ -79,13 +85,31 @@ export default class ProjectsView extends Component { // eslint-disable-line rea
         <p className={styles.text}>
           Below are a list of projects that I have created and published to GitHub;
         </p>
-        <ul>
+        <ul className={styles.repos}>
           {repos.map(repo => (
             <li key={repo.id} className={styles.repo}>
               <GitHubRepo key={repo.id} repo={repo} />
             </li>
           ))}
         </ul>
+        <h2 className={styles.subheading}>Snapshot Portfolio</h2>
+        <Breakout>
+          <Slider autoplay>
+            <img className={styles.slide} src={websiteImg} alt="This website" />
+            <img className={styles.slide} src={utsHelpsLoginImg} alt="UTS: HELPS Booking System - Login" />
+            <img className={styles.slide} src={utsHelpsSessionImg} alt="UTS: HELPS Booking System - Session Information" />
+            <img className={styles.slide} src={stickiesLoginImg} alt="Stickies - Login" />
+          </Slider>
+        </Breakout>
+        <p className={styles.text}>
+          The above slider is a <abbr title="Work In Progress">WIP</abbr> that has been created for use in a University assignment.
+          {' '}
+          Its design is not yet complete, and will be improved for the purposes of this site at a later date.
+          {' '}
+          The images feature a number of different responsive design website projects that I have worked on,
+          {' '}
+          including a number of University projects.
+        </p>
       </DefaultLayout>
     );
   }
