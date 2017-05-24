@@ -1,0 +1,79 @@
+@import '~app/assets/stylus'
+
+
+.root
+  position: relative
+  overflow: hidden
+
+.controls
+  display: flex
+  justify-content: space-between
+  margin-bottom: 16px
+
+.control
+  composes: button from 'app/assets/stylus/common.styl'
+  position: relative
+  font-size: 16px
+  line-height: 1.5
+  color: $themeColor
+
+  &::before
+  &::after
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 2em
+
+  &:disabled
+    color: $borderColor
+    cursor: not-allowed
+
+.back
+  composes: control
+  padding-left: 1em
+
+  &::before
+    left: 0
+    content: '‹'
+
+.forward
+  composes: control
+  padding-right: 1em
+
+  &::after
+    right: 0
+    content: '›'
+
+.slider
+  display: flex
+  margin-bottom: 16px
+  overflow: visible
+  transition: transform 500ms ease-in-out
+
+.stage
+  width: 100%
+  flex: 0 0 auto
+
+.pagination
+  text-align: center
+
+.dot
+  composes: button from 'app/assets/stylus/common.styl'
+  height: 16px
+  width: @height
+  border-radius: 50%
+  margin-bottom: (@height / 2)
+  background: rgba($sliderDotsColor, 0.25)
+  pointer-events: initial
+
+  &:not(:first-child)
+    margin-left: (@width / 4)
+
+  &:not(:last-child)
+    margin-right: (@width / 4)
+
+  &:disabled
+    cursor: not-allowed
+
+.current
+  background: rgba($sliderDotsColor, 0.5)

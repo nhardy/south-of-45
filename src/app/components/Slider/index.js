@@ -146,7 +146,7 @@ export default class Slider extends Component<DefaultProps, Props, State> {
             <div className={styles.fader} />
             <div className={styles.pagination}>
               {Children.toArray(children).map((slide, index) => (
-                <button key={slide.key} className={cx(styles.dot, { [styles.current]: index === this.state.index })} onClick={() => this.goto(index)} />
+                <button key={slide.key} type="button" className={cx(styles.dot, { [styles.current]: index === this.state.index })} onClick={() => this.goto(index)} />
               ))}
             </div>
           </div>
