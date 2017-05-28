@@ -1,6 +1,11 @@
+import path from 'path';
 import del from 'del';
 
 
 export default function clean() {
-  return del(['dist/**/*', '.tmp/*', '!.tmp/.gitignore']);
+  return del([
+    path.join('dist', '**', '*'),
+    path.join('.tmp', '*'),
+    `!${path.join('.tmp', '.gitignore')}`,
+  ]);
 }
