@@ -88,6 +88,7 @@
     "jsdom": "^10.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^3.3.0",
+    "mocha-junit-reporter": "^1.13.0",
     "node-hook": "^0.4.0",
     "nodemon": "^1.11.0",
     "nyc": "^10.3.0",

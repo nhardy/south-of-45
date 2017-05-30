@@ -10,10 +10,17 @@ dependencies:
     - npm install --no-progress --quiet
 test:
   pre:
+    # - mkdir -p $CIRCLE_TEST_REPORTS/reports
+    # - npm run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
     - npm run lint
     - npm run flow
+    - mkdir -p $CIRCLE_ARTIFACTS/coverage
   override:
-    - npm test
+    - nyc --report-dir $CIRCLE_ARTIFACTS/coverage --reporter lcov --reporter text npm test -- --reporter mocha-junit-reporter:
+        environment:
+          NODE_ENV: test
+          MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
+
 deployment:
   production:
     branch: master

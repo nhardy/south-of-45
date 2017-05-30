@@ -5,6 +5,7 @@ import cx from 'classnames';
 
 import styles from './styles.styl';
 
+
 const Icon = ({ name, className, image = false, ...props }: { name: string, className?: string, image?: boolean }) => {
   let Svg;
   try {
