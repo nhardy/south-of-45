@@ -8,7 +8,7 @@ import { debounce } from 'lodash-es';
 
 import { isScrolledIntoView } from 'app/lib/dom';
 import Icon from 'app/components/Icon';
-import spacerImg from 'app/assets/images/spacer-16x10.png';
+import Spacer from 'app/components/Spacer';
 import styles from './styles.styl';
 
 
@@ -150,7 +150,7 @@ export default class Slider extends Component<DefaultProps, Props, State> {
               ))}
             </div>
           </div>
-          <img className={styles.spacer} src={spacerImg} alt="" role="presentation" />
+          <Spacer className={styles.spacer} ratio={16 / 10} />
         </div>
       </div>
     );

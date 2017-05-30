@@ -13,7 +13,6 @@ import DefaultLayout from 'app/layouts/Default';
 import GitHubRepo from 'app/components/GitHub/Repo';
 import Breakout from 'app/components/Breakout';
 import Slider from 'app/components/Slider';
-import SlidingStages from 'app/components/SlidingStages';
 import developerProfileImg from 'app/assets/images/developer-profile.jpg';
 import websiteImg from 'app/assets/images/portfolio/website.png';
 import utsHelpsLoginImg from 'app/assets/images/portfolio/uts-helps-login.png';
@@ -70,23 +69,6 @@ export default class ProjectsView extends Component { // eslint-disable-line rea
           <meta name="twitter:description" content={DESCRIPTION} />
           <meta name="twitter:image" content={makeAbsoluteUrl(developerProfileImg)} />
         </Helmet>
-        <SlidingStages>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in nunc nibh. Nullam bibendum augue vel maximus porta. In sodales cursus mi, sed posuere ex ullamcorper feugiat. Vestibulum malesuada eu augue id bibendum. Nam blandit at dolor laoreet porta. Aliquam fringilla risus enim, sit amet volutpat risus consequat a. Duis vel justo ut turpis bibendum mattis non placerat nisi. Sed enim elit, venenatis blandit commodo ac, dapibus quis felis. Donec sit amet tristique metus, sit amet sodales orci. Sed varius augue in lacus mollis, gravida tincidunt velit mattis. Nulla consequat auctor porttitor. Suspendisse potenti. Vestibulum commodo vulputate purus, et consectetur ex malesuada in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            </p>
-          </div>
-          <div>
-            <p>
-              Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum lorem mi, rutrum nec venenatis a, gravida id turpis. Morbi sollicitudin efficitur ipsum semper accumsan. Curabitur varius neque sed suscipit posuere. Nullam sed elit at risus hendrerit tincidunt nec ut ex. Donec eget ante tincidunt diam consectetur cursus. Donec elementum risus nisi, non porta leo vehicula eget. Pellentesque efficitur faucibus condimentum. Nullam et dignissim nulla. Praesent eget orci orci. Etiam suscipit pulvinar lectus, vitae vestibulum massa dignissim a.
-            </p>
-          </div>
-          <div>
-            <p>
-              Morbi aliquam finibus velit, sed porta est suscipit a. Nam sit amet commodo ex. Donec mollis varius rutrum. Fusce quis nibh at leo dictum posuere et in erat. Morbi ac mi pharetra, sollicitudin est eget, lobortis nibh. Curabitur lacinia mattis magna. Nulla eu diam rutrum, mollis leo non, porta lorem. Donec semper, quam quis bibendum laoreet, arcu enim maximus lorem, a elementum purus diam nec est. Duis accumsan dolor odio, in congue leo viverra non. Maecenas egestas auctor est, quis pulvinar libero facilisis sed. Maecenas eget malesuada mauris, commodo rhoncus orci. Donec suscipit vehicula felis, vitae aliquet purus.
-            </p>
-          </div>
-        </SlidingStages>
         <h1 className={styles.heading}>Projects</h1>
         <p className={styles.text}>
           I have worked as professionally as part of a team on a variety of web applications and services in use by the general public.

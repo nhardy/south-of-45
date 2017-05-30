@@ -5,12 +5,17 @@ import React, { Children, Component, cloneElement } from 'react';
 import type { Element } from 'react';
 import cx from 'classnames';
 
+import timeout from 'app/lib/timeout';
+import FontAwesome from 'app/components/FontAwesome';
 import styles from './styles.styl';
 
 
-type DefaultProps = {};
+type DefaultProps = {
+  duration: 500,
+};
 
 type Props = {
+  duration: number,
   children: Element<*>,
 };
 
@@ -18,17 +23,19 @@ type State = {
   index: number,
   length: number,
   completed: number,
+  loading: boolean;
 };
 
 export default class SlidingStages extends Component<DefaultProps, Props, State> {
   static defaultProps = {
-
+    duration: 500,
   };
 
   state = {
     index: 0,
     length: 0,
     completed: 0,
+    loading: false,
   };
 
   componentWillMount() {
@@ -39,29 +46,46 @@ export default class SlidingStages extends Component<DefaultProps, Props, State>
     this.setState({ length: Children.count(nextProps.children) });
   }
 
-  back = () => {
+  back = async () => {
     this.setState({ index: (this.state.length + this.state.index - 1) % this.state.length });
+
+    await timeout(this.props.duration);
   };
 
-  forward = () => {
+  forward = async () => {
     this.setState({ index: (this.state.index + 1) % this.state.length });
+
+    await timeout(this.props.duration);
   };
 
-  complete = (index: number) => {
-    this.setState({ completed: Math.max(this.state.completed, index) });
+  complete = async (index: number, wait?: Promise<void>) => {
+    this.setState({ loading: true });
+
+    await Promise.all([
+      Promise.resolve(wait),
+      timeout(this.props.duration),
+    ]);
+
+    this.setState({
+      completed: Math.max(this.state.completed, index + 1),
+      loading: false,
+    });
     this.forward();
+    await timeout(this.props.duration);
   };
 
-  goto = (index: number) => {
+  goto = async (index: number) => {
     this.setState({ index });
+
+    await timeout(this.props.duration);
   };
 
   render() {
-    const { children } = this.props;
-    const { index, length, completed } = this.state;
+    const { duration, children } = this.props;
+    const { index, length, completed, loading } = this.state;
     return (
       <div className={styles.root}>
-        <div className={styles.controls}>
+        <div className={cx(styles.controls, styles.blur, { [styles.blurred]: loading })}>
           <button className={styles.back} onClick={this.back} disabled={index === 0}>
             Back
           </button>
@@ -69,14 +93,20 @@ export default class SlidingStages extends Component<DefaultProps, Props, State>
             Forward
           </button>
         </div>
-        <div className={styles.slider} style={{ transform: `translateX(${index * -100}%)` }}>
+        <div
+          className={cx(styles.slider, styles.blur, { [styles.blurred]: loading })}
+          style={{
+            transform: `translateX(${index * -100}%)`,
+            transition: `transform ${duration}ms ease-in-out, filter 250ms ease-in-out`,
+          }}
+        >
           {Children.toArray(children).map((stage, i) => (
             <div key={stage.key} className={styles.stage}>
-              {cloneElement(stage, { complete: () => this.complete(i) })}
+              {cloneElement(stage, { complete: (wait?: Promise<void>) => this.complete(i, wait) })}
             </div>
           ))}
         </div>
-        <div className={styles.pagination}>
+        <div className={cx(styles.pagination, styles.blur, { [styles.blurred]: loading })}>
           {Children.toArray(children).map((stage, i) => (
             <button
               key={stage.key}
@@ -86,6 +116,9 @@ export default class SlidingStages extends Component<DefaultProps, Props, State>
               disabled={i > completed}
             />
           ))}
+        </div>
+        <div className={cx(styles.loader, { [styles.loading]: loading })}>
+          <FontAwesome className={cx('fa-cog', 'fa-spin', { [styles.hidden]: !loading })} />
         </div>
       </div>
     );

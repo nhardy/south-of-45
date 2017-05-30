@@ -48,7 +48,6 @@
   display: flex
   margin-bottom: 16px
   overflow: visible
-  transition: transform 500ms ease-in-out
 
 .stage
   width: 100%
@@ -77,3 +76,33 @@
 
 .current
   background: rgba($sliderDotsColor, 0.5)
+
+.loader
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  display: flex
+  height: 100%
+  width: 100%
+  justify-content: center
+  align-items: center
+  background: transparent
+  font-size: 100px
+  transition: background 250ms ease-in-out
+  pointer-events: none
+
+.loading
+  background: rgba($black, 0.35)
+  pointer-events: initial
+
+.hidden
+  visibility: hidden
+
+.blur
+  filter: none
+  transition: filter 250ms ease-in-out
+
+.blurred
+  filter: blur(3px)
