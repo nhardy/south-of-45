@@ -16,7 +16,7 @@ test:
     - npm run flow
     - mkdir -p $CIRCLE_ARTIFACTS/coverage
   override:
-    - nyc --report-dir $CIRCLE_ARTIFACTS/coverage --reporter lcov --reporter text npm test -- --reporter mocha-junit-reporter:
+    - ./node_modules/.bin/nyc --report-dir $CIRCLE_ARTIFACTS/coverage --reporter lcov --reporter text npm test -- --reporter mocha-junit-reporter:
         environment:
           NODE_ENV: test
           MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
