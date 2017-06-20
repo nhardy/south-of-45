@@ -176,6 +176,12 @@ export default function webpackFactory({ production = false, client = false, wri
           ],
           use: [
             !production && {
+              loader: 'cache-loader',
+            },
+            {
+              loader: 'thread-loader',
+            },
+            !production && {
               loader: 'react-hot-loader/webpack',
             },
             {
@@ -290,6 +296,7 @@ export default function webpackFactory({ production = false, client = false, wri
         fetch: 'isomorphic-fetch',
       }),
       new NoEmitOnErrorsPlugin(),
+      new optimize.ModuleConcatenationPlugin(),
       !production && new HotModuleReplacementPlugin(),
       !production && new NamedModulesPlugin(),
       client && new optimize.CommonsChunkPlugin({
@@ -300,9 +307,8 @@ export default function webpackFactory({ production = false, client = false, wri
       client && new optimize.CommonsChunkPlugin({
         name: 'vendor',
         chunks: ['bundle'],
-        minChunks(module) { // eslint-disable-line no-unused-vars
-          return false;
-          // return module.context && module.context.includes('react');
+        minChunks(module) {
+          return module.context && module.context.includes('node_modules');
         },
       }),
       client && production && new ExtractTextPlugin({

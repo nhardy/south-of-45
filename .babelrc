@@ -15,7 +15,16 @@
         "method": "coroutine"
       }
     ],
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    [
+      "transform-runtime",
+      {
+        "helpers": true,
+        "polyfill": false,
+        "regenerator": false,
+        "moduleName": "babel-runtime"
+      }
+    ]
   ],
   "env": {
     "test": {

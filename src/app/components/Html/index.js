@@ -50,13 +50,13 @@ const Html = ({ assets, component, store }) => {
           }}
         />
         {assets.runtime.js.map(path => (
-          <script key={path} type="text/javascript" src={path} async defer />
+          <script key={path} type="text/javascript" src={path} defer />
         ))}
         {assets.vendor.js.map(path => (
-          <script key={path} type="text/javascript" src={path} async defer />
+          <script key={path} type="text/javascript" src={path} defer />
         ))}
         {assets.bundle.js.map(path => (
-          <script key={path} type="text/javascript" src={path} async defer />
+          <script key={path} type="text/javascript" src={path} defer />
         ))}
       </body>
     </html>
