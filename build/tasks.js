@@ -43,6 +43,13 @@ yargs.command('*', 'Informational message', () => {}, () => {
       .then(runTask('serve', serve))
       .catch(noop);
   })
+  .command('package', 'Builds the application to a zip', () => {}, () => {
+    Promise.resolve()
+      .then(runTask('clean', clean))
+      .then(runTask('webpack-prod', webpackProd))
+      .then(runTask('zip', zip))
+      .catch(noop);
+  })
   .command('deploy', 'Builds and deploys the application to Azure App Service', () => {}, () => {
     Promise.resolve()
       .then(runTask('clean', clean))
