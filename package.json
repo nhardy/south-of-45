@@ -13,6 +13,7 @@
     "prod": "node ./build/index.js prod",
     "start": "node server.js",
     "test": "mocha",
+    "package": "node ./build/index.js package",
     "deploy": "node ./build/index.js deploy"
   },
   "repository": {
@@ -109,7 +110,7 @@
     "thread-loader": "^1.0.3",
     "url-loader": "^0.5.8",
     "webpack": "^3.1.0",
-    "webpack-dev-server": "^2.4.5",
+    "webpack-dev-server": "~2.4.5",
     "webpack-node-externals": "^1.5.4",
     "yargs": "^8.0.1"
   },
