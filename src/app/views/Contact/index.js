@@ -102,7 +102,7 @@ export default class ContactView extends Component {
             <label className={styles.label} htmlFor="contact-name">Name</label>
             <Text name="name" id="contact-name" pattern=".{2,100}" required placeholder="e.g. John Smith" />
             <label className={styles.label} htmlFor="contact-email">Email</label>
-            <Email name="email" required />
+            <Email name="email" id="contact-email" required />
             <label className={styles.label} htmlFor="contact-subject">Subject</label>
             <Text name="subject" id="contact-subject" pattern=".{3,50}" required placeholder="e.g. Résumé" />
             <label className={styles.label} htmlFor="contact-message">Message</label>

@@ -49,26 +49,30 @@ const HomeView = () => (
       <a href="https://www.uts.edu.au/" target="_blank" rel="noopener noreferrer">University of Technology, Sydney</a>
       {' '}
       with a passion for IT and computer science.
-      I&apos;m currently interning at
+    </p>
+    <p>
+      I am currently studying overseas in New Zealand at the
+      {' '}
+      <a href="http://www.otago.ac.nz/" target="_blank" rel="noopener noreferrer">University of Otago</a>.
+    </p>
+    <p>
+      I have previously interned at
       {' '}
       <a href="https://www.appliancesonline.com.au/" target="_blank" rel="noopener noreferrer">Appliances Online</a>
       {' '}
-      and have previously interned and worked at
+      as a front end web developer.
+      {' '}
+      I have also previously interned and worked at
       {' '}
       <a href="http://www.nineentertainmentco.com.au/" target="_blank" rel="noopener noreferrer">Nine Digital</a>,
       {' '}
-      working on the
+      building the
       {' '}
       <a href="https://www.9now.com.au/">9Now</a>
       {' '}
       <abbr title="Video On Demand">VOD</abbr>
       {' '}
       website.
-    </p>
-    <p>
-      For the second half of 2017, I will be studying overseas in New Zealand at the
-      {' '}
-      <a href="http://www.otago.ac.nz/" target="_blank" rel="noopener noreferrer">University of Otago</a>.
     </p>
     <p>
       I have had an interest in computers from a young age and have worked on many small projects, some of which are listed

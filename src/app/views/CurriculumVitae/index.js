@@ -73,22 +73,26 @@ export default class CurriculumVitae extends Component {
               <a href="https://www.uts.edu.au/" target="_blank" rel="noopener noreferrer">University of Technology, Sydney</a>
               {' '}
               with a passion for IT and computer science.
-              I&apos;m currently interning at
+            </p>
+            <p>
+              I have previously interned at
               {' '}
               <a href="https://www.appliancesonline.com.au/" target="_blank" rel="noopener noreferrer">Appliances Online</a>
               {' '}
-              and have previously interned and worked at
+              as a front end web developer.
+              {' '}
+              I have also previously interned and worked at
               {' '}
               <a href="http://www.nineentertainmentco.com.au/" target="_blank" rel="noopener noreferrer">Nine Digital</a>,
               {' '}
-              working on the
+              building the
               {' '}
               <a href="https://www.9now.com.au/">9Now</a>
               {' '}
               <abbr title="Video On Demand">VOD</abbr>
               {' '}
               website.
-            </p>
+            </p>.
             <p>
               A printer-friendly document with additional information is available upon request through the <Link to="/contact">contact form</Link>.
             </p>
@@ -172,8 +176,10 @@ export default class CurriculumVitae extends Component {
               <h4 className={styles.course}>Study Abroad at University of Otago, Dunedin, New Zealand</h4>
               <h5 className={styles.dates}>July 2017 - November 2017</h5>
               <p className={styles.outline}>
-                For my final semester, I have applied to study abroad at the University of Otago.
-                Here, I will study Computer Science electives and hopefully enjoy the freezing weather.
+                For my final semester, I am studying abroad at the
+                {' '}
+                <a href="http://www.otago.ac.nz" target="_blank" rel="noopener noreferrer">University of Otago</a>.
+                Here, I am studying Computer Science electives to further my technical understanding in the field.
               </p>
             </div>
             <div className={styles.institution}>
