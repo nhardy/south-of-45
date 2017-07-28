@@ -41,12 +41,8 @@ app.get('/github', (req, res) => {
   res.redirect(301, 'https://github.com/nhardy');
 });
 
-app.get('/govhack', (req, res) => {
-  res.redirect(302, 'https://youtu.be/3ne1Qaaas3g');
-});
-
 app.get('/linkedin', (req, res) => {
-  res.redirect(302, 'https://au.linkedin.com/in/nathan-hardy-263488b2');
+  res.redirect(302, 'https://www.linkedin.com/in/nathan-hardy-263488b2/');
 });
 
 // Serve API Requests
