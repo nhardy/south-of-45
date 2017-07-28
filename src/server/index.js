@@ -61,7 +61,7 @@ if (process.env.HTTPS_ORIGIN) {
   // For our local prod emulation mode, we use httpolyglot to run HTTP/HTTPS on the same port
 
   // eslint-disable-next-line global-require, import/no-extraneous-dependencies
-  const cert = require('webpack-dev-server/ssl/server.pem');
+  const cert = require('./server.pem');
   // eslint-disable-next-line global-require, import/no-extraneous-dependencies
   server = require('httpolyglot').createServer({
     key: cert,

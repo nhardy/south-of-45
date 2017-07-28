@@ -1,7 +1,12 @@
+// @flow
+
+/* eslint-disable no-console */
+
 import { noop } from 'lodash-es';
 import yargs from 'yargs';
 
 import clean from './clean';
+import ensureCertificate from './certificate';
 import serve from './serve';
 import { webpackProd, webpackClientDev, webpackServerDev } from './webpack';
 import { zip, deploy } from './deploy';
@@ -30,15 +35,17 @@ yargs.command('*', 'Informational message', () => {}, () => {
   .command('dev', 'Builds the application in development mode, starts the dev server and watches for changes', () => {}, () => {
     Promise.resolve()
       .then(runTask('clean', clean))
+      .then(runTask('ensure-certificate', ensureCertificate))
       .then(runTask('webpack-client-dev', webpackClientDev))
       .then(runTask('wepack-server-dev', webpackServerDev))
       .then(runTask('serve', serve))
       .catch(noop);
   })
   .command('prod', 'Builds the application in production mode and starts the server', () => {}, () => {
-    process.env.HTTPS_ORIGIN = true;
+    process.env.HTTPS_ORIGIN = 'true';
     Promise.resolve()
       .then(runTask('clean', clean))
+      .then(runTask('ensure-certificate', ensureCertificate()))
       .then(runTask('webpack-prod', webpackProd))
       .then(runTask('serve', serve))
       .catch(noop);
@@ -46,6 +53,7 @@ yargs.command('*', 'Informational message', () => {}, () => {
   .command('package', 'Builds the application to a zip', () => {}, () => {
     Promise.resolve()
       .then(runTask('clean', clean))
+      .then(runTask('ensure-certificate', ensureCertificate()))
       .then(runTask('webpack-prod', webpackProd))
       .then(runTask('zip', zip))
       .catch(noop);
@@ -53,6 +61,7 @@ yargs.command('*', 'Informational message', () => {}, () => {
   .command('deploy', 'Builds and deploys the application to Azure App Service', () => {}, () => {
     Promise.resolve()
       .then(runTask('clean', clean))
+      .then(runTask('ensure-certificate', ensureCertificate()))
       .then(runTask('webpack-prod', webpackProd))
       .then(runTask('zip', zip))
       .then(runTask('deploy', deploy))

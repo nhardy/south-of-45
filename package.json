@@ -101,6 +101,7 @@
     "react-addons-test-utils": "^15.5.1",
     "react-svg-loader": "^1.1.1",
     "run-sequence": "^1.2.2",
+    "selfsigned": "^1.9.1",
     "sinon": "^2.1.0",
     "style-loader": "^0.16.1",
     "stylus": "^0.54.5",
@@ -110,7 +111,7 @@
     "thread-loader": "^1.0.3",
     "url-loader": "^0.5.8",
     "webpack": "^3.1.0",
-    "webpack-dev-server": "~2.4.5",
+    "webpack-dev-server": "^2.6.1",
     "webpack-node-externals": "^1.5.4",
     "yargs": "^8.0.1"
   },
