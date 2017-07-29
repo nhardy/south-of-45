@@ -275,6 +275,14 @@ export default function webpackFactory({ production = false, client = false, wri
             },
           ],
         },
+        {
+          test: /\.geojson$/,
+          use: [
+            {
+              loader: 'json-loader',
+            }
+          ],
+        }
       ],
     },
 

@@ -8,6 +8,7 @@ import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
 import Breakout from 'app/components/Breakout';
 import GeoMap from 'app/components/GeoMap';
+import dunedinGeoJson from 'app/assets/data/dunedin.geojson';
 import styles from './styles.styl';
 
 
@@ -47,7 +48,7 @@ const HomeView = () => (
         Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
         quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
         </p>
-        <GeoMap />
+        <GeoMap data={dunedinGeoJson} />
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>

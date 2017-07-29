@@ -1,37 +1,63 @@
+// @flow
+
+/* eslint-disable react/prop-types, react/no-array-index-key */
+
 import React, { Component } from 'react';
 import geojson2svg from 'geojson2svg';
+import { groupBy } from 'lodash-es';
 
-import data from './geojson';
+import styles from './styles.styl';
 
 
-/* eslint-disable react/no-array-index-key */
+type Props = {
+  data: {},
+};
 
-const converter = geojson2svg({
-  viewportSize: { width: 640, height: 480 },
-  mapExtent: {
-    left: 1346000,
-    right: 1425420,
-    bottom: 4896560,
-    top: 4987950,
-  },
-  output: 'path',
-});
-
-type Props = {};
-type DefaultProps = {};
 type State = {};
 
-export default class GeoMap extends Component<Props, DefaultProps, State> {
+export default class GeoMap extends Component<Props, void, State> {
   componentDidMount() {
 
   }
 
+  onClick = (region: string) => {
+    console.log('Region:', region, 'clicked.');
+  };
+
   render() {
+    const { data } = this.props;
+    const converter = geojson2svg({
+      viewportSize: {
+        height: 480,
+        width: 480,
+      },
+      mapExtent: {
+        left: 1346000,
+        right: 1425420,
+        bottom: 4896000,
+        top: 4987950,
+      },
+      output: 'path',
+    });
+    const regions = Object.entries(groupBy(data.features, 'properties.dn_ql'));
+
     return (
       <div>
-        <svg viewBox="0 0 640 480">
-          {data.features.map((feature, index) => (
-            <path key={index} d={converter.convert(feature.geometry)} strokeWidth="1" fill="#f8b617" stroke="#fff" />
+        <svg viewBox="0 0 480 480">
+          <defs>
+            {regions.map(([region]) => (
+              <filter key={region} id={`${region}-outline`}>
+                <feMorphology operator="dilate" in="SourceAlpha" radius={1} />
+                <feComposite in="SourceGraphic" />
+              </filter>
+            ))}
+          </defs>
+          {regions.map(([region, features]) => (
+            <g key={region} className={styles.region} filter={`url(#${region}-outline)`} fill="#333" onClick={() => this.onClick(region)}>
+              {features.map((feature, index) => (
+                <path key={index} d={converter.convert(feature.geometry)} />
+              ))}
+            </g>
           ))}
         </svg>
       </div>

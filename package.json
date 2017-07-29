@@ -89,6 +89,7 @@
     "glob": "^7.1.2",
     "httpolyglot": "^0.1.2",
     "jsdom": "^10.0.0",
+    "json-loader": "^0.5.7",
     "mkdirp": "^0.5.1",
     "mocha": "^3.3.0",
     "mocha-junit-reporter": "^1.13.0",
