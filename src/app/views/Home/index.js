@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet';
 import config from 'app/config';
 import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
+import Breakout from 'app/components/Breakout';
 import styles from './styles.styl';
 
 
@@ -26,10 +27,26 @@ const HomeView = () => (
       <meta name="twitter:title" content={makeTitle(TITLE)} />
       <meta name="twitter:description" content={DESCRIPTION} />
     </Helmet>
-    <h1>Home</h1>
-    <p>
-      Placeholder text
-    </p>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column}>
+        <p>Placeholder</p>
+      </section>
+    </Breakout>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column}>
+        <p>Placeholder</p>
+      </section>
+    </Breakout>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column}>
+        <p>Placeholder</p>
+      </section>
+    </Breakout>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column}>
+        <p>Placeholder</p>
+      </section>
+    </Breakout>
   </SpecialLayout>
 );
 

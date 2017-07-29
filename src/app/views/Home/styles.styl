@@ -15,3 +15,23 @@
 
     &:not(:last-child)
       margin-bottom: 0.5em
+
+.sectionOuter
+  .sectionInner
+    min-height: calc(100vh - 48px)
+
+    +from($lge)
+      min-height: calc(100vh - 60px)
+
+  &:nth-child(odd)
+    .sectionInner
+      background: $backgroundColor
+      color: $textColor
+
+  &:nth-child(even)
+    .sectionInner
+      background: lighten($darkColor, 75%)
+      color: $backgroundColor
+
+.column
+  composes: column from 'app/assets/stylus/common.styl'
