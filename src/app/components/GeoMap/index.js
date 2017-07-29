@@ -4,6 +4,8 @@ import geojson2svg from 'geojson2svg';
 import data from './geojson';
 
 
+/* eslint-disable react/no-array-index-key */
+
 const converter = geojson2svg({
   viewportSize: { width: 640, height: 480 },
   mapExtent: {
