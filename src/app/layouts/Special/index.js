@@ -90,10 +90,10 @@ export default class SpecialLayout extends Component {
         <input ref={ref => (this._checkbox = ref)} className={styles.checkbox} id="drawer" type="checkbox" />
         <Drawer className={styles.drawer} />
         <Overlay ref={ref => (this._overlay = ref)} className={styles.overlay} />
-        <Parallax className={styles.parallax} src={hero} alt="Flower Macro">
+        <Parallax className={styles.parallax} src={hero} alt="Dunedin">
           <span className={styles.greeting}>Hi, welcome to South&nbsp;of&nbsp;45.</span>
           <span className={styles.credit}>
-            Photography by <a href="https://facebook.com/IsobelleDwyerArtwork" target="_blank" rel="noopener noreferrer">Isobelle Dwyer</a>
+            A Visual Essay created by the South of 45 Team for GovHackNZ 2017
           </span>
         </Parallax>
         <main className={cx(styles.main, this.props.className)}>
