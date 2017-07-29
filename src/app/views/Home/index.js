@@ -7,6 +7,7 @@ import config from 'app/config';
 import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
 import Breakout from 'app/components/Breakout';
+import GeoMap from 'app/components/GeoMap';
 import styles from './styles.styl';
 
 
@@ -29,7 +30,7 @@ const HomeView = () => (
     </Helmet>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <p>Placeholder</p>
+        <GeoMap />
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>

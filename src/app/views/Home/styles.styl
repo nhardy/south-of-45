@@ -26,12 +26,10 @@
   &:nth-child(odd)
     .sectionInner
       background: $backgroundColor
-      color: $textColor
 
   &:nth-child(even)
     .sectionInner
-      background: lighten($darkColor, 75%)
-      color: $backgroundColor
+      background: $sectionColor
 
 .column
   composes: column from 'app/assets/stylus/common.styl'
