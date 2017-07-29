@@ -29,22 +29,37 @@ const HomeView = () => (
     </Helmet>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <p>Placeholder</p>
+        <h1>Introduction</h1>
+        <p>On this website we will show you analysis to answer questions
+        about quality of life in Dunedin regarding housing</p>
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <p>Placeholder</p>
+        <h1>Question 1</h1>
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <p>Placeholder</p>
+        <h1>Analysis</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta. 
+        Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim, 
+        quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        </p>
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <p>Placeholder</p>
+        <h1>Question 2</h1>
+      </section>
+    </Breakout>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column}>
+        <h1>Analysis</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta. 
+        Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim, 
+        quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        </p>
       </section>
     </Breakout>
   </SpecialLayout>
