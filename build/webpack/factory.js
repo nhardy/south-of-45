@@ -280,9 +280,9 @@ export default function webpackFactory({ production = false, client = false, wri
           use: [
             {
               loader: 'json-loader',
-            }
+            },
           ],
-        }
+        },
       ],
     },
 
