@@ -38,11 +38,7 @@ app.use('/static', Express.static('dist', {
 }));
 
 app.get('/github', (req, res) => {
-  res.redirect(301, 'https://github.com/nhardy');
-});
-
-app.get('/linkedin', (req, res) => {
-  res.redirect(302, 'https://www.linkedin.com/in/nathan-hardy-263488b2/');
+  res.redirect(301, 'https://github.com/nhardy/south-of-45');
 });
 
 // Serve API Requests

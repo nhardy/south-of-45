@@ -1,7 +1,7 @@
 export default {
   port: process.env.PORT || 8000,
-  baseUrl: 'https://nhardy.id.au',
-  siteName: 'nhardy.id.au',
+  baseUrl: 'http://south-of-45.azurewebsites.net',
+  siteName: 'South Of 45',
   analytics: {
     trackingId: process.env.ANALYTICS_TRACKING_ID,
   },

@@ -12,22 +12,16 @@ const SiteFooter = () => (
       <div className={styles.wrapper}>
         <div className={styles.info}>
           <div className={styles.social}>
-            <a href="/linkedin" target="_blank" rel="noopener noreferrer">
-              <FontAwesome className="fa-linkedin-square" />
-            </a>
             <a href="/github" target="_blank" rel="noopener noreferrer">
               <FontAwesome className="fa-github" />
             </a>
-            <Link to="/contact">
-              <FontAwesome className="fa-at" />
-            </Link>
           </div>
         </div>
         <div className={styles.info}>
-          Web Development by <Link to="/">Nathan Hardy</Link>.
+          Web Development by <Link to="/">South of 45 team</Link>.
         </div>
         <div className={cx(styles.info, styles.copyright)}>
-          <span>&copy; {(new Date()).getFullYear()} Nathan Hardy</span>
+          <span>&copy; {(new Date()).getFullYear()} South of 45 team</span>
         </div>
       </div>
     </div>

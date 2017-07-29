@@ -7,10 +7,6 @@ import type { ReduxStore } from 'app/flowTypes';
 import { clearRouteError } from 'app/actions/routeError';
 import App from 'app/components/App';
 import HomeView from 'app/views/Home';
-import ProjectsView from 'app/views/Projects';
-import ContactView from 'app/views/Contact';
-import CurriculumVitaeView from 'app/views/CurriculumVitae';
-import GovHackView from 'app/views/GovHack';
 import ErrorView from 'app/views/Error';
 
 
@@ -23,10 +19,6 @@ export default function getRoutes(store: ReduxStore) {
       <Route path="/__404" component={ErrorView} status={404} />
       <Route path="/__500" component={ErrorView} status={500} />
       <IndexRoute component={HomeView} />
-      <Route path="/projects" component={ProjectsView} />
-      <Route path="/contact" component={ContactView} />
-      <Route path="/cv" component={CurriculumVitaeView} />
-      <Route path="/govhack" component={GovHackView} />
       <Route path="*" component={ErrorView} status={404} />
     </Route>
   );

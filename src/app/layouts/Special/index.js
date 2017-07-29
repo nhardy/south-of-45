@@ -91,7 +91,7 @@ export default class SpecialLayout extends Component {
         <Drawer className={styles.drawer} />
         <Overlay ref={ref => (this._overlay = ref)} className={styles.overlay} />
         <Parallax className={styles.parallax} src={hero} alt="Flower Macro">
-          <span className={styles.greeting}>Hi, I&apos;m Nathan&nbsp;Hardy</span>
+          <span className={styles.greeting}>Hi, welcome to South&nbsp;of&nbsp;45.</span>
           <span className={styles.credit}>
             Photography by <a href="https://facebook.com/IsobelleDwyerArtwork" target="_blank" rel="noopener noreferrer">Isobelle Dwyer</a>
           </span>

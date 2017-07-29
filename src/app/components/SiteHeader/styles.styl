@@ -13,7 +13,7 @@
     height: 60px
 
 .scrolled
-  background: rgba($black, 0.75)
+  background: rgba($darkColor, 0.75)
 
 .wrapper
   composes: column from 'app/assets/stylus/common.styl'
@@ -39,6 +39,7 @@
   composes: overlay from 'app/assets/stylus/common.styl'
   composes: link
   display: inline-block
+  flex: 0 0 auto
   font-size: 28px
 
   +upTo($med)
