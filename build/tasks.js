@@ -45,7 +45,7 @@ yargs.command('*', 'Informational message', () => {}, () => {
     process.env.HTTPS_ORIGIN = 'true';
     Promise.resolve()
       .then(runTask('clean', clean))
-      .then(runTask('ensure-certificate', ensureCertificate)
+      .then(runTask('ensure-certificate', ensureCertificate))
       .then(runTask('webpack-prod', webpackProd))
       .then(runTask('serve', serve))
       .catch(noop);
@@ -53,7 +53,7 @@ yargs.command('*', 'Informational message', () => {}, () => {
   .command('package', 'Builds the application to a zip', () => {}, () => {
     Promise.resolve()
       .then(runTask('clean', clean))
-      .then(runTask('ensure-certificate', ensureCertificate)
+      .then(runTask('ensure-certificate', ensureCertificate))
       .then(runTask('webpack-prod', webpackProd))
       .then(runTask('zip', zip))
       .catch(noop);
@@ -61,7 +61,7 @@ yargs.command('*', 'Informational message', () => {}, () => {
   .command('deploy', 'Builds and deploys the application to Azure App Service', () => {}, () => {
     Promise.resolve()
       .then(runTask('clean', clean))
-      .then(runTask('ensure-certificate', ensureCertificate)
+      .then(runTask('ensure-certificate', ensureCertificate))
       .then(runTask('webpack-prod', webpackProd))
       .then(runTask('zip', zip))
       .then(runTask('deploy', deploy))
