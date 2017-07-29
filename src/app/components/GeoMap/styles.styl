@@ -1,5 +1,16 @@
 @import '~app/assets/stylus'
 
 
+.root
+  content: ''
+
+.map
+  max-height: 75vh
+
 .region
   cursor: pointer
+  fill: $darkColor
+  transition: fill 250ms ease-in-out
+
+  &:hover
+    fill: $themeColor

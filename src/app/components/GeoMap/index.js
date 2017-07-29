@@ -42,8 +42,8 @@ export default class GeoMap extends Component<Props, void, State> {
     const regions = Object.entries(groupBy(data.features, 'properties.dn_ql'));
 
     return (
-      <div>
-        <svg viewBox="0 0 480 480">
+      <div className={styles.root}>
+        <svg className={styles.map} viewBox="0 0 480 480">
           <defs>
             {regions.map(([region]) => (
               <filter key={region} id={`${region}-outline`}>
@@ -53,7 +53,7 @@ export default class GeoMap extends Component<Props, void, State> {
             ))}
           </defs>
           {regions.map(([region, features]) => (
-            <g key={region} className={styles.region} filter={`url(#${region}-outline)`} fill="#333" onClick={() => this.onClick(region)}>
+            <g key={region} className={styles.region} filter={`url(#${region}-outline)`} onClick={() => this.onClick(region)}>
               {features.map((feature, index) => (
                 <path key={index} d={converter.convert(feature.geometry)} />
               ))}

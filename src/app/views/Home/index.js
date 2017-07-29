@@ -32,36 +32,63 @@ const HomeView = () => (
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
         <h1>Introduction</h1>
-        <p>On this website we will show you analysis to answer questions
-        about quality of life in Dunedin regarding housing</p>
-      </section>
-    </Breakout>
-    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
-        <h1>Question 1</h1>
-      </section>
-    </Breakout>
-    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
-        <h1>Analysis</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
-        Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
-        quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        <p>
+          On this website we will show you analysis to answer questions
+          {' '}
+          about quality of life in Dunedin regarding housing
         </p>
         <GeoMap data={dunedinGeoJson} />
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <h1>Question 2</h1>
+        <h1>Question 1</h1>
+        <h1>Analysis</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
+          {' '}
+          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
+          {' '}
+          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        </p>
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
+        <h1>Question 2</h1>
         <h1>Analysis</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
-        Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
-        quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
+          {' '}
+          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
+          {' '}
+          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        </p>
+      </section>
+    </Breakout>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column}>
+        <h1>Question 3</h1>
+        <h1>Analysis</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
+          {' '}
+          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
+          {' '}
+          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        </p>
+      </section>
+    </Breakout>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column}>
+        <h1>Question 4</h1>
+        <h1>Analysis</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
+          {' '}
+          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
+          {' '}
+          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
         </p>
       </section>
     </Breakout>
