@@ -33,16 +33,17 @@ const HomeView = () => (
       <section className={styles.column}>
         <h1>Introduction</h1>
         <p>
-          On this website we will show you analysis to answer questions
+          On this website we will show you analysis to answer various questions
           {' '}
-          about quality of life in Dunedin regarding housing
+          including quality of life, transport, safety, and housing
         </p>
         <GeoMap data={dunedinGeoJson} />
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <h1>Question 1</h1>
+        <h1>How affordable is heating for different parts of Dunedin?</h1>
+        <br></br>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
@@ -55,7 +56,8 @@ const HomeView = () => (
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <h1>Question 2</h1>
+        <h1>How safe do people feel in Dunedin compared to the crime rate?</h1>
+        <br></br>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
@@ -68,7 +70,8 @@ const HomeView = () => (
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <h1>Question 3</h1>
+        <h1>How accessible is transport in different parts of Dunedin?</h1>
+        <br></br>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
@@ -81,7 +84,8 @@ const HomeView = () => (
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <section className={styles.column}>
-        <h1>Question 4</h1>
+        <h1>How does quality of life vary throughout Dunedin?</h1>
+        <br></br>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
