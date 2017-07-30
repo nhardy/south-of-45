@@ -88,11 +88,11 @@ const HomeView = () => (
         </div>
         <h1>Analysis</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
+          This graph means that for most suburbs, their ability to pay for heating
           {' '}
-          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
+           is tied to their household income. This graph shows that there are a significant 
           {' '}
-          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+          number of households that struggle to heat their homes leading to negative health consequences.
         </p>
       </article>
     </Breakout>
@@ -239,6 +239,14 @@ const HomeView = () => (
               target="_blank" rel="noopener noreferrer"
             >
               Dunedin City Council, Quality of Life Survey Result
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://cliflo.niwa.co.nz"
+              target="_blank" rel="noopener noreferrer"
+            >
+            NIWA Climate Database
             </a>
           </li>
         </ul>
