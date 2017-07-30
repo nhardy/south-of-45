@@ -1,24 +1,26 @@
 @require './index.styl'
 
 
+$columWidth = 1100px
+
 .column
   margin: 0 auto
   width: 100%
   propertyMargin('padding-left')
   propertyMargin('padding-right')
-  max-width: (900px + (2 * $minMargin))
+  max-width: ($columnWidth + (2 * $minMargin))
 
   +from($sml)
-    max-width: (900px + (2 * $smlMargin))
+    max-width: ($columnWidth + (2 * $smlMargin))
 
   +from($med)
-    max-width: (900px + (2 * $medMargin))
+    max-width: ($columnWidth + (2 * $medMargin))
 
   +from($lge)
-    max-width: (900px + (2 * $lgeMargin))
+    max-width: ($columnWidth + (2 * $lgeMargin))
 
   +from($xlg)
-    max-width: (900px + (2 * $xlgMargin))
+    max-width: ($columnWidth + (2 * $xlgMargin))
 
 .overlay
   color: $backgroundColor
