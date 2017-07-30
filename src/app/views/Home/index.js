@@ -190,6 +190,14 @@ const HomeView = () => (
               Dunedin City Council, Quality of Life Survey Result
             </a>
           </li>
+          <li>
+            <a
+              href="https://cliflo.niwa.co.nz"
+              target="_blank" rel="noopener noreferrer"
+            >
+            NIWA Climate Database
+            </a>
+          </li>
         </ul>
       </section>
     </Breakout>
