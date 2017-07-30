@@ -41,7 +41,7 @@ const HomeView = () => (
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <section className={styles.column} id="Heating">
         <h1>How affordable is heating for different parts of Dunedin?</h1>
         <br></br>
         <h1>Analysis</h1>
@@ -55,7 +55,7 @@ const HomeView = () => (
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <section className={styles.column} id="Safety">
         <h1>How safe do people feel in Dunedin compared to the crime rate?</h1>
         <br></br>
         <h1>Analysis</h1>
@@ -69,8 +69,8 @@ const HomeView = () => (
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
-        <h1>How accessible is transport in different parts of Dunedin?</h1>
+      <section className={styles.column} id="Transport">
+        <h1>How accessible is public transport in different parts of Dunedin?</h1>
         <br></br>
         <h1>Analysis</h1>
         <p>
@@ -83,7 +83,7 @@ const HomeView = () => (
       </section>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <section className={styles.column} id="Quality">
         <h1>How does quality of life vary throughout Dunedin?</h1>
         <br></br>
         <h1>Analysis</h1>
@@ -94,6 +94,31 @@ const HomeView = () => (
           {' '}
           quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
         </p>
+      </section>
+    </Breakout>
+    <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
+      <section className={styles.column} id="Data">
+        <h1>Data sources</h1>
+        
+        <a href="http://www.stats.govt.nz/browse_for_stats/Maps_and_geography/Geographic-areas/geographic-area-files.aspx" 
+        target="_blank" rel="noopener noreferrer">Statistics New Zealand, Census map data</a>
+          <br></br><br></br>
+          <a href="http://www.stats.govt.nz/Census/2013-census/data-tables/meshblock-dataset.aspx" 
+        target="_blank" rel="noopener noreferrer">Statistics New Zealand, Census responses</a> 
+        <br></br><br></br>
+          <a href="https://github.com/kamal-hothi/nz_burglary_data" 
+        target="_blank" rel="noopener noreferrer">Burglary data from New Zealand Police</a> 
+        <br></br><br></br>
+          <a href=" http://www.mbie.govt.nz/info-services/sectors-industries/energy/energy-data-modelling/statistics/prices/electricity-prices" 
+          target="_blank" rel="noopener noreferrer">Quarterly Survey of Domestic Electricity Prices to 15 May 2017 [XLSX 256KB]
+          from Ministry of Business, Innovation, and Enterprise</a>
+        <br></br><br></br>
+          <a href="http://www.otago.ac.nz/wellington/departments/publichealth/research/hirp/otago020194.html" 
+          target="_blank" rel="noopener noreferrer">Otago University, New Zealand Deprivation Index</a>
+          <br></br><br></br>
+          <a href="https://github.com/Phil-Wheeler/govhack-dunedin/tree/master/data" 
+          target="_blank" rel="noopener noreferrer">Dunedin City Council, Quality of Life Survey Result</a>       
+        
       </section>
     </Breakout>
   </SpecialLayout>
