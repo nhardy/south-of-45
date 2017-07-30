@@ -11,7 +11,6 @@ import Parallax from 'app/components/Parallax';
 import SiteFooter from 'app/components/SiteFooter';
 import hero from 'app/assets/images/secondary-hero.jpg';
 import hero2x from 'app/assets/images/secondary-hero-2x.jpg';
-import hero3x from 'app/assets/images/secondary-hero-3x.jpg';
 import styles from './styles.styl';
 
 
@@ -48,13 +47,12 @@ export default class DefaultLayout extends Component {
           ref={ref => (this._parallax = ref)}
           className={styles.parallax}
           src={hero}
-          srcSet={`${hero} 1x, ${hero2x} 2x, ${hero3x} 3x`}
-          sizes="100vw"
-          alt="Aoraki/Mount Cook National Park, New Zealand"
+          srcSet={`${hero} 1x, ${hero2x} 2x`}
+          alt="Dunedin, New Zealand"
         >
           <div className={styles.inner}>
-            <span className={styles.name}><Link to="/">Nathan Hardy</Link></span>
-            <span className={styles.tagline}>Student | Developer</span>
+            <span className={styles.name}><Link to="/">South of 45</Link></span>
+            <span className={styles.tagline}>A Visual Essay</span>
           </div>
         </Parallax>
         <main className={cx(styles.main, this.props.className)}>

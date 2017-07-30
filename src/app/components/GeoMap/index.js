@@ -11,6 +11,7 @@ import styles from './styles.styl';
 
 type Props = {
   data: {},
+  onClickRegion: (region: string) => void,
 };
 
 type State = {};
@@ -21,7 +22,7 @@ export default class GeoMap extends Component<Props, void, State> {
   }
 
   onClick = (region: string) => {
-    console.log('Region:', region, 'clicked.');
+    this.props.onClickRegion(region);
   };
 
   render() {

@@ -1,0 +1,57 @@
+@import '~app/assets/stylus'
+
+
+.root
+  position: relative
+  z-index: 1
+
+.main
+  z-index: 1
+  transition: filter 250ms ease-in-out
+
+.background
+  filter: blur(5px)
+
+.overlay
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 2
+  height: 100%
+  width: 100%
+  padding: 16px
+  background: transparent
+
+.hidden
+  display: none
+
+.inner
+  position: relative
+  height: calc(100% - 32px)
+  padding: 8px
+  border: 1px solid $borderColor
+  background: $backgroundColor
+
+.close
+  position: absolute
+  top: 0
+  right: 0
+  z-index: 2
+  height: 40px
+  width: @height
+  line-height: @height
+  border: 0
+  font-size: 32px
+  background: transparent
+  color: $textColor
+  cursor: pointer
+
+.wrapper
+  height: calc(100% - 16px)
+
+.image
+  height: 100%
+  width: 100%
+  object-fit: contain

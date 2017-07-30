@@ -7,8 +7,8 @@ import config from 'app/config';
 import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
 import Breakout from 'app/components/Breakout';
-import GeoMap from 'app/components/GeoMap';
-import dunedinGeoJson from 'app/assets/data/dunedin.geojson';
+import ClickthroughMaps from 'app/components/ClickthroughMaps';
+import cargillPng from 'app/assets/images/maps/cargill4.png';
 import styles from './styles.styl';
 
 
@@ -30,18 +30,20 @@ const HomeView = () => (
       <meta name="twitter:description" content={DESCRIPTION} />
     </Helmet>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <article className={styles.column}>
         <h1>Introduction</h1>
         <p>
           On this website we will show you analysis to answer questions
           {' '}
           about quality of life in Dunedin regarding housing
         </p>
-        <GeoMap data={dunedinGeoJson} />
-      </section>
+        <ClickthroughMaps maps={{
+          cargill: cargillPng,
+        }} />
+      </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <article className={styles.column}>
         <h1>Question 1</h1>
         <h1>Analysis</h1>
         <p>
@@ -51,10 +53,10 @@ const HomeView = () => (
           {' '}
           quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
         </p>
-      </section>
+      </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <article className={styles.column}>
         <h1>Question 2</h1>
         <h1>Analysis</h1>
         <p>
@@ -64,10 +66,10 @@ const HomeView = () => (
           {' '}
           quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
         </p>
-      </section>
+      </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <article className={styles.column}>
         <h1>Question 3</h1>
         <h1>Analysis</h1>
         <p>
@@ -77,10 +79,10 @@ const HomeView = () => (
           {' '}
           quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
         </p>
-      </section>
+      </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
-      <section className={styles.column}>
+      <article className={styles.column}>
         <h1>Question 4</h1>
         <h1>Analysis</h1>
         <p>
@@ -90,7 +92,7 @@ const HomeView = () => (
           {' '}
           quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
         </p>
-      </section>
+      </article>
     </Breakout>
   </SpecialLayout>
 );
