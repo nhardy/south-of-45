@@ -2,6 +2,8 @@
 
 This is the code for the website of GovHackNZ 2017 project [South of 45](http://south-of-45.azurewebsites.net/). The R analysis code is also included.
 
+The website has been forked from another project which provides a website scaffold.
+
 ## Key Facts
 
 This project is a universal JavaScript React application. [Node.js](https://nodejs.org/) is used to render pages server-side.
