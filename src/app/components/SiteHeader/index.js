@@ -72,7 +72,7 @@ export default class SiteHeader extends Component {
                 <a className={styles.link} href="/#Transport" onClick={e => this.onClickLink(e, 'Transport')}>Transport</a>
               </li>
               <li className={styles.item}>
-                <a className={styles.link} href="/#Quality" onClick={e => this.onClickLink(e, 'Quality')}>Quality of Life</a>
+                <a className={styles.link} href="/#Quality" onClick={e => this.onClickLink(e, 'Quality')}>Council Influence</a>
               </li>
               <li className={styles.item}>
                 <a className={styles.link} href="/#Data" onClick={e => this.onClickLink(e, 'Data')}>Data Sources</a>
