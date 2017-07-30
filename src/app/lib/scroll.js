@@ -33,5 +33,5 @@ export function smoothScrollTo(scrollY: number, callback?: () => void = noop) {
 export function smoothScrollToId(id: string, callback?: () => void) {
   const el = document.querySelector(`#${id}`);
   const { top } = el.getBoundingClientRect();
-  smoothScrollTo(top - document.querySelector(`.${headerStyles.root}`).clientHeight, callback);
+  smoothScrollTo(window.scrollY + top - document.querySelector(`.${headerStyles.root}`).clientHeight, callback);
 };
