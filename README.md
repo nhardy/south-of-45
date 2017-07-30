@@ -1,12 +1,12 @@
-# Web Scaffold
+# South Of 45
 
-The code behind [nhardy.id.au](https://nhardy.id.au/) is available here under the MIT license.
-
-Please note that some of the images contained here are copyrighted, so if you do intend to fork this repo, keep this in mind. Content is also subject to copyright where appropriate.
+This is the code for the website of GovHackNZ 2017 project [South of 45](http://south-of-45.azurewebsites.net/). The R analysis code is also included.
 
 ## Key Facts
 
 This project is a universal JavaScript React application. [Node.js](https://nodejs.org/) is used to render pages server-side.
+
+The R analysis code is located under the `analysis/` folder.
 
 ## Development
 
@@ -16,7 +16,7 @@ Development on Mac/Linux is advised as some dependencies are difficult to work w
 
 Make sure you have [Node Version Manager](https://github.com/creationix/nvm) (nvm) installed.
 
-Run `nvm install 7` to install the latest version of Nodejs. You may want to also set this as your default Node.js version with `nvm alias default 7`.
+Run `nvm install 8` to install the latest version of Nodejs. You may want to also set this as your default Node.js version with `nvm alias default 8`.
 
 ### Windows
 
