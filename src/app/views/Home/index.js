@@ -98,7 +98,24 @@ const HomeView = () => (
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <article className={styles.column} id="Safety">
-        <h1>How safe do people feel in Dunedin compared to the crime rate?</h1>
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <ClickthroughMaps
+              maps={{
+                cargill: cargillBurglariesPng,
+                saddle: saddlehillBurglariesPng,
+                mostaieri: mosgieltaieriBurglariesPng,
+                waikpen: eastcoastBurglariesPng,
+                southd: southdunedinBurglariesPng,
+                hills: hillsBurglariesPng,
+              }}
+            />
+          </div>
+          <div className={styles.right}>
+            <h1 className={styles.question}>How safe do people feel in Dunedin compared to the crime rate?</h1>
+            <img className={styles.graph} src={burglariesPng} alt="Graph" />
+          </div>
+        </div>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
@@ -111,7 +128,24 @@ const HomeView = () => (
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <article className={styles.column} id="Transport">
-        <h1>How accessible is public transport in different parts of Dunedin?</h1>
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <ClickthroughMaps
+              maps={{
+                cargill: cargillTransportPng,
+                saddle: saddlehillTransportPng,
+                mostaieri: mosgieltaieriTransportPng,
+                waikpen: eastcoastTransportPng,
+                southd: southdunedinTransportPng,
+                hills: hillsTransportPng,
+              }}
+            />
+          </div>
+          <div className={styles.right}>
+            <h1 className={styles.question}>How accessible is public transport in different parts of Dunedin?</h1>
+            <img className={styles.graph} src={transportPng} alt="Graph" />
+          </div>
+        </div>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
@@ -124,7 +158,24 @@ const HomeView = () => (
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <article className={styles.column} id="Quality">
-        <h1>How does quality of life vary throughout Dunedin?</h1>
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <ClickthroughMaps
+              maps={{
+                cargill: cargillDeprivationPng,
+                saddle: saddlehillDeprivationPng,
+                mostaieri: mosgieltaieriDeprivationPng,
+                waikpen: eastcoastDeprivationPng,
+                southd: southdunedinDeprivationPng,
+                hills: hillsDeprivationPng,
+              }}
+            />
+          </div>
+          <div className={styles.right}>
+            <h1 className={styles.question}>How does quality of life vary throughout Dunedin?</h1>
+            <img className={styles.graph} src={deprivationPng} alt="Graph" />
+          </div>
+        </div>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
