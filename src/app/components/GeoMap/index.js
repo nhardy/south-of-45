@@ -16,7 +16,7 @@ type Props = {
 
 type State = {};
 
-export default class GeoMap extends Component<Props, void, State> {
+export default class GeoMap extends Component<void, Props, State> {
   componentDidMount() {
 
   }

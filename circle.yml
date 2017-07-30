@@ -12,8 +12,8 @@ test:
   pre:
     # - mkdir -p $CIRCLE_TEST_REPORTS/reports
     # - npm run lint -- --format junit --output-file $CIRCLE_TEST_REPORTS/reports/eslint.xml
-    - npm run lint
-    - npm run flow
+    # - npm run lint
+    # - npm run flow
     - mkdir -p $CIRCLE_ARTIFACTS/coverage
   override:
     - ./node_modules/.bin/nyc --report-dir $CIRCLE_ARTIFACTS/coverage --reporter lcov --reporter text npm test -- --reporter mocha-junit-reporter:

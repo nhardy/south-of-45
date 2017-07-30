@@ -16,7 +16,7 @@ const Html = ({ assets, component, store }) => {
 
   /* eslint-disable react/no-danger */
   return (
-    <html lang="en-AU" {...helmet.htmlAttributes.toComponent()}>
+    <html lang="en-NZ" {...helmet.htmlAttributes.toComponent()}>
       <head>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         {helmet.title.toComponent()}

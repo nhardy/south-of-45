@@ -2,6 +2,8 @@
 
 import { noop } from 'lodash-es';
 
+import headerStyles from 'app/components/SiteHeader/styles.styl';
+
 
 function timing(frame, start, end, duration) {
   const t = frame / duration;
@@ -27,3 +29,9 @@ export function smoothScrollTo(scrollY: number, callback?: () => void = noop) {
   };
   animate();
 }
+
+export function smoothScrollToId(id: string, callback?: () => void) {
+  const el = document.querySelector(`#${id}`);
+  const { top } = el.getBoundingClientRect();
+  smoothScrollTo(top - document.querySelector(`.${headerStyles.root}`).clientHeight, callback);
+};

@@ -14,7 +14,7 @@ import styles from './styles.styl';
 type Props = {
   maps: {
     [region: string]: string,
-  }
+  },
 };
 
 type State = {
@@ -22,13 +22,13 @@ type State = {
   overlaySrc: ?string,
 };
 
-export default class ClickthroughMap extends Component<Props, void, State> {
+export default class ClickthroughMap extends Component<void, Props, State> {
   state = {
     isOverlayHidden: true,
     overlaySrc: null,
   };
 
-  onSelectRegion = (region) => {
+  onSelectRegion = (region: string) => {
     this.setState({
       isOverlayHidden: false,
       overlaySrc: this.props.maps[region],

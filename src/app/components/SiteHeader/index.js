@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import cx from 'classnames';
 
 import config from 'app/config';
+import { smoothScrollToId } from 'app/lib/scroll';
 import throttle from 'app/lib/throttle';
 import FontAwesome from 'app/components/FontAwesome';
 import styles from './styles.styl';
@@ -37,6 +38,13 @@ export default class SiteHeader extends Component {
     this.update.cancel();
   }
 
+  onClickLink = (e: MouseEvent, id: string) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      smoothScrollToId(id);
+    }
+  };
+
   update = throttle(() => {
     this.setState({
       scrolled: window.scrollY > this.props.threshold(),
@@ -55,19 +63,19 @@ export default class SiteHeader extends Component {
           <nav className={styles.nav}>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link className={styles.link} to="/#Heating">Heating</Link>
+                <a className={styles.link} href="/#Heating" onClick={e => this.onClickLink(e, 'Heating')}>Heating</a>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/#Safety">Safety</Link>
+                <a className={styles.link} href="/#Safety" onClick={e => this.onClickLink(e, 'Safety')}>Safety</a>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/#Transport">Transport</Link>
+                <a className={styles.link} href="/#Transport" onClick={e => this.onClickLink(e, 'Transport')}>Transport</a>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/#Quality">Quality of Life</Link>
+                <a className={styles.link} href="/#Quality" onClick={e => this.onClickLink(e, 'Quality')}>Quality of Life</a>
               </li>
               <li className={styles.item}>
-                <Link className={styles.link} to="/#Data">Data Sources</Link>
+                <a className={styles.link} href="/#Data" onClick={e => this.onClickLink(e, 'Data')}>Data Sources</a>
               </li>
             </ul>
           </nav>
