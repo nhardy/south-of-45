@@ -16,6 +16,14 @@
     &:not(:last-child)
       margin-bottom: 0.5em
 
+  ul
+    li
+      &:not(:last-child)
+        margin-bottom: 8px
+
+      &::before
+        content: '– '
+
 .sectionOuter
   .sectionInner
     min-height: calc(100vh - 48px)
