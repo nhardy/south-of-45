@@ -59,11 +59,15 @@ const HomeView = () => (
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <article className={styles.column}>
         <h1>Introduction</h1>
-        <p>
+        <h2>
           On this website we will show you analysis to answer various questions
           {' '}
-          including quality of life, transport, safety, and housing
-        </p>
+          including council influence, transport, safety, and housing
+          {' '}
+          These graphs and data provide insight that the council can use
+           {' '}
+          to address a number of different issues that face Dunedin.
+        </h2>
       </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
@@ -86,13 +90,17 @@ const HomeView = () => (
             <img className={styles.graph} src={heatingPng} alt="Graph" />
           </div>
         </div>
+        <br></br>
         <h1>Analysis</h1>
         <p>
           This graph means that for most suburbs, their ability to pay for heating
           {' '}
-           is tied to their household income. This graph shows that there are a significant 
+           is tied to their household income. <br></br>This graph shows that there are a significant 
           {' '}
           number of households that struggle to heat their homes leading to negative health consequences.
+          The hills region is an anomaly, because it reports large numbers of people unable to heat their 
+          home despite good household median income. This may reflect differences in the physical constuctions of
+          houses in this part of Dunedin.
         </p>
       </article>
     </Breakout>
@@ -112,18 +120,15 @@ const HomeView = () => (
             />
           </div>
           <div className={styles.right}>
-            <h1 className={styles.question}>How safe do people feel in Dunedin compared to the crime rate?</h1>
+            <h1 className={styles.question}>How safe do people feel in Dunedin compared to the number of burglaries?</h1>
             <img className={styles.graph} src={burglariesPng} alt="Graph" />
           </div>
         </div>
         <h1>Analysis</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
-          {' '}
-          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
-          {' '}
-          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
-        </p>
+         There are two "Dunedins." Well off areas with low levels of burglaries whose citizens feel safe,
+         and poorer areas have high levels of burglaries whose citizens feel less safe.
+          </p>
       </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
@@ -148,12 +153,10 @@ const HomeView = () => (
         </div>
         <h1>Analysis</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
-          {' '}
-          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
-          {' '}
-          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
-        </p>
+         Public transport within urban Dunedin is more accessible than rural Dunedin. However, it is viewed as being
+         less accessible in poorer areas that can less afford cars.
+         This may be due to the increasing dependency on public transport in poorer areas.
+          </p>
       </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
@@ -172,17 +175,24 @@ const HomeView = () => (
             />
           </div>
           <div className={styles.right}>
-            <h1 className={styles.question}>How does quality of life vary throughout Dunedin?</h1>
+            <h1 className={styles.question}>How much influence do citizens feel they have over council 
+            according to the deprevation index?</h1>
             <img className={styles.graph} src={deprivationPng} alt="Graph" />
           </div>
         </div>
         <h1>Analysis</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
-          {' '}
-          Etiam vitae pharetra dui. Maecenas consectetur, lorem vitae luctus finibus, massa neque rhoncus enim,
-          {' '}
-          quis bibendum eros metus et elit. Donec in mauris sed mi semper blandit nec congue urna. Cras blandit consequat turpis,
+        There is a primary effect that shows that the closer you live to the University, the more influence citizens
+          feel they have on council. We can see that the more rural areas feel that they
+          have little influence compared to more urban areas.
+          
+          There is a secondary effect that as deprivation increases, the level of influence citizens feel they have
+          on council decisions decreases.
+          
+          The Saddle Hill region is anomalous in this dataset because it feels it has much less influence than its demographics
+          or distance expects.
+          
+          
         </p>
       </article>
     </Breakout>
