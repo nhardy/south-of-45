@@ -8,7 +8,34 @@ import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
 import Breakout from 'app/components/Breakout';
 import ClickthroughMaps from 'app/components/ClickthroughMaps';
-import cargillPng from 'app/assets/images/maps/cargill4.png';
+import cargillBurglariesPng from 'app/assets/images/maps/cargill-burglaries.png';
+import cargillHeatingPng from 'app/assets/images/maps/cargill-heating.png';
+import cargillDeprivationPng from 'app/assets/images/maps/cargill-deprivation.png';
+import cargillTransportPng from 'app/assets/images/maps/cargill-transport.png';
+import eastcoastBurglariesPng from 'app/assets/images/maps/eastcoast-burglaries.png';
+import eastcoastHeatingPng from 'app/assets/images/maps/eastcoast-heating.png';
+import eastcoastDeprivationPng from 'app/assets/images/maps/eastcoast-deprivation.png';
+import eastcoastTransportPng from 'app/assets/images/maps/eastcoast-transport.png';
+import hillsBurglariesPng from 'app/assets/images/maps/hills-burglaries.png';
+import hillsHeatingPng from 'app/assets/images/maps/hills-heating.png';
+import hillsDeprivationPng from 'app/assets/images/maps/hills-deprivation.png';
+import hillsTransportPng from 'app/assets/images/maps/hills-transport.png';
+import mosgieltaieriBurglariesPng from 'app/assets/images/maps/mosgieltaieri-burglaries.png';
+import mosgieltaieriHeatingPng from 'app/assets/images/maps/mosgieltaieri-heating.png';
+import mosgieltaieriDeprivationPng from 'app/assets/images/maps/mosgieltaieri-deprivation.png';
+import mosgieltaieriTransportPng from 'app/assets/images/maps/mosgieltaieri-transport.png';
+import saddlehillBurglariesPng from 'app/assets/images/maps/saddlehill-burglaries.png';
+import saddlehillHeatingPng from 'app/assets/images/maps/saddlehill-heating.png';
+import saddlehillDeprivationPng from 'app/assets/images/maps/saddlehill-deprivation.png';
+import saddlehillTransportPng from 'app/assets/images/maps/saddlehill-transport.png';
+import southdunedinBurglariesPng from 'app/assets/images/maps/southdunedin-burglaries.png';
+import southdunedinHeatingPng from 'app/assets/images/maps/southdunedin-heating.png';
+import southdunedinDeprivationPng from 'app/assets/images/maps/southdunedin-deprivation.png';
+import southdunedinTransportPng from 'app/assets/images/maps/southdunedin-transport.png';
+import burglariesPng from 'app/assets/images/graphs/burglaries.png';
+import heatingPng from 'app/assets/images/graphs/heating.png';
+import deprivationPng from 'app/assets/images/graphs/deprivation.png';
+import transportPng from 'app/assets/images/graphs/transport.png';
 import styles from './styles.styl';
 
 
@@ -37,16 +64,28 @@ const HomeView = () => (
           {' '}
           including quality of life, transport, safety, and housing
         </p>
-        <ClickthroughMaps
-          maps={{
-            cargill: cargillPng,
-          }}
-        />
       </article>
     </Breakout>
     <Breakout outerClassName={styles.sectionOuter} innerClassName={styles.sectionInner}>
       <article className={styles.column} id="Heating">
-        <h1>How affordable is heating for different parts of Dunedin?</h1>
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <ClickthroughMaps
+              maps={{
+                cargill: cargillHeatingPng,
+                saddle: saddlehillHeatingPng,
+                mostaieri: mosgieltaieriHeatingPng,
+                waikpen: eastcoastHeatingPng,
+                southd: southdunedinHeatingPng,
+                hills: hillsHeatingPng,
+              }}
+            />
+          </div>
+          <div className={styles.right}>
+            <h1 className={styles.question}>How affordable is heating for different parts of Dunedin?</h1>
+            <img className={styles.graph} src={heatingPng} alt="Graph" />
+          </div>
+        </div>
         <h1>Analysis</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate ex sed luctus porta.
