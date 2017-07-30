@@ -55,7 +55,19 @@ export default class SiteHeader extends Component {
           <nav className={styles.nav}>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <Link className={styles.link} to="/">Home</Link>
+                <Link className={styles.link} to="/#Heating">Heating</Link>
+              </li>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/#Safety">Safety</Link>
+              </li>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/#Transport">Transport</Link>
+              </li>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/#Quality">Quality of Life</Link>
+              </li>
+              <li className={styles.item}>
+                <Link className={styles.link} to="/#Data">Data Sources</Link>
               </li>
             </ul>
           </nav>

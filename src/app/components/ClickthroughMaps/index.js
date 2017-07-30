@@ -7,7 +7,6 @@ import cx from 'classnames';
 
 import FontAwesome from 'app/components/FontAwesome';
 import GeoMap from 'app/components/GeoMap';
-import Image from 'app/components/Image';
 import dunedinGeoJson from 'app/assets/data/dunedin.geojson';
 import styles from './styles.styl';
 
